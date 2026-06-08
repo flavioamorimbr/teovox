@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teovox — Agência de Comunicação e Marketing Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue-900: #0B1F3A;
+    --blue-800: #112D52;
+    --blue-700: #174070;
+    --blue-600: #1E5490;
+    --blue-500: #2169B8;
+    --blue-400: #3A82D0;
+    --blue-300: #6AAAE4;
+    --blue-200: #A3C8F0;
+    --blue-100: #D6E8F9;
+    --blue-50: #EEF5FD;
+    --lead-900: #141414;
+    --lead-800: #1E1E1E;
+    --lead-700: #2A2A2A;
+    --lead-600: #373737;
+    --lead-500: #4A4A4A;
+    --lead-400: #606060;
+    --lead-300: #888888;
+    --lead-200: #B0B0B0;
+    --lead-100: #D8D8D8;
+    --lead-50: #F2F2F2;
+    --white: #FFFFFF;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--lead-900);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 6%;
+    background: rgba(11,31,58,0.85);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(58,130,208,0.15);
+    transition: background 0.3s;
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .logo span { color: var(--blue-400); }
+
+  nav ul {
+    list-style: none;
+    display: flex; gap: 2.5rem;
+  }
+  nav ul a {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--lead-200);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--blue-500);
+    color: var(--white) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 100px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--blue-400) !important; color: var(--white) !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 6% 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(33,105,184,0.18) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 50% at 10% 80%, rgba(30,84,144,0.12) 0%, transparent 60%),
+                var(--lead-900);
+  }
+
+  .hero-grid-overlay {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(58,130,208,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(58,130,208,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 80% at 60% 40%, black 0%, transparent 70%);
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 760px; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(33,105,184,0.18);
+    border: 1px solid rgba(58,130,208,0.3);
+    color: var(--blue-300);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--blue-400);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--blue-400);
+    background: linear-gradient(135deg, var(--blue-400), var(--blue-300));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-slogan {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--lead-200);
+    font-weight: 300;
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-slogan strong {
+    color: var(--blue-300);
+    font-weight: 500;
+  }
+
+  .hero-actions {
+    display: flex; align-items: center; gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--blue-500);
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--blue-400); transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--lead-200);
+    padding: 0.9rem 1.5rem;
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.2s;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .btn-secondary:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+
+  .hero-scroll {
+    position: absolute; bottom: 2.5rem; left: 6%;
+    display: flex; align-items: center; gap: 0.75rem;
+    color: var(--lead-400); font-size: 0.78rem; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    z-index: 1;
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+  .scroll-line {
+    width: 40px; height: 1px;
+    background: linear-gradient(to right, var(--lead-400), transparent);
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 6%; }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue-400);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--lead-300);
+    font-weight: 300;
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  /* ── ABOUT / FILOSOFIA ── */
+  #sobre {
+    background: var(--lead-800);
+    position: relative; overflow: hidden;
+  }
+  #sobre::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(30,84,144,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .sobre-visual {
+    position: relative;
+  }
+
+  .sobre-card {
+    background: var(--lead-700);
+    border: 1px solid rgba(58,130,208,0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+  }
+
+  .sobre-card-accent {
+    position: absolute; top: -1px; left: 2rem; right: 2rem; height: 2px;
+    background: linear-gradient(to right, transparent, var(--blue-400), transparent);
+    border-radius: 0 0 2px 2px;
+  }
+
+  .sobre-number {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(58,130,208,0.3);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .sobre-stat-label {
+    font-size: 0.875rem;
+    color: var(--lead-300);
+    font-weight: 300;
+  }
+
+  .stats-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; margin-top: 2rem;
+  }
+
+  .stat-item {
+    background: rgba(33,105,184,0.08);
+    border: 1px solid rgba(58,130,208,0.12);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--blue-300);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--lead-300);
+    margin-top: 0.35rem;
+  }
+
+  /* ── ESTRATÉGIA ── */
+  #estrategia { background: var(--lead-900); }
+
+  .estrategia-intro {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: end;
+    margin-bottom: 4rem;
+  }
+
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .pillar-card {
+    background: var(--lead-800);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+    cursor: default;
+  }
+
+  .pillar-card:hover {
+    border-color: rgba(58,130,208,0.35);
+    transform: translateY(-4px);
+  }
+
+  .pillar-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(to right, var(--blue-600), var(--blue-400));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .pillar-card:hover::after { transform: scaleX(1); }
+
+  .pillar-icon {
+    width: 48px; height: 48px;
+    background: rgba(33,105,184,0.15);
+    border: 1px solid rgba(58,130,208,0.2);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.3rem;
+  }
+
+  .pillar-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .pillar-text {
+    font-size: 0.875rem;
+    color: var(--lead-300);
+    line-height: 1.65;
+  }
+
+  .pillar-services {
+    list-style: none;
+    margin-top: 1.25rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+
+  .pillar-services li {
+    font-size: 0.78rem;
+    color: var(--lead-400);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+
+  .pillar-services li::before {
+    content: '→';
+    color: var(--blue-500);
+    font-size: 0.7rem;
+  }
+
+  /* ── COMO FUNCIONA ── */
+  #processo {
+    background: var(--lead-800);
+  }
+
+  .processo-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+
+  .processo-steps {
+    display: flex; flex-direction: column; gap: 0;
+  }
+
+  .step {
+    display: flex; gap: 1.5rem;
+    position: relative;
+    padding-bottom: 2.5rem;
+  }
+
+  .step:last-child { padding-bottom: 0; }
+
+  .step-line {
+    position: absolute; left: 19px; top: 44px; bottom: 0; width: 1px;
+    background: linear-gradient(to bottom, rgba(58,130,208,0.3), transparent);
+  }
+
+  .step:last-child .step-line { display: none; }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(33,105,184,0.15);
+    border: 1px solid rgba(58,130,208,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--blue-300);
+    position: relative; z-index: 1;
+  }
+
+  .step-body {}
+
+  .step-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .step-desc {
+    font-size: 0.875rem;
+    color: var(--lead-300);
+    line-height: 1.65;
+  }
+
+  .processo-visual {
+    background: var(--lead-700);
+    border: 1px solid rgba(58,130,208,0.12);
+    border-radius: 20px;
+    padding: 2.5rem;
+  }
+
+  .resultado-card {
+    background: rgba(33,105,184,0.1);
+    border: 1px solid rgba(58,130,208,0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+
+  .resultado-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .resultado-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+
+  .resultado-desc {
+    font-size: 0.82rem;
+    color: var(--lead-300);
+    line-height: 1.6;
+  }
+
+  /* ── SERVIÇOS ── */
+  #servicos { background: var(--lead-900); }
+
+  .servicos-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .servicos-intro .section-subtitle {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .servico-card {
+    background: var(--lead-800);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .servico-card:hover {
+    border-color: rgba(58,130,208,0.3);
+    transform: translateY(-3px);
+  }
+
+  .servico-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .servico-icon {
+    width: 44px; height: 44px;
+    background: rgba(33,105,184,0.15);
+    border: 1px solid rgba(58,130,208,0.2);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .servico-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .servico-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-400);
+    font-weight: 600;
+    background: rgba(33,105,184,0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  .servico-items {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+
+  .servico-items li {
+    font-size: 0.82rem;
+    color: var(--lead-300);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .servico-items li::before {
+    content: '·';
+    position: absolute; left: 0;
+    color: var(--blue-500);
+    font-size: 1.2rem;
+    line-height: 1;
+    top: 1px;
+  }
+
+  /* ── CTA BAND ── */
+  #cta-band {
+    background: linear-gradient(135deg, var(--blue-800) 0%, var(--blue-700) 50%, var(--blue-600) 100%);
+    padding: 5rem 6%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #cta-band::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  #cta-band .section-title { color: var(--white); position: relative; z-index: 1; }
+  #cta-band p { position: relative; z-index: 1; }
+  #cta-band .hero-actions { justify-content: center; position: relative; z-index: 1; }
+
+  .cta-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.75);
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  .btn-wpp {
+    display: inline-flex; align-items: center; gap: 0.65rem;
+    background: #25D366;
+    color: var(--white);
+    padding: 1rem 2.2rem;
+    border-radius: 100px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-wpp:hover { background: #20bf5c; transform: translateY(-2px); }
+
+  .btn-wpp svg {
+    width: 20px; height: 20px; fill: white;
+  }
+
+  /* ── CONTATO ── */
+  #contato {
+    background: var(--lead-800);
+  }
+
+  .contato-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: start;
+  }
+
+  .contato-info p {
+    font-size: 0.95rem;
+    color: var(--lead-300);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .contato-links {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+
+  .contato-link {
+    display: flex; align-items: center; gap: 1rem;
+    color: var(--lead-200);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    padding: 1rem 1.25rem;
+    background: var(--lead-700);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+  }
+
+  .contato-link:hover { color: var(--white); border-color: rgba(58,130,208,0.25); }
+
+  .contato-link-icon {
+    width: 36px; height: 36px;
+    background: rgba(33,105,184,0.15);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .contato-form-wrap {
+    background: var(--lead-700);
+    border: 1px solid rgba(58,130,208,0.12);
+    border-radius: 20px;
+    padding: 2.5rem;
+  }
+
+  .form-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group { margin-bottom: 1.25rem; }
+
+  .form-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--lead-300);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .form-input {
+    width: 100%;
+    background: var(--lead-600);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-input:focus { border-color: rgba(58,130,208,0.5); }
+  .form-input::placeholder { color: var(--lead-400); }
+
+  textarea.form-input { resize: vertical; min-height: 110px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--blue-500);
+    color: var(--white);
+    border: none;
+    padding: 0.95rem;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover { background: var(--blue-400); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--lead-900);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 3rem 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--blue-400); }
+
+  .footer-tagline {
+    font-size: 0.8rem;
+    color: var(--lead-400);
+    margin-top: 0.3rem;
+    font-style: italic;
+  }
+
+  .footer-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.82rem;
+    color: var(--lead-400);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--lead-500);
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  /* ── FLOAT WHATSAPP ── */
+  .wpp-float {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
+    width: 56px; height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 24px rgba(37,211,102,0.35);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: wppBounce 2s 2s ease both;
+  }
+
+  .wpp-float:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 32px rgba(37,211,102,0.5);
+  }
+
+  .wpp-float svg { width: 28px; height: 28px; fill: white; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes wppBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav ul { display: none; }
+    .sobre-grid, .processo-grid, .contato-grid, .estrategia-intro { grid-template-columns: 1fr; gap: 2.5rem; }
+    .pillar-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
+    h1 { font-size: 2.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Teo<span>vox</span></a>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#estrategia">Estratégia</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="https://wa.me/5579996343621" class="nav-cta" target="_blank">Falar no WhatsApp</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Agência de Marketing Digital Estratégico</div>
+    <h1>Sua competência<br>vista com <em>criatividade</em><br>e inteligência</h1>
+    <p class="hero-slogan">
+      Não vendemos ferramentas. Desenvolvemos <strong>estratégias completas</strong> que posicionam sua marca, atraem clientes e transformam sua presença digital em resultado real.
+    </p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5579996343621" class="btn-primary" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quero uma estratégia
+      </a>
+      <a href="#estrategia" class="btn-secondary">Conheça a metodologia ↓</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-content reveal">
+      <span class="section-tag">Nossa filosofia</span>
+      <h2 class="section-title">Estratégia antes de qualquer ferramenta</h2>
+      <p class="section-subtitle">
+        A Teovox nasceu para transformar a forma como negócios e profissionais se comunicam no ambiente digital. Não somos uma fábrica de posts ou uma agência de serviços avulsos — somos parceiros estratégicos que enxergam seu negócio como um todo.
+      </p>
+      <br>
+      <p class="section-subtitle">
+        Cada recurso que utilizamos — do branding ao tráfego pago — existe a serviço de uma estratégia maior, desenhada especificamente para o seu momento e objetivos. Atendemos todo o Brasil e exterior.
+      </p>
+    </div>
+    <div class="sobre-visual reveal">
+      <div class="sobre-card">
+        <div class="sobre-card-accent"></div>
+        <div class="sobre-number">100%</div>
+        <div class="sobre-stat-label">orientados a resultados</div>
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-num">🇧🇷</div>
+            <div class="stat-label">Todo o Brasil</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">🌎</div>
+            <div class="stat-label">Atendimento exterior</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">360°</div>
+            <div class="stat-label">Visão estratégica</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Possibilidades digitais</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTRATÉGIA / PILARES -->
+<section id="estrategia">
+  <div class="estrategia-intro reveal">
+    <div>
+      <span class="section-tag">Metodologia Teovox</span>
+      <h2 class="section-title">Quatro pilares que sustentam o seu crescimento</h2>
+    </div>
+    <div>
+      <p class="section-subtitle">
+        Cada pilar é uma frente estratégica. Juntos, formam o ecossistema completo que leva seu negócio do posicionamento à venda recorrente.
+      </p>
+    </div>
+  </div>
+  <div class="pillar-grid">
+    <div class="pillar-card reveal">
+      <div class="pillar-icon">🎯</div>
+      <div class="pillar-title">Posicionamento &amp; Identidade</div>
+      <p class="pillar-text">Construímos a base da sua autoridade no mercado — da criação e proteção da marca até a identidade visual que comunica quem você é.</p>
+      <ul class="pillar-services">
+        <li>Criação de marca estratégica</li>
+        <li>Registro no INPI</li>
+        <li>Branding e identidade visual</li>
+        <li>Posicionamento online</li>
+      </ul>
+    </div>
+    <div class="pillar-card reveal">
+      <div class="pillar-icon">🌐</div>
+      <div class="pillar-title">Presença Digital</div>
+      <p class="pillar-text">Ocupamos o seu espaço na internet com propriedade: sites, landing pages e redes sociais que geram credibilidade e convertem visitantes.</p>
+      <ul class="pillar-services">
+        <li>Sites e landing pages</li>
+        <li>Criação de conteúdo visual</li>
+        <li>Gestão completa de redes sociais</li>
+        <li>Linha editorial estratégica</li>
+      </ul>
+    </div>
+    <div class="pillar-card reveal">
+      <div class="pillar-icon">📈</div>
+      <div class="pillar-title">Atração de Clientes</div>
+      <p class="pillar-text">Levamos o cliente certo até você — por meio de tráfego orgânico consistente ou campanhas pagas com inteligência e rastreamento real.</p>
+      <ul class="pillar-services">
+        <li>SEO e tráfego orgânico</li>
+        <li>Tráfego pago (Meta, Google)</li>
+        <li>Estratégia de prospecção</li>
+        <li>Funil de vendas recorrente</li>
+      </ul>
+    </div>
+    <div class="pillar-card reveal">
+      <div class="pillar-icon">🎓</div>
+      <div class="pillar-title">Infoprodutos &amp; Lançamentos</div>
+      <p class="pillar-text">Do conceito ao checkout: estruturamos cursos, mentorias e lançamentos digitais para que você monetize seu conhecimento com profissionalismo.</p>
+      <ul class="pillar-services">
+        <li>Jornada de transformação</li>
+        <li>Criação da oferta irresistível</li>
+        <li>Hospedagem e área de membros</li>
+        <li>Lançamentos e abertura de carrinhos</li>
+      </ul>
+    </div>
+    <div class="pillar-card reveal" style="grid-column: span 1;">
+      <div class="pillar-icon">🔄</div>
+      <div class="pillar-title">Vendas Todos os Dias</div>
+      <p class="pillar-text">Construímos funis que trabalham por você: de campanhas evergreen a lançamentos sazonais com abertura estratégica de carrinho.</p>
+      <ul class="pillar-services">
+        <li>Funis de venda automatizados</li>
+        <li>Estratégia perpétua de vendas</li>
+        <li>Lançamentos com abertura de carrinho</li>
+      </ul>
+    </div>
+    <div class="pillar-card reveal" style="background: rgba(33,105,184,0.08); border-color: rgba(58,130,208,0.25);">
+      <div class="pillar-icon">🤝</div>
+      <div class="pillar-title">Consultoria &amp; Mentoria</div>
+      <p class="pillar-text">Além de executar, ensinamos. Nossas consultorias e mentorias transferem clareza, direção e método para que você tome decisões com mais segurança.</p>
+      <ul class="pillar-services">
+        <li>Diagnóstico estratégico</li>
+        <li>Mentoria individual e em grupo</li>
+        <li>Plano de ação personalizado</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="processo">
+  <div class="processo-grid">
+    <div class="reveal">
+      <span class="section-tag">Como trabalhamos</span>
+      <h2 class="section-title">Do diagnóstico ao resultado</h2>
+      <p class="section-subtitle" style="margin-bottom: 3rem;">
+        Um processo estruturado que garante clareza em cada etapa e entrega resultados mensuráveis.
+      </p>
+      <div class="processo-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-line"></div>
+          <div class="step-body">
+            <div class="step-title">Diagnóstico estratégico</div>
+            <p class="step-desc">Entendemos seu negócio, seu mercado e seus objetivos em profundidade antes de propor qualquer ação.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-line"></div>
+          <div class="step-body">
+            <div class="step-title">Plano personalizado</div>
+            <p class="step-desc">Desenvolvemos uma estratégia sob medida com prioridades claras, prazos e recursos definidos.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-line"></div>
+          <div class="step-body">
+            <div class="step-title">Execução com inteligência</div>
+            <p class="step-desc">Colocamos a estratégia em prática com os recursos certos, monitorando cada indicador em tempo real.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-line"></div>
+          <div class="step-body">
+            <div class="step-title">Análise e evolução contínua</div>
+            <p class="step-desc">Revisamos, ajustamos e escalonamos com base em dados reais — não em achismos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="processo-visual">
+        <p style="font-size: 0.78rem; color: var(--lead-400); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 1.5rem;">O que você conquista</p>
+        <div class="resultado-card">
+          <div class="resultado-icon">🏆</div>
+          <div>
+            <div class="resultado-title">Autoridade de marca</div>
+            <p class="resultado-desc">Seu nome reconhecido e respeitado no nicho, com posicionamento claro e diferenciado.</p>
+          </div>
+        </div>
+        <div class="resultado-card">
+          <div class="resultado-icon">💰</div>
+          <div>
+            <div class="resultado-title">Clientes todos os dias</div>
+            <p class="resultado-desc">Um ecossistema digital que atrai, nutre e converte — mesmo enquanto você dorme.</p>
+          </div>
+        </div>
+        <div class="resultado-card">
+          <div class="resultado-icon">🚀</div>
+          <div>
+            <div class="resultado-title">Escalabilidade real</div>
+            <p class="resultado-desc">Processos e estratégias que crescem com você, sem que precise reinventar tudo do zero.</p>
+          </div>
+        </div>
+        <div class="resultado-card" style="margin-bottom: 0;">
+          <div class="resultado-icon">🔑</div>
+          <div>
+            <div class="resultado-title">Independência &amp; clareza</div>
+            <p class="resultado-desc">Você entende o que está sendo feito, por quê, e consegue tomar decisões com confiança.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS ── -->
+<section id="servicos">
+  <div class="servicos-intro reveal">
+    <span class="section-tag">Recursos e serviços</span>
+    <h2 class="section-title">Tudo o que sua estratégia precisa</h2>
+    <p class="section-subtitle">
+      Ferramentas e serviços são nossos recursos. A estratégia é o que transforma cada um deles em resultado para o seu negócio.
+    </p>
+  </div>
+  <div class="servicos-grid">
+    <div class="servico-card reveal">
+      <div class="servico-header">
+        <div class="servico-icon">🎨</div>
+        <div>
+          <span class="servico-tag">Identidade</span>
+          <div class="servico-title">Posicionamento Online</div>
+        </div>
+      </div>
+      <ul class="servico-items">
+        <li>Criação de marca estratégica</li>
+        <li>Proteção de marca (registro INPI)</li>
+        <li>Identidade visual (branding completo)</li>
+        <li>Posicionamento e voz da marca</li>
+      </ul>
+    </div>
+    <div class="servico-card reveal">
+      <div class="servico-header">
+        <div class="servico-icon">💻</div>
+        <div>
+          <span class="servico-tag">Presença</span>
+          <div class="servico-title">Presença Digital</div>
+        </div>
+      </div>
+      <ul class="servico-items">
+        <li>Criação de websites profissionais</li>
+        <li>Landing pages de alta conversão</li>
+        <li>Criação e arte para redes sociais</li>
+        <li>Gestão completa de redes sociais</li>
+        <li>Linha editorial estratégica</li>
+      </ul>
+    </div>
+    <div class="servico-card reveal">
+      <div class="servico-header">
+        <div class="servico-icon">📣</div>
+        <div>
+          <span class="servico-tag">Prospecção</span>
+          <div class="servico-title">Atração de Clientes</div>
+        </div>
+      </div>
+      <ul class="servico-items">
+        <li>SEO e tráfego orgânico</li>
+        <li>Tráfego pago — Meta Ads &amp; Google Ads</li>
+        <li>Funil de vendas recorrente</li>
+        <li>Estratégia de prospecção ativa</li>
+      </ul>
+    </div>
+    <div class="servico-card reveal">
+      <div class="servico-header">
+        <div class="servico-icon">📚</div>
+        <div>
+          <span class="servico-tag">Infoproduto</span>
+          <div class="servico-title">Criação de Infoprodutos</div>
+        </div>
+      </div>
+      <ul class="servico-items">
+        <li>Jornada de transformação do aluno</li>
+        <li>Criação da oferta irresistível</li>
+        <li>Hospedagem do infoproduto</li>
+        <li>Link de vendas e checkout</li>
+        <li>Configuração de cursos e mentorias</li>
+      </ul>
+    </div>
+    <div class="servico-card reveal">
+      <div class="servico-header">
+        <div class="servico-icon">🚀</div>
+        <div>
+          <span class="servico-tag">Lançamento</span>
+          <div class="servico-title">Lançamentos Digitais</div>
+        </div>
+      </div>
+      <ul class="servico-items">
+        <li>Estratégia completa de lançamento</li>
+        <li>Funil perpétuo para vender todos os dias</li>
+        <li>Lançamentos com abertura de carrinho</li>
+        <li>Automações e sequências de e-mail</li>
+      </ul>
+    </div>
+    <div class="servico-card reveal" style="border-color: rgba(58,130,208,0.25); background: rgba(33,105,184,0.06);">
+      <div class="servico-header">
+        <div class="servico-icon">🤝</div>
+        <div>
+          <span class="servico-tag">Premium</span>
+          <div class="servico-title">Consultoria &amp; Mentoria</div>
+        </div>
+      </div>
+      <ul class="servico-items">
+        <li>Diagnóstico estratégico detalhado</li>
+        <li>Mentoria individual personalizada</li>
+        <li>Plano de ação com acompanhamento</li>
+        <li>Grupo de mentoria coletiva</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section id="cta-band">
+  <span class="section-tag" style="color: rgba(255,255,255,0.6);">Dê o próximo passo</span>
+  <h2 class="section-title" style="margin-bottom: 1rem;">Pronto para construir<br>sua estratégia digital?</h2>
+  <p class="cta-subtitle">Fale com a nossa equipe e descubra como a Teovox pode transformar a presença digital do seu negócio em resultados concretos.</p>
+  <div class="hero-actions" style="justify-content: center;">
+    <a href="https://wa.me/5579996343621" class="btn-wpp" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar com a Teovox agora
+    </a>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="contato-grid">
+    <div class="reveal">
+      <span class="section-tag">Contato</span>
+      <h2 class="section-title">Estamos prontos<br>para te atender</h2>
+      <p class="contato-info" style="color: var(--lead-300); margin-bottom: 2rem; line-height: 1.7;">
+        Atendemos empresas, profissionais liberais, especialistas e empreendedores em todo o Brasil e exterior. Entre em contato e agende uma conversa estratégica.
+      </p>
+      <div class="contato-links">
+        <a href="https://wa.me/5579996343621" class="contato-link" target="_blank">
+          <div class="contato-link-icon">📱</div>
+          <div>
+            <div style="font-size: 0.75rem; color: var(--lead-400); margin-bottom: 2px;">WhatsApp</div>
+            (79) 9 9634-3621
+          </div>
+        </a>
+        <a href="mailto:contato@teovox.com.br" class="contato-link">
+          <div class="contato-link-icon">✉️</div>
+          <div>
+            <div style="font-size: 0.75rem; color: var(--lead-400); margin-bottom: 2px;">E-mail</div>
+            contato@teovox.com.br
+          </div>
+        </a>
+        <a href="https://teovox.com.br" class="contato-link" target="_blank">
+          <div class="contato-link-icon">🌐</div>
+          <div>
+            <div style="font-size: 0.75rem; color: var(--lead-400); margin-bottom: 2px;">Site</div>
+            teovox.com.br
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="contato-form-wrap">
+        <div class="form-title">Deixe uma mensagem</div>
+        <div class="form-group">
+          <label class="form-label">Nome completo</label>
+          <input type="text" class="form-input" placeholder="Seu nome">
+        </div>
+        <div class="form-group">
+          <label class="form-label">E-mail</label>
+          <input type="email" class="form-input" placeholder="seu@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Telefone / WhatsApp</label>
+          <input type="tel" class="form-input" placeholder="(00) 0 0000-0000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Como podemos ajudar?</label>
+          <textarea class="form-input" placeholder="Fale brevemente sobre seu negócio e objetivo..."></textarea>
+        </div>
+        <a href="https://wa.me/5579996343621" target="_blank" style="display: block; text-align: center; background: #25D366; color: white; border: none; padding: 0.95rem; border-radius: 10px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: background 0.2s; margin-top: 0.5rem;" onmouseover="this.style.background='#20bf5c'" onmouseout="this.style.background='#25D366'">
+          Enviar via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <a href="#" class="footer-logo">Teo<span>vox</span></a>
+    <div class="footer-tagline">Sua competência vista com criatividade e inteligência</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#estrategia">Estratégia</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <div class="footer-copy">
+    © 2025 Teovox — Agência de Comunicação e Marketing Digital. Todos os direitos reservados.
+  </div>
+</footer>
+
+<!-- FLOAT WPP -->
+<a href="https://wa.me/5579996343621" class="wpp-float" target="_blank" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
