@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Briefing Perictus — Teovox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Syne:wght@600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0F1F3D;
+    --blue: #1A3A6B;
+    --accent: #2563EB;
+    --accent-light: #EFF6FF;
+    --text: #111827;
+    --muted: #6B7280;
+    --border: #E5E7EB;
+    --bg: #F8F9FB;
+    --white: #FFFFFF;
+    --radius: 8px;
+    --radius-lg: 12px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--navy);
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.03em;
+    text-decoration: none;
+  }
+  .logo span {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    margin-left: 10px;
+    letter-spacing: 0;
+  }
+  .progress-bar {
+    height: 3px;
+    background: rgba(255,255,255,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--navy);
+    padding: 48px 24px 56px;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: #93C5FD;
+  }
+  .hero p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ── Steps nav ── */
+  .steps-nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    position: sticky;
+    top: 56px;
+    z-index: 90;
+  }
+  .steps-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .steps-inner::-webkit-scrollbar { display: none; }
+  .step-tab {
+    flex-shrink: 0;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .step-tab:hover { color: var(--text); }
+  .step-tab.done { color: var(--accent); }
+  .step-tab.active {
+    color: var(--text);
+    font-weight: 500;
+    border-bottom-color: var(--navy);
+  }
+  .step-tab .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    margin-right: 7px;
+    vertical-align: middle;
+    transition: background 0.2s;
+  }
+  .step-tab.done .dot { background: var(--accent); }
+  .step-tab.active .dot { background: var(--navy); }
+
+  /* ── Main layout ── */
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ── Section ── */
+  .form-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin-bottom: 20px;
+    scroll-margin-top: 120px;
+  }
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-number {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+  .section-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── Fields ── */
+  .field { margin-bottom: 22px; }
+  .field:last-child { margin-bottom: 0; }
+  .field label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+  .field .hint {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 7px;
+    line-height: 1.5;
+  }
+  .field input[type=text],
+  .field textarea,
+  .field select {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    resize: vertical;
+    outline: none;
+    appearance: none;
+  }
+  .field textarea { min-height: 90px; line-height: 1.6; }
+  .field input[type=text]:focus,
+  .field textarea:focus,
+  .field select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+  }
+  .field input[type=text]::placeholder,
+  .field textarea::placeholder { color: #C4C9D2; }
+
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 540px) { .row2 { grid-template-columns: 1fr; } }
+
+  /* Checkboxes */
+  .check-group { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+  }
+  .check-item input[type=checkbox] {
+    flex-shrink: 0;
+    width: 17px; height: 17px;
+    margin-top: 1px;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+  .check-item span {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .check-inline {
+    display: inline-block;
+    margin-left: 6px;
+  }
+  .check-inline input[type=text] {
+    width: 180px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 4px 10px;
+    outline: none;
+    vertical-align: middle;
+  }
+  .check-inline input[type=text]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+  }
+
+  /* ── Submit ── */
+  .submit-section {
+    background: var(--accent-light);
+    border: 1px solid #BFDBFE;
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    text-align: center;
+  }
+  .submit-section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .submit-section p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .btn-submit {
+    display: inline-block;
+    padding: 14px 40px;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    letter-spacing: 0.01em;
+  }
+  .btn-submit:hover { background: var(--blue); }
+  .btn-submit:active { transform: scale(0.98); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  /* ── Success ── */
+  #success-msg {
+    display: none;
+    text-align: center;
+    padding: 48px 24px;
+  }
+  .success-icon {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: #DCFCE7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 26px;
+  }
+  #success-msg h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  #success-msg p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.65;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: #B0B7C3;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .form-section { padding: 22px 18px; }
+    .hero { padding: 36px 18px 44px; }
+    main { padding: 24px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">TEOVOX <span>Comunicação e Marketing Estratégico</span></a>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Briefing de negócio</div>
+  <h1>Vamos conhecer a <em>Perictus</em></h1>
+  <p>Preencha com calma e o máximo de detalhe possível. Essas informações serão usadas para o desenvolvimento do site e de todas as peças de comunicação da empresa.</p>
+</div>
+
+<div class="steps-nav">
+  <div class="steps-inner" id="steps-nav">
+    <div class="step-tab active" data-target="s1"><span class="dot"></span>Identificação</div>
+    <div class="step-tab" data-target="s2"><span class="dot"></span>Serviços</div>
+    <div class="step-tab" data-target="s3"><span class="dot"></span>Público</div>
+    <div class="step-tab" data-target="s4"><span class="dot"></span>Posicionamento</div>
+    <div class="step-tab" data-target="s5"><span class="dot"></span>Comunicação</div>
+    <div class="step-tab" data-target="s6"><span class="dot"></span>Operação</div>
+  </div>
+</div>
+
+<main>
+  <form id="briefing-form" action="https://formspree.io/f/meewkygv" method="POST">
+
+    <!-- 1. Identificação -->
+    <div class="form-section" id="s1">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div>
+          <div class="section-title">Identificação da empresa</div>
+          <div class="section-desc">Propósito, valores e como a Perictus deseja ser percebida.</div>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label for="nome_empresa">Nome da empresa</label>
+          <input type="text" id="nome_empresa" name="nome_empresa" placeholder="Ex.: Perictus Consultoria" />
+        </div>
+        <div class="field">
+          <label for="segmento">Segmento de atuação</label>
+          <input type="text" id="segmento" name="segmento" placeholder="Ex.: Consultoria financeira e jurídica" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="proposito">Qual é o propósito da empresa? O que a move?</label>
+        <div class="hint">Descreva a razão de existir da Perictus — o problema que ela resolve no mundo.</div>
+        <textarea id="proposito" name="proposito" placeholder="Ex.: Proteger o consumidor e as empresas de cobranças indevidas, devolvendo o dinheiro que foi cobrado de forma abusiva por bancos e operadoras de saúde..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="valores">Quais são os valores e princípios que guiam o trabalho da empresa?</label>
+        <div class="hint">O que orienta as decisões e a conduta da equipe no dia a dia?</div>
+        <textarea id="valores" name="valores" placeholder="Ex.: Transparência com o cliente, rigor técnico nas análises, compromisso com o resultado, ética acima de tudo..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="percepcao">Como a empresa deseja ser percebida pelo público?</label>
+        <div class="hint">Qual a imagem que a Perictus quer transmitir — não apenas o que faz, mas como quer ser lembrada.</div>
+        <textarea id="percepcao" name="percepcao" placeholder="Ex.: Uma empresa séria, acessível e do lado do cliente — que fala a língua do consumidor sem abrir mão da precisão técnica..."></textarea>
+      </div>
+    </div>
+
+    <!-- 2. Serviços -->
+    <div class="form-section" id="s2">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div>
+          <div class="section-title">Serviços e soluções</div>
+          <div class="section-desc">O que é feito, como funciona e o que o cliente recebe.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="servicos_lista">Quais serviços a Perictus oferece?</label>
+        <div class="hint">Liste cada serviço com uma descrição breve do que é feito.</div>
+        <textarea id="servicos_lista" name="servicos_lista" style="min-height:110px" placeholder="Ex.:
+1. Análise técnica de financiamentos imobiliários — revisão de contrato em busca de taxas e encargos indevidos
+2. Auditoria de plano de saúde PJ — análise das mensalidades para identificar cobranças abusivas
+3. ..."></textarea>
+      </div>
+
+      <div class="field">
+        <label>Qual serviço será o foco principal da campanha e do site?</label>
+        <div class="check-group">
+          <label class="check-item"><input type="checkbox" name="foco_servico" value="Análise técnica de financiamentos imobiliários" /><span>Análise técnica de financiamentos imobiliários</span></label>
+          <label class="check-item"><input type="checkbox" name="foco_servico" value="Auditoria de plano de saúde de pessoa jurídica" /><span>Auditoria de plano de saúde de pessoa jurídica</span></label>
+          <label class="check-item"><input type="checkbox" name="foco_servico" value="Ambos, com seções separadas" /><span>Ambos, com seções separadas</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="passo_a_passo">Como funciona o processo do serviço? Descreva o passo a passo.</label>
+        <div class="hint">Da contratação até a entrega do resultado. Seja detalhado — esse fluxo aparece no site e orienta os anúncios.</div>
+        <textarea id="passo_a_passo" name="passo_a_passo" style="min-height:120px" placeholder="Ex.:
+1. Cliente preenche o formulário e envia os documentos solicitados
+2. Nossa equipe realiza a análise técnica em X dias úteis
+3. Emitimos o laudo com os valores identificados
+4. Orientamos o cliente sobre os próximos passos..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="documentos">Quais documentos ou informações o cliente precisa fornecer para contratar?</label>
+        <textarea id="documentos" name="documentos" placeholder="Ex.: Contrato de financiamento, extrato de pagamentos dos últimos 12 meses, comprovante de pagamento da última parcela..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="entrega">O que o cliente recebe ao final? Qual é a entrega concreta?</label>
+        <textarea id="entrega" name="entrega" placeholder="Ex.: Laudo técnico em PDF com a identificação das cobranças indevidas, o valor estimado a ser recuperado e as orientações para acionar a instituição..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="resultado_medio">Qual é o resultado médio que o cliente alcança após a análise?</label>
+        <div class="hint">Se tiver dados reais, use-os. São os números mais poderosos para os anúncios e para o site.</div>
+        <textarea id="resultado_medio" name="resultado_medio" placeholder="Ex.: Em média, encontramos irregularidades em 70% dos contratos analisados. A redução de parcela varia entre R$ 200 e R$ 800 por mês..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="valores_servico">Qual é o valor cobrado por cada serviço?</label>
+        <textarea id="valores_servico" name="valores_servico" placeholder="Ex.: R$ 497,00 para análise de financiamento. R$ 697,00 para auditoria de plano de saúde PJ..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="garantia">Existe alguma garantia ou política de satisfação?</label>
+        <textarea id="garantia" name="garantia" placeholder="Ex.: Se não encontrarmos nenhuma irregularidade, devolvemos o valor pago integralmente..."></textarea>
+      </div>
+    </div>
+
+    <!-- 3. Público -->
+    <div class="form-section" id="s3">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div>
+          <div class="section-title">Público-alvo</div>
+          <div class="section-desc">Quem é o cliente ideal, o que sente, o que quer e o que o impede de agir.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="perfil_financiamento">Quem é o cliente ideal para o serviço de financiamentos imobiliários?</label>
+        <div class="hint">Perfil completo: faixa etária, situação de vida, banco utilizado, valor da parcela, região, etc.</div>
+        <textarea id="perfil_financiamento" name="perfil_financiamento" placeholder="Ex.: Pessoa entre 30 e 55 anos que financiou um imóvel pela Caixa ou banco privado, paga parcela acima de R$ 1.000/mês e nunca revisou o contrato..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="perfil_saude">Quem é o cliente ideal para o serviço de plano de saúde PJ?</label>
+        <div class="hint">Perfil completo: porte da empresa, setor, número de funcionários, valor mensal aproximado do plano, etc.</div>
+        <textarea id="perfil_saude" name="perfil_saude" placeholder="Ex.: Empresário ou gestor de empresa com 5 a 50 funcionários, que paga plano de saúde coletivo por PJ com mensalidade acima de R$ 3.000 e nunca auditou o contrato..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="dores">Quais são as principais dores e reclamações do seu cliente antes de contratar?</label>
+        <div class="hint">O que ele sente, pensa e fala sobre o problema. Escreva como se fosse a voz dele.</div>
+        <textarea id="dores" name="dores" style="min-height:110px" placeholder="Ex.:
+— 'Minha parcela do financiamento está alta demais e não sei por quê'
+— 'Sinto que fui enganado pelo banco mas não sei como provar'
+— 'O plano de saúde consome muito do meu faturamento e não consigo reduzir'
+— 'Não tenho tempo para entender o contrato sozinho'..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="duvidas">Quais são as principais dúvidas que os clientes têm antes de contratar?</label>
+        <textarea id="duvidas" name="duvidas" placeholder="Ex.:
+— 'Isso realmente funciona?'
+— 'Quanto tempo leva para ter o resultado?'
+— 'Preciso ir à Justiça?'
+— 'E se não encontrarem nada no meu contrato?'..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="desejo">O que o cliente mais deseja — qual é o sonho por trás da contratação?</label>
+        <div class="hint">Vá além do óbvio. Além de pagar menos, o que ele realmente quer sentir ou conquistar?</div>
+        <textarea id="desejo" name="desejo" placeholder="Ex.: Recuperar o controle das próprias finanças. Sentir que foi tratado com justiça. Ter mais dinheiro disponível para a família ou para o negócio..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="objecoes">Quais objeções ou resistências o cliente costuma ter antes de fechar?</label>
+        <div class="hint">O que faz ele hesitar? Essas objeções precisam ser respondidas no site e nos anúncios.</div>
+        <textarea id="objecoes" name="objecoes" placeholder="Ex.:
+— 'Será que isso não vai dar problema com o banco?'
+— 'Já tentei reclamar antes e não adiantou'
+— 'Parece golpe'
+— 'Não confio em serviços online'..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="cobertura">A Perictus atende em todo o Brasil ou em regiões específicas?</label>
+        <input type="text" id="cobertura" name="cobertura" placeholder="Ex.: Atendimento 100% online, para todo o Brasil" />
+      </div>
+    </div>
+
+    <!-- 4. Posicionamento -->
+    <div class="form-section" id="s4">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div>
+          <div class="section-title">Posicionamento e diferenciais</div>
+          <div class="section-desc">Por que a Perictus e não outra opção? O que realmente diferencia.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="diferenciais">Por que o cliente deve escolher a Perictus e não resolver isso por conta própria ou com outro profissional?</label>
+        <div class="hint">Seja específico. "Qualidade e dedicação" não diferencia ninguém. O que a Perictus faz que outros não fazem?</div>
+        <textarea id="diferenciais" name="diferenciais" style="min-height:110px" placeholder="Ex.:
+— Análise feita por especialista técnico, não por sistema automatizado
+— Laudo com validade jurídica e respaldo técnico
+— Resultado em até X dias úteis
+— Atendimento personalizado do início ao fim..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="credenciais">Existe alguma certificação, formação técnica ou credencial que embase o trabalho da equipe?</label>
+        <div class="hint">Isso reforça autoridade no site e nos anúncios.</div>
+        <textarea id="credenciais" name="credenciais" placeholder="Ex.: Equipe formada por engenheiros financeiros, advogados e auditores com X anos de experiência no mercado..."></textarea>
+      </div>
+
+      <div class="field">
+        <label>A empresa tem casos de sucesso ou depoimentos de clientes que possam ser usados?</label>
+        <div class="check-group">
+          <label class="check-item"><input type="checkbox" name="provas_sociais" value="Depoimentos escritos" /><span>Sim, temos depoimentos escritos</span></label>
+          <label class="check-item"><input type="checkbox" name="provas_sociais" value="Depoimentos em vídeo" /><span>Sim, temos depoimentos em vídeo</span></label>
+          <label class="check-item"><input type="checkbox" name="provas_sociais" value="Casos com valores reais de economia gerada" /><span>Temos casos com valores reais de economia gerada</span></label>
+          <label class="check-item"><input type="checkbox" name="provas_sociais" value="Podemos conseguir" /><span>Ainda não, mas podemos conseguir</span></label>
+          <label class="check-item"><input type="checkbox" name="provas_sociais" value="Não temos" /><span>Não temos no momento</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Comunicação -->
+    <div class="form-section" id="s5">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div>
+          <div class="section-title">Comunicação e tom de voz</div>
+          <div class="section-desc">Como a Perictus fala com as pessoas — e o que não deve aparecer na comunicação.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="canais_atuais">Como a empresa se comunica com os clientes hoje?</label>
+        <div class="hint">Canais ativos, presença nas redes, site existente, WhatsApp, etc.</div>
+        <textarea id="canais_atuais" name="canais_atuais" placeholder="Ex.: Atendemos principalmente por indicação e WhatsApp. Temos Instagram, mas sem atualizações frequentes. Não temos site próprio ainda..."></textarea>
+      </div>
+
+      <div class="field">
+        <label>Qual deve ser o tom de voz da comunicação da Perictus? (marque quantos se aplicarem)</label>
+        <div class="check-group">
+          <label class="check-item"><input type="checkbox" name="tom_voz" value="Técnico e preciso" /><span>Técnico e preciso — transmite autoridade e credibilidade</span></label>
+          <label class="check-item"><input type="checkbox" name="tom_voz" value="Direto e objetivo" /><span>Direto e objetivo — vai ao ponto sem rodeios</span></label>
+          <label class="check-item"><input type="checkbox" name="tom_voz" value="Próximo e acolhedor" /><span>Próximo e acolhedor — como um especialista de confiança</span></label>
+          <label class="check-item"><input type="checkbox" name="tom_voz" value="Provocativo" /><span>Provocativo — faz o público questionar se está pagando certo</span></label>
+          <label class="check-item"><input type="checkbox" name="tom_voz" value="Educativo" /><span>Educativo — explica o problema antes de oferecer a solução</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="slogan">Existe alguma frase ou ideia central que represente a Perictus?</label>
+        <div class="hint">Pode ser um slogan, uma promessa ou simplesmente como vocês costumam se apresentar.</div>
+        <input type="text" id="slogan" name="slogan" placeholder="Ex.: 'Você pode estar pagando mais do que deveria.'" />
+      </div>
+
+      <div class="field">
+        <label for="restricoes">Há temas, abordagens ou termos que a empresa não quer que apareçam na comunicação?</label>
+        <textarea id="restricoes" name="restricoes" placeholder="Ex.: Não usar a palavra 'golpe'. Evitar prometer valores exatos de recuperação. Não comparar diretamente com escritórios de advocacia..."></textarea>
+      </div>
+    </div>
+
+    <!-- 6. Operação -->
+    <div class="form-section" id="s6">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div>
+          <div class="section-title">Contexto e operação</div>
+          <div class="section-desc">Como o negócio funciona por dentro e como os clientes chegam até a Perictus.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="atendimento">Como é o processo de atendimento ao cliente — do primeiro contato até o pós-venda?</label>
+        <div class="hint">Inclua canais de atendimento, tempo de resposta, quem atende, como o cliente é acompanhado.</div>
+        <textarea id="atendimento" name="atendimento" style="min-height:110px" placeholder="Ex.: O cliente entra em contato pelo WhatsApp ou site. Em até 24h respondemos com as instruções para envio dos documentos. A análise leva X dias. Enviamos o laudo por e-mail e agendamos uma ligação para explicar o resultado..."></textarea>
+      </div>
+
+      <div class="field">
+        <label>Quais são os principais canais pelos quais os clientes chegam até a Perictus hoje?</label>
+        <div class="check-group">
+          <label class="check-item"><input type="checkbox" name="canais_aquisicao" value="Indicação" /><span>Indicação de amigos ou conhecidos</span></label>
+          <label class="check-item"><input type="checkbox" name="canais_aquisicao" value="Redes sociais" /><span>Redes sociais (Instagram, Facebook, etc.)</span></label>
+          <label class="check-item"><input type="checkbox" name="canais_aquisicao" value="Busca no Google" /><span>Busca no Google</span></label>
+          <label class="check-item"><input type="checkbox" name="canais_aquisicao" value="Grupos de WhatsApp ou Telegram" /><span>Grupos de WhatsApp ou Telegram</span></label>
+          <label class="check-item"><input type="checkbox" name="canais_aquisicao" value="Parcerias profissionais" /><span>Parcerias com outros profissionais (advogados, contadores, etc.)</span></label>
+          <label class="check-item">
+            <input type="checkbox" name="canais_aquisicao" value="Outro" />
+            <span>Outro: <span class="check-inline"><input type="text" name="canais_aquisicao_outro" placeholder="Descreva..." /></span></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="marketing_anterior">A empresa já fez alguma ação de divulgação ou marketing anteriormente?</label>
+        <div class="hint">Se sim, o que foi feito, o que funcionou e o que não funcionou.</div>
+        <textarea id="marketing_anterior" name="marketing_anterior" placeholder="Ex.: Tentamos anúncios no Facebook em 2023, sem grande resultado. Não tínhamos uma página de destino estruturada..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="parcerias">Existe algum parceiro estratégico, canal de distribuição ou indicador relevante para o negócio?</label>
+        <div class="hint">Ex.: escritórios de advocacia parceiros, despachantes, contadores, sindicatos, associações comerciais.</div>
+        <textarea id="parcerias" name="parcerias" placeholder="Ex.: Temos parceria com três escritórios de advocacia que nos indicam clientes com frequência..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="observacoes">Informações adicionais ou recados para a equipe da Teovox</label>
+        <textarea id="observacoes" name="observacoes" placeholder="Qualquer informação relevante que não foi contemplada nas perguntas acima..."></textarea>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="submit-section" id="submit-area">
+      <h2>Tudo pronto para enviar?</h2>
+      <p>Revise as respostas e clique em enviar. As informações chegam diretamente à equipe da Teovox e daremos sequência em breve.</p>
+      <button type="submit" class="btn-submit" id="btn-submit">Enviar briefing</button>
+    </div>
+
+  </form>
+
+  <!-- Success -->
+  <div id="success-msg">
+    <div class="success-icon">✓</div>
+    <h2>Briefing recebido com sucesso!</h2>
+    <p>Obrigado pelo preenchimento. A equipe da Teovox analisará as informações e entrará em contato em breve para os próximos passos.</p>
+  </div>
+
+</main>
+
+<footer>
+  Formulário gerado por <a href="#">Teovox</a> — Comunicação e Marketing Estratégico
+</footer>
+
+<script>
+  const form = document.getElementById('briefing-form');
+  const fill = document.getElementById('progress-fill');
+  const tabs = document.querySelectorAll('.step-tab');
+  const sections = document.querySelectorAll('.form-section');
+
+  function updateProgress() {
+    const all = form.querySelectorAll('input[type=text], textarea');
+    const filled = Array.from(all).filter(f => f.value.trim().length > 0).length;
+    const pct = Math.round((filled / all.length) * 100);
+    fill.style.width = pct + '%';
+  }
+
+  function getActiveSection() {
+    let current = sections[0].id;
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= 140) current = sec.id;
+    });
+    return current;
+  }
+
+  function updateTabs() {
+    const active = getActiveSection();
+    tabs.forEach(tab => {
+      const target = tab.dataset.target;
+      tab.classList.remove('active', 'done');
+      if (target === active) {
+        tab.classList.add('active');
+      } else {
+        const sec = document.getElementById(target);
+        const rect = sec.getBoundingClientRect();
+        if (rect.bottom < 140) tab.classList.add('done');
+      }
+    });
+    const activeTab = document.querySelector(`.step-tab[data-target="${active}"]`);
+    if (activeTab) activeTab.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = document.getElementById(tab.dataset.target);
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  window.addEventListener('scroll', () => { updateTabs(); }, { passive: true });
+  form.addEventListener('input', updateProgress);
+  form.addEventListener('change', updateProgress);
+  updateProgress();
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    try {
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Enviar briefing';
+        alert('Houve um problema ao enviar. Tente novamente ou entre em contato diretamente com a equipe.');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Enviar briefing';
+      alert('Erro de conexão. Verifique sua internet e tente novamente.');
+    }
+  });
+</script>
+</body>
+</html>
