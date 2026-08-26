@@ -1,0 +1,2754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teovox — Briefing para criação do seu site</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --blue-900: #0B1F3A;
+    --blue-800: #112D52;
+    --blue-700: #174070;
+    --blue-600: #1E5490;
+    --blue-500: #2169B8;
+    --blue-400: #3A82D0;
+    --blue-300: #6AAAE4;
+    --blue-200: #A3C8F0;
+    --blue-100: #D6E8F9;
+    --blue-50: #EEF5FD;
+
+    --lead-900: #141414;
+    --lead-800: #1E1E1E;
+    --lead-700: #2A2A2A;
+    --lead-600: #373737;
+    --lead-500: #4A4A4A;
+    --lead-400: #606060;
+    --lead-300: #888888;
+    --lead-200: #B0B0B0;
+    --lead-100: #D8D8D8;
+    --lead-50: #F2F2F2;
+
+    --white: #FFFFFF;
+    --success: #25D366;
+    --error: #f08080;
+
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--lead-900);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ================================
+     BACKGROUND
+  ================================= */
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(
+        ellipse 70% 60% at 75% 15%,
+        rgba(33,105,184,0.17) 0%,
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 60% 50% at 5% 85%,
+        rgba(30,84,144,0.12) 0%,
+        transparent 65%
+      ),
+      var(--lead-900);
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(58,130,208,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(58,130,208,0.045) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(
+      ellipse 80% 70% at 50% 35%,
+      black 0%,
+      transparent 75%
+    );
+  }
+
+  /* ================================
+     HEADER
+  ================================= */
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 6%;
+    background: rgba(11,31,58,0.88);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(58,130,208,0.15);
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .logo span {
+    color: var(--blue-400);
+  }
+
+  .header-label {
+    color: var(--lead-300);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ================================
+     MAIN
+  ================================= */
+
+  main {
+    width: min(900px, 92%);
+    margin: 0 auto;
+    padding: 5rem 0 6rem;
+  }
+
+  /* ================================
+     INTRO
+  ================================= */
+
+  .intro {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(33,105,184,0.16);
+    border: 1px solid rgba(58,130,208,0.3);
+    color: var(--blue-300);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    padding: 0.45rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--blue-400);
+    border-radius: 50%;
+  }
+
+  .intro h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.3rem, 6vw, 4.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+    margin-bottom: 1.4rem;
+  }
+
+  .intro h1 em {
+    font-style: normal;
+    color: transparent;
+    background: linear-gradient(
+      135deg,
+      var(--blue-400),
+      var(--blue-300)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .intro p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--lead-300);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  .intro-meta {
+    margin-top: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--lead-400);
+    font-size: 0.78rem;
+  }
+
+  /* ================================
+     QUIZ SHELL
+  ================================= */
+
+  .quiz-shell {
+    background: rgba(30,30,30,0.88);
+    border: 1px solid rgba(58,130,208,0.14);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow:
+      0 30px 80px rgba(0,0,0,0.28),
+      0 0 80px rgba(33,105,184,0.04);
+  }
+
+  /* ================================
+     PROGRESS
+  ================================= */
+
+  .progress-area {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.055);
+    background: rgba(20,20,20,0.45);
+  }
+
+  .progress-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .progress-label {
+    color: var(--lead-300);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+
+  .progress-number {
+    color: var(--blue-300);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+
+  .progress-track {
+    height: 4px;
+    background: var(--lead-600);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(
+      to right,
+      var(--blue-600),
+      var(--blue-400)
+    );
+    border-radius: 100px;
+    transition: width 0.4s ease;
+  }
+
+  /* ================================
+     QUESTIONS
+  ================================= */
+
+  .quiz-content {
+    padding: 3rem;
+  }
+
+  .question-screen {
+    display: none;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  .question-screen.active {
+    display: block;
+  }
+
+  .section-marker {
+    display: inline-block;
+    color: var(--blue-400);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .question-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.45rem, 3vw, 2.15rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.65rem;
+  }
+
+  .question-description {
+    color: var(--lead-300);
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.65;
+    margin-bottom: 1.8rem;
+    max-width: 680px;
+  }
+
+  /* ================================
+     FORM ELEMENTS
+  ================================= */
+
+  .field {
+    margin-bottom: 1.25rem;
+  }
+
+  .field:last-child {
+    margin-bottom: 0;
+  }
+
+  .field-label {
+    display: block;
+    color: var(--lead-200);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.55rem;
+  }
+
+  .required {
+    color: var(--blue-400);
+  }
+
+  .input,
+  .textarea,
+  .select {
+    width: 100%;
+    background: var(--lead-600);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 11px;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    padding: 0.9rem 1rem;
+    outline: none;
+    transition:
+      border-color 0.2s,
+      box-shadow 0.2s,
+      background 0.2s;
+  }
+
+  .input:focus,
+  .textarea:focus,
+  .select:focus {
+    border-color: rgba(58,130,208,0.65);
+    box-shadow: 0 0 0 3px rgba(33,105,184,0.1);
+    background: var(--lead-700);
+  }
+
+  .input::placeholder,
+  .textarea::placeholder {
+    color: var(--lead-400);
+  }
+
+  .textarea {
+    min-height: 130px;
+    resize: vertical;
+  }
+
+  .select {
+    appearance: none;
+    cursor: pointer;
+    background-image:
+      linear-gradient(45deg, transparent 50%, var(--lead-300) 50%),
+      linear-gradient(135deg, var(--lead-300) 50%, transparent 50%);
+    background-position:
+      calc(100% - 18px) 50%,
+      calc(100% - 13px) 50%;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+  }
+
+  .select option {
+    background: var(--lead-700);
+    color: var(--white);
+  }
+
+  /* ================================
+     OPTIONS
+  ================================= */
+
+  .options {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .option {
+    position: relative;
+  }
+
+  .option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .option label {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    width: 100%;
+    padding: 1rem 1.1rem;
+    background: var(--lead-700);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    color: var(--lead-200);
+    cursor: pointer;
+    font-size: 0.88rem;
+    transition:
+      border-color 0.2s,
+      background 0.2s,
+      color 0.2s,
+      transform 0.2s;
+  }
+
+  .option label:hover {
+    border-color: rgba(58,130,208,0.3);
+    color: var(--white);
+    transform: translateY(-1px);
+  }
+
+  .option input:checked + label {
+    border-color: rgba(58,130,208,0.65);
+    background: rgba(33,105,184,0.13);
+    color: var(--white);
+  }
+
+  .option-marker {
+    width: 19px;
+    height: 19px;
+    border: 1px solid var(--lead-400);
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+
+  .option input:checked + label .option-marker {
+    border-color: var(--blue-400);
+    background: var(--blue-500);
+  }
+
+  .option input:checked + label .option-marker::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .checkbox-option .option-marker {
+    border-radius: 5px;
+  }
+
+  .checkbox-option input:checked + label .option-marker::after {
+    content: '✓';
+    width: auto;
+    height: auto;
+    background: transparent;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  /* ================================
+     TWO COLUMNS
+  ================================= */
+
+  .two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* ================================
+     REPEATER
+  ================================= */
+
+  .repeater {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .repeater-item {
+    background: rgba(42,42,42,0.7);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 1.25rem;
+  }
+
+  .repeater-heading {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--blue-300);
+    margin-bottom: 1rem;
+  }
+
+  /* ================================
+     HELP TEXT
+  ================================= */
+
+  .help {
+    color: var(--lead-400);
+    font-size: 0.72rem;
+    margin-top: 0.4rem;
+    line-height: 1.5;
+  }
+
+  /* ================================
+     NAVIGATION
+  ================================= */
+
+  .quiz-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 100px;
+    padding: 0.85rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+      background 0.2s,
+      border-color 0.2s,
+      color 0.2s,
+      transform 0.2s;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-primary {
+    border: 1px solid var(--blue-500);
+    background: var(--blue-500);
+    color: var(--white);
+  }
+
+  .btn-primary:hover {
+    background: var(--blue-400);
+    border-color: var(--blue-400);
+  }
+
+  .btn-secondary {
+    border: 1px solid rgba(255,255,255,0.1);
+    background: transparent;
+    color: var(--lead-300);
+  }
+
+  .btn-secondary:hover {
+    color: var(--white);
+    border-color: rgba(255,255,255,0.22);
+  }
+
+  .btn-submit {
+    min-width: 190px;
+  }
+
+  /* ================================
+     REVIEW
+  ================================= */
+
+  .review-intro {
+    background: rgba(33,105,184,0.08);
+    border: 1px solid rgba(58,130,208,0.16);
+    border-radius: 14px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .review-intro p {
+    color: var(--lead-300);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .review-section {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 1.2rem 0;
+  }
+
+  .review-section:last-child {
+    border-bottom: none;
+  }
+
+  .review-section-title {
+    color: var(--blue-300);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .review-row {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 1rem;
+    padding: 0.35rem 0;
+  }
+
+  .review-key {
+    color: var(--lead-400);
+    font-size: 0.78rem;
+  }
+
+  .review-value {
+    color: var(--lead-200);
+    font-size: 0.82rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  /* ================================
+     SUCCESS
+  ================================= */
+
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 4rem 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .success-icon {
+    width: 74px;
+    height: 74px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(37,211,102,0.1);
+    border: 1px solid rgba(37,211,102,0.3);
+    color: var(--success);
+    font-size: 2rem;
+  }
+
+  .success-screen h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .success-screen p {
+    max-width: 550px;
+    margin: 0 auto;
+    color: var(--lead-300);
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ================================
+     ERRORS
+  ================================= */
+
+  .error-message {
+    display: none;
+    color: var(--error);
+    font-size: 0.76rem;
+    margin-top: 0.4rem;
+  }
+
+  .field.invalid .input,
+  .field.invalid .textarea,
+  .field.invalid .select {
+    border-color: rgba(240,128,128,0.55);
+  }
+
+  .field.invalid .error-message {
+    display: block;
+  }
+
+  .global-error {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(240,128,128,0.3);
+    background: rgba(220,50,50,0.08);
+    color: var(--error);
+    font-size: 0.82rem;
+    text-align: center;
+  }
+
+  /* ================================
+     FOOTER
+  ================================= */
+
+  footer {
+    width: min(900px, 92%);
+    margin: 0 auto;
+    padding: 2rem 0 3rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+  }
+
+  footer p {
+    color: var(--lead-500);
+    font-size: 0.72rem;
+  }
+
+  footer strong {
+    color: var(--lead-400);
+    font-weight: 500;
+  }
+
+  /* ================================
+     ANIMATIONS
+  ================================= */
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ================================
+     RESPONSIVE
+  ================================= */
+
+  @media (max-width: 700px) {
+
+    header {
+      padding: 1rem 5%;
+    }
+
+    .header-label {
+      display: none;
+    }
+
+    main {
+      width: 94%;
+      padding: 3rem 0 4rem;
+    }
+
+    .intro {
+      margin-bottom: 2.5rem;
+    }
+
+    .intro h1 {
+      font-size: 2.4rem;
+    }
+
+    .quiz-shell {
+      border-radius: 18px;
+    }
+
+    .progress-area {
+      padding: 1.15rem 1.25rem;
+    }
+
+    .quiz-content {
+      padding: 1.5rem;
+    }
+
+    .two-columns {
+      grid-template-columns: 1fr;
+    }
+
+    .review-row {
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
+    }
+
+    .quiz-navigation {
+      flex-direction: column-reverse;
+      align-items: stretch;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    .success-screen {
+      padding: 3rem 1rem;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="https://teovox.com.br" class="logo">Teo<span>vox</span></a>
+  <div class="header-label">Briefing para criação do site</div>
+</header>
+
+<main>
+
+  <!-- INTRO -->
+  <section class="intro" id="intro">
+    <div class="badge">Projeto de novo site</div>
+
+    <h1>
+      Vamos construir o site<br>
+      da sua <em>igreja</em>
+    </h1>
+
+    <p>
+      Para criarmos um site que represente fielmente a sua igreja,
+      precisamos conhecer melhor sua história, identidade, liderança,
+      ministérios, programação e as informações que você deseja
+      apresentar aos visitantes.
+    </p>
+
+    <div class="intro-meta">
+      <span>●</span>
+      Tempo estimado: 8–12 minutos
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <div class="quiz-shell" id="quiz-shell">
+
+    <div class="progress-area">
+      <div class="progress-top">
+        <span class="progress-label">Progresso do briefing</span>
+        <span class="progress-number" id="progress-number">1 de 12</span>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+    </div>
+
+    <form id="quiz-form">
+
+      <div class="quiz-content">
+
+        <!-- ==========================================
+             ETAPA 1
+        =========================================== -->
+
+        <div class="question-screen active" data-step="1">
+
+          <span class="section-marker">01 / Sobre a igreja</span>
+
+          <h2 class="question-title">
+            Vamos começar conhecendo a sua igreja.
+          </h2>
+
+          <p class="question-description">
+            Essas informações serão utilizadas para construir a apresentação
+            institucional e ajudar a equipe da Teovox a compreender a identidade
+            da igreja.
+          </p>
+
+          <div class="field">
+            <label class="field-label">
+              Nome oficial da igreja <span class="required">*</span>
+            </label>
+            <input
+              class="input"
+              type="text"
+              name="igreja_nome"
+              placeholder="Ex.: Igreja Batista Central"
+              required
+            >
+            <div class="error-message">Informe o nome da igreja.</div>
+          </div>
+
+          <div class="two-columns">
+
+            <div class="field">
+              <label class="field-label">
+                Nome pelo qual é conhecida
+              </label>
+              <input
+                class="input"
+                type="text"
+                name="igreja_nome_conhecido"
+                placeholder="Se houver"
+              >
+            </div>
+
+            <div class="field">
+              <label class="field-label">
+                Denominação / tradição
+              </label>
+              <input
+                class="input"
+                type="text"
+                name="igreja_denominacao"
+                placeholder="Ex.: Batista, Assembleia de Deus..."
+              >
+            </div>
+
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Slogan, lema ou frase da igreja
+            </label>
+            <input
+              class="input"
+              type="text"
+              name="igreja_slogan"
+              placeholder="Se houver"
+            >
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Conte brevemente a história da igreja
+            </label>
+            <textarea
+              class="textarea"
+              name="igreja_historia"
+              placeholder="Como surgiu, quando foi fundada, acontecimentos importantes..."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Como você descreveria a igreja para alguém que nunca ouviu falar dela?
+            </label>
+            <textarea
+              class="textarea"
+              name="igreja_descricao"
+              placeholder="Escreva da forma mais natural possível."
+            ></textarea>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             ETAPA 2
+        =========================================== -->
+
+        <div class="question-screen" data-step="2">
+
+          <span class="section-marker">02 / Missão e identidade</span>
+
+          <h2 class="question-title">
+            O que define a igreja?
+          </h2>
+
+          <p class="question-description">
+            Queremos entender os princípios que orientam a igreja para que
+            o conteúdo do site seja coerente com sua identidade.
+          </p>
+
+          <div class="field">
+            <label class="field-label">Missão</label>
+            <textarea
+              class="textarea"
+              name="identidade_missao"
+              placeholder="Se houver uma declaração oficial, cole aqui."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Visão</label>
+            <textarea
+              class="textarea"
+              name="identidade_visao"
+              placeholder="Se houver uma declaração oficial, cole aqui."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Principais valores da igreja</label>
+            <textarea
+              class="textarea"
+              name="identidade_valores"
+              placeholder="Ex.: amor, serviço, família, discipulado, missão..."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Como a igreja deseja ser percebida?
+            </label>
+
+            <div class="options">
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="posicionamento[]" value="Acolhedora" id="pos1">
+                <label for="pos1"><span class="option-marker"></span>Acolhedora</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="posicionamento[]" value="Familiar" id="pos2">
+                <label for="pos2"><span class="option-marker"></span>Familiar</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="posicionamento[]" value="Moderna" id="pos3">
+                <label for="pos3"><span class="option-marker"></span>Moderna e contemporânea</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="posicionamento[]" value="Tradicional" id="pos4">
+                <label for="pos4"><span class="option-marker"></span>Tradicional</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="posicionamento[]" value="Jovem" id="pos5">
+                <label for="pos5"><span class="option-marker"></span>Jovem e dinâmica</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="posicionamento[]" value="Evangelistica" id="pos6">
+                <label for="pos6"><span class="option-marker"></span>Evangelística</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="posicionamento[]" value="Comunitaria" id="pos7">
+                <label for="pos7"><span class="option-marker"></span>Comunitária</label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Quais características NÃO representam a igreja?
+            </label>
+            <textarea
+              class="textarea"
+              name="identidade_nao_representa"
+              placeholder="Isso nos ajuda a evitar uma comunicação que não combina com a igreja."
+            ></textarea>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             ETAPA 3
+        =========================================== -->
+
+        <div class="question-screen" data-step="3">
+
+          <span class="section-marker">03 / Liderança</span>
+
+          <h2 class="question-title">
+            Quem está à frente da igreja?
+          </h2>
+
+          <p class="question-description">
+            Essas informações podem ser utilizadas na apresentação da liderança
+            no site, caso essa seção faça parte do projeto.
+          </p>
+
+          <div class="field">
+            <label class="field-label">
+              Pastor / líder principal <span class="required">*</span>
+            </label>
+            <input
+              class="input"
+              type="text"
+              name="lideranca_pastor"
+              placeholder="Nome completo"
+              required
+            >
+            <div class="error-message">Informe o nome do líder principal.</div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Cargo / título utilizado</label>
+            <input
+              class="input"
+              type="text"
+              name="lideranca_cargo"
+              placeholder="Ex.: Pastor Presidente"
+            >
+          </div>
+
+          <div class="field">
+            <label class="field-label">Biografia do pastor / líder</label>
+            <textarea
+              class="textarea"
+              name="lideranca_biografia"
+              placeholder="Formação, história ministerial, família, chamado, experiência etc."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Outros pastores ou líderes que devem aparecer no site
+            </label>
+            <textarea
+              class="textarea"
+              name="lideranca_outros"
+              placeholder="Nome, cargo e breve descrição de cada pessoa."
+            ></textarea>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             ETAPA 4
+        =========================================== -->
+
+        <div class="question-screen" data-step="4">
+
+          <span class="section-marker">04 / Localização e contato</span>
+
+          <h2 class="question-title">
+            Como as pessoas encontram a igreja?
+          </h2>
+
+          <div class="field">
+            <label class="field-label">
+              Endereço completo <span class="required">*</span>
+            </label>
+            <textarea
+              class="textarea"
+              name="contato_endereco"
+              placeholder="Rua, número, bairro, cidade, estado e CEP"
+              required
+            ></textarea>
+            <div class="error-message">Informe o endereço.</div>
+          </div>
+
+          <div class="two-columns">
+
+            <div class="field">
+              <label class="field-label">Telefone</label>
+              <input
+                class="input"
+                type="tel"
+                name="contato_telefone"
+                placeholder="(00) 0000-0000"
+              >
+            </div>
+
+            <div class="field">
+              <label class="field-label">WhatsApp</label>
+              <input
+                class="input"
+                type="tel"
+                name="contato_whatsapp"
+                placeholder="(00) 0 0000-0000"
+              >
+            </div>
+
+          </div>
+
+          <div class="field">
+            <label class="field-label">E-mail oficial</label>
+            <input
+              class="input"
+              type="email"
+              name="contato_email"
+              placeholder="contato@igreja.com.br"
+            >
+          </div>
+
+          <div class="field">
+            <label class="field-label">Pontos de referência / orientações para chegar</label>
+            <textarea
+              class="textarea"
+              name="contato_como_chegar"
+              placeholder="Estacionamento, transporte público, pontos de referência etc."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">A igreja possui acessibilidade?</label>
+
+            <div class="options">
+
+              <div class="option">
+                <input type="radio" name="acessibilidade" value="Sim" id="aces1">
+                <label for="aces1"><span class="option-marker"></span>Sim</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="acessibilidade" value="Parcialmente" id="aces2">
+                <label for="aces2"><span class="option-marker"></span>Parcialmente</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="acessibilidade" value="Não" id="aces3">
+                <label for="aces3"><span class="option-marker"></span>Não</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="acessibilidade" value="Não sei" id="aces4">
+                <label for="aces4"><span class="option-marker"></span>Não sei</label>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             ETAPA 5
+        =========================================== -->
+
+        <div class="question-screen" data-step="5">
+
+          <span class="section-marker">05 / Cultos e programação</span>
+
+          <h2 class="question-title">
+            Como funciona a programação da igreja?
+          </h2>
+
+          <p class="question-description">
+            Liste os cultos e reuniões que precisam ser apresentados no site.
+          </p>
+
+          <div class="field">
+            <label class="field-label">
+              Cultos regulares <span class="required">*</span>
+            </label>
+            <textarea
+              class="textarea"
+              name="programacao_cultos"
+              placeholder="Exemplo:
+Domingo — Culto da Família — 19h
+Quarta-feira — Culto de Oração — 19h30
+Sábado — Culto de Jovens — 20h"
+              required
+            ></textarea>
+            <div class="error-message">Informe pelo menos os principais cultos.</div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Eventos recorrentes</label>
+            <textarea
+              class="textarea"
+              name="programacao_eventos"
+              placeholder="Conferências, congressos, encontros, retiros, celebrações etc."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Existem eventos anuais importantes?
+            </label>
+            <textarea
+              class="textarea"
+              name="programacao_anuais"
+              placeholder="Nome do evento, período aproximado e descrição."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              A programação muda com frequência?
+            </label>
+
+            <div class="options">
+
+              <div class="option">
+                <input type="radio" name="programacao_frequencia" value="Pouco" id="freq1">
+                <label for="freq1"><span class="option-marker"></span>Pouco</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="programacao_frequencia" value="Mensalmente" id="freq2">
+                <label for="freq2"><span class="option-marker"></span>Mensalmente</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="programacao_frequencia" value="Semanalmente" id="freq3">
+                <label for="freq3"><span class="option-marker"></span>Semanalmente</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="programacao_frequencia" value="Conforme necessário" id="freq4">
+                <label for="freq4"><span class="option-marker"></span>Conforme necessário</label>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             ETAPA 6
+        =========================================== -->
+
+        <div class="question-screen" data-step="6">
+
+          <span class="section-marker">06 / Ministérios</span>
+
+          <h2 class="question-title">
+            Quais ministérios a igreja possui?
+          </h2>
+
+          <p class="question-description">
+            Liste os ministérios que devem ser apresentados no site. Não é necessário
+            utilizar linguagem formal.
+          </p>
+
+          <div class="field">
+            <label class="field-label">Ministérios</label>
+            <textarea
+              class="textarea"
+              name="ministerios"
+              placeholder="Exemplo:
+Ministério Infantil — atendimento às crianças durante os cultos.
+Ministério de Jovens — encontros semanais.
+Ministério de Louvor — responsável pela música nos cultos."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Existe algum ministério especialmente importante?</label>
+            <textarea
+              class="textarea"
+              name="ministerios_destaque"
+              placeholder="Explique por que ele é importante e como funciona."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">A igreja possui células, pequenos grupos ou discipulado?</label>
+
+            <div class="options">
+
+              <div class="option">
+                <input type="radio" name="pequenos_grupos" value="Sim" id="pg1">
+                <label for="pg1"><span class="option-marker"></span>Sim</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="pequenos_grupos" value="Não" id="pg2">
+                <label for="pg2"><span class="option-marker"></span>Não</label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Se sim, explique como funciona</label>
+            <textarea
+              class="textarea"
+              name="pequenos_grupos_detalhes"
+              placeholder="Como participar, frequência, público etc."
+            ></textarea>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             ETAPA 7
+        =========================================== -->
+
+        <div class="question-screen" data-step="7">
+
+          <span class="section-marker">07 / Fé e doutrina</span>
+
+          <h2 class="question-title">
+            O que a igreja acredita?
+          </h2>
+
+          <p class="question-description">
+            Essa etapa é especialmente importante para que qualquer conteúdo
+            produzido para o site respeite a identidade teológica da igreja.
+          </p>
+
+          <div class="field">
+            <label class="field-label">Declaração de fé</label>
+            <textarea
+              class="textarea"
+              name="doutrina_declaracao"
+              placeholder="Se existir uma declaração oficial, cole o texto completo."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Principais crenças / pontos doutrinários</label>
+            <textarea
+              class="textarea"
+              name="doutrina_principais"
+              placeholder="Descreva os principais pontos que devem ser respeitados."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Existe algum termo, expressão ou abordagem teológica que deve ser evitado?
+            </label>
+            <textarea
+              class="textarea"
+              name="doutrina_evitar"
+              placeholder="Informe qualquer cuidado importante."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Existe algum versículo especialmente importante para a igreja?
+            </label>
+            <textarea
+              class="textarea"
+              name="doutrina_versiculo"
+              placeholder="Referência e, se desejar, o texto."
+            ></textarea>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             ETAPA 8
+        =========================================== -->
+
+        <div class="question-screen" data-step="8">
+
+          <span class="section-marker">08 / Público e visitantes</span>
+
+          <h2 class="question-title">
+            Quem a igreja deseja alcançar?
+          </h2>
+
+          <div class="field">
+            <label class="field-label">
+              Quais públicos fazem parte da comunidade?
+            </label>
+
+            <div class="options">
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="publico[]" value="Crianças" id="pub1">
+                <label for="pub1"><span class="option-marker"></span>Crianças</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="publico[]" value="Adolescentes" id="pub2">
+                <label for="pub2"><span class="option-marker"></span>Adolescentes</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="publico[]" value="Jovens" id="pub3">
+                <label for="pub3"><span class="option-marker"></span>Jovens</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="publico[]" value="Adultos" id="pub4">
+                <label for="pub4"><span class="option-marker"></span>Adultos</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="publico[]" value="Famílias" id="pub5">
+                <label for="pub5"><span class="option-marker"></span>Famílias</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="publico[]" value="Casais" id="pub6">
+                <label for="pub6"><span class="option-marker"></span>Casais</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="publico[]" value="Idosos" id="pub7">
+                <label for="pub7"><span class="option-marker"></span>Idosos</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="publico[]" value="Novos convertidos" id="pub8">
+                <label for="pub8"><span class="option-marker"></span>Novos convertidos</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="publico[]" value="Pessoas que ainda não frequentam uma igreja" id="pub9">
+                <label for="pub9"><span class="option-marker"></span>Pessoas que ainda não frequentam uma igreja</label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Qual é a principal região atendida pela igreja?
+            </label>
+            <textarea
+              class="textarea"
+              name="publico_regiao"
+              placeholder="Cidade, bairros, municípios próximos etc."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Quais dúvidas uma pessoa normalmente tem antes de visitar a igreja?
+            </label>
+            <textarea
+              class="textarea"
+              name="publico_duvidas"
+              placeholder="Horário, estacionamento, roupa, crianças, localização, como funciona o culto etc."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              O que uma pessoa nova deve saber antes da primeira visita?
+            </label>
+            <textarea
+              class="textarea"
+              name="publico_primeira_visita"
+            ></textarea>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             ETAPA 9
+        =========================================== -->
+
+        <div class="question-screen" data-step="9">
+
+          <span class="section-marker">09 / Conteúdo e presença digital</span>
+
+          <h2 class="question-title">
+            Quais materiais e canais a igreja já possui?
+          </h2>
+
+          <div class="field">
+            <label class="field-label">Instagram</label>
+            <input
+              class="input"
+              type="url"
+              name="social_instagram"
+              placeholder="https://instagram.com/..."
+            >
+          </div>
+
+          <div class="field">
+            <label class="field-label">Facebook</label>
+            <input
+              class="input"
+              type="url"
+              name="social_facebook"
+              placeholder="https://facebook.com/..."
+            >
+          </div>
+
+          <div class="field">
+            <label class="field-label">YouTube</label>
+            <input
+              class="input"
+              type="url"
+              name="social_youtube"
+              placeholder="https://youtube.com/..."
+            >
+          </div>
+
+          <div class="field">
+            <label class="field-label">TikTok / outros</label>
+            <input
+              class="input"
+              type="text"
+              name="social_outros"
+              placeholder="Links"
+            >
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              A igreja transmite os cultos pela internet?
+            </label>
+
+            <div class="options">
+
+              <div class="option">
+                <input type="radio" name="transmissao" value="Sim, regularmente" id="trans1">
+                <label for="trans1"><span class="option-marker"></span>Sim, regularmente</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="transmissao" value="Eventualmente" id="trans2">
+                <label for="trans2"><span class="option-marker"></span>Eventualmente</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="transmissao" value="Não" id="trans3">
+                <label for="trans3"><span class="option-marker"></span>Não</label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Link da transmissão / canal principal
+            </label>
+            <input
+              class="input"
+              type="url"
+              name="transmissao_link"
+              placeholder="URL"
+            >
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Quais materiais a igreja possui?
+            </label>
+
+            <div class="options">
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="materiais[]" value="Logo" id="mat1">
+                <label for="mat1"><span class="option-marker"></span>Logo</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="materiais[]" value="Fotos" id="mat2">
+                <label for="mat2"><span class="option-marker"></span>Fotos</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="materiais[]" value="Vídeos" id="mat3">
+                <label for="mat3"><span class="option-marker"></span>Vídeos</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="materiais[]" value="Manual de identidade visual" id="mat4">
+                <label for="mat4"><span class="option-marker"></span>Manual de identidade visual</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="materiais[]" value="Textos institucionais" id="mat5">
+                <label for="mat5"><span class="option-marker"></span>Textos institucionais</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="materiais[]" value="Declaração de fé" id="mat6">
+                <label for="mat6"><span class="option-marker"></span>Declaração de fé</label>
+              </div>
+
+              <div class="option checkbox-option">
+                <input type="checkbox" name="materiais[]" value="Apresentação institucional" id="mat7">
+                <label for="mat7"><span class="option-marker"></span>Apresentação institucional</label>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             ETAPA 10
+        =========================================== -->
+
+        <div class="question-screen" data-step="10">
+
+          <span class="section-marker">10 / Funcionalidades</span>
+
+          <h2 class="question-title">
+            O que o novo site precisa fazer?
+          </h2>
+
+          <p class="question-description">
+            Marque as funcionalidades que você considera importantes para o site.
+          </p>
+
+          <div class="options">
+
+            <div class="option checkbox-option">
+              <input type="checkbox" name="funcionalidades[]" value="Formulário de contato" id="fun1">
+              <label for="fun1"><span class="option-marker"></span>Formulário de contato</label>
+            </div>
+
+            <div class="option checkbox-option">
+              <input type="checkbox" name="funcionalidades[]" value="WhatsApp" id="fun2">
+              <label for="fun2"><span class="option-marker"></span>Botão de WhatsApp</label>
+            </div>
+
+            <div class="option checkbox-option">
+              <input type="checkbox" name="funcionalidades[]" value="Google Maps" id="fun3">
+              <label for="fun3"><span class="option-marker"></span>Localização / Google Maps</label>
+            </div>
+
+            <div class="option checkbox-option">
+              <input type="checkbox" name="funcionalidades[]" value="Programação" id="fun4">
+              <label for="fun4"><span class="option-marker"></span>Programação / agenda</label>
+            </div>
+
+            <div class="option checkbox-option">
+              <input type="checkbox" name="funcionalidades[]" value="Pedido de oração" id="fun5">
+              <label for="fun5"><span class="option-marker"></span>Pedido de oração</label>
+            </div>
+
+            <div class="option checkbox-option">
+              <input type="checkbox" name="funcionalidades[]" value="Formulário de visitantes" id="fun6">
+              <label for="fun6"><span class="option-marker"></span>Formulário para visitantes</label>
+            </div>
+
+            <div class="option checkbox-option">
+              <input type="checkbox" name="funcionalidades[]" value="Ministérios" id="fun7">
+              <label for="fun7"><span class="option-marker"></span>Área de ministérios</label>
+            </div>
+
+            <div class="option checkbox-option">
+              <input type="checkbox" name="funcionalidades[]" value="Sermões" id="fun8">
+              <label for="fun8"><span class="option-marker"></span>Sermões / mensagens</label>
+            </div>
+
+            <div class="option checkbox-option">
+              <input type="checkbox" name="funcionalidades[]" value="YouTube" id="fun9">
+              <label for="fun9"><span class="option-marker"></span>Integração com YouTube</label>
+            </div>
+
+            <div class="option checkbox-option">
+              <input type="checkbox" name="funcionalidades[]" value="Eventos" id="fun10">
+              <label for="fun10"><span class="option-marker"></span>Eventos</label>
+            </div>
+
+            <div class="option checkbox-option">
+              <input type="checkbox" name="funcionalidades[]" value="Doações / contribuições" id="fun11">
+              <label for="fun11"><span class="option-marker"></span>Doações / contribuições</label>
+            </div>
+
+            <div class="option checkbox-option">
+              <input type="checkbox" name="funcionalidades[]" value="Outro" id="fun12">
+              <label for="fun12"><span class="option-marker"></span>Outro</label>
+            </div>
+
+          </div>
+
+          <div class="field" style="margin-top: 1.5rem;">
+            <label class="field-label">
+              Explique alguma funcionalidade que considera especialmente importante
+            </label>
+            <textarea
+              class="textarea"
+              name="funcionalidades_detalhes"
+              placeholder="Explique o que você espera que ela faça."
+            ></textarea>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             ETAPA 11
+        =========================================== -->
+
+        <div class="question-screen" data-step="11">
+
+          <span class="section-marker">11 / Referências e preferências</span>
+
+          <h2 class="question-title">
+            Como você imagina o novo site?
+          </h2>
+
+          <p class="question-description">
+            Não é necessário saber falar sobre design. Apenas nos diga o que
+            você gosta, o que não gosta e quais referências considera interessantes.
+          </p>
+
+          <div class="field">
+            <label class="field-label">
+              Sites de igrejas que você gosta
+            </label>
+            <textarea
+              class="textarea"
+              name="referencias_igrejas"
+              placeholder="Cole os links e, se possível, explique o que gostou em cada um."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Outros sites que você considera visualmente interessantes
+            </label>
+            <textarea
+              class="textarea"
+              name="referencias_outros"
+              placeholder="Podem ser empresas, organizações, projetos etc."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Existe algum estilo visual que você gostaria de evitar?
+            </label>
+            <textarea
+              class="textarea"
+              name="referencias_evitar"
+              placeholder="Cores, estilos, animações, excesso de informação etc."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Existe alguma informação, imagem ou elemento que obrigatoriamente
+              deve aparecer no site?
+            </label>
+            <textarea
+              class="textarea"
+              name="elementos_obrigatorios"
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Existe algo que NÃO deve aparecer no site?
+            </label>
+            <textarea
+              class="textarea"
+              name="elementos_proibidos"
+            ></textarea>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             ETAPA 12
+        =========================================== -->
+
+        <div class="question-screen" data-step="12">
+
+          <span class="section-marker">12 / Informações finais</span>
+
+          <h2 class="question-title">
+            Estamos quase terminando.
+          </h2>
+
+          <p class="question-description">
+            Essas últimas informações ajudam a equipe a compreender as prioridades
+            do projeto.
+          </p>
+
+          <div class="field">
+            <label class="field-label">
+              Quais são as 3 informações mais importantes que um visitante
+              deve entender ao entrar no site?
+            </label>
+            <textarea
+              class="textarea"
+              name="prioridades_3_informacoes"
+              placeholder="1.
+2.
+3."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Qual é a principal ação que você gostaria que o visitante realizasse?
+            </label>
+            <textarea
+              class="textarea"
+              name="prioridade_acao"
+              placeholder="Ex.: conhecer os horários dos cultos, entrar em contato, visitar a igreja..."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              O que faria você considerar que o novo site ficou excelente?
+            </label>
+            <textarea
+              class="textarea"
+              name="sucesso_projeto"
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Existe alguma informação importante que não perguntamos?
+            </label>
+            <textarea
+              class="textarea"
+              name="informacoes_adicionais"
+              placeholder="Conte qualquer coisa que considere importante para o projeto."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">
+              Nome do responsável pelo preenchimento <span class="required">*</span>
+            </label>
+            <input
+              class="input"
+              type="text"
+              name="responsavel_nome"
+              placeholder="Nome completo"
+              required
+            >
+            <div class="error-message">Informe seu nome.</div>
+          </div>
+
+          <div class="two-columns">
+
+            <div class="field">
+              <label class="field-label">
+                WhatsApp do responsável
+              </label>
+              <input
+                class="input"
+                type="tel"
+                name="responsavel_whatsapp"
+                placeholder="(00) 0 0000-0000"
+              >
+            </div>
+
+            <div class="field">
+              <label class="field-label">
+                E-mail do responsável
+              </label>
+              <input
+                class="input"
+                type="email"
+                name="responsavel_email"
+                placeholder="seu@email.com"
+              >
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             REVISÃO
+        =========================================== -->
+
+        <div class="question-screen" data-step="13">
+
+          <span class="section-marker">Revisão</span>
+
+          <h2 class="question-title">
+            Confira suas respostas.
+          </h2>
+
+          <div class="review-intro">
+            <p>
+              Antes de enviar, confira as informações abaixo. Se precisar
+              alterar alguma coisa, utilize o botão "Voltar".
+            </p>
+          </div>
+
+          <div id="review-container"></div>
+
+        </div>
+
+        <!-- =========================
+             NAVIGATION
+        ========================== -->
+
+        <div class="quiz-navigation">
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="prev-btn"
+            style="display:none;"
+          >
+            ← Voltar
+          </button>
+
+          <div style="flex:1;"></div>
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="next-btn"
+          >
+            Continuar →
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-submit"
+            id="submit-btn"
+            style="display:none;"
+          >
+            Enviar respostas →
+          </button>
+
+        </div>
+
+        <div class="global-error" id="global-error"></div>
+
+      </div>
+
+    </form>
+
+    <!-- =========================
+         SUCCESS
+    ========================== -->
+
+    <div class="success-screen" id="success-screen">
+
+      <div class="success-icon">
+        ✓
+      </div>
+
+      <h2>
+        Respostas enviadas!
+      </h2>
+
+      <p>
+        Recebemos as informações da sua igreja.
+        A equipe da Teovox utilizará esse material como base
+        para a criação do novo site.
+      </p>
+
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <p>
+    <strong>Teovox</strong> — Sua competência vista com criatividade e inteligência.
+  </p>
+</footer>
+
+<script>
+
+  /* ==========================================================
+     CONFIGURAÇÕES
+  ========================================================== */
+
+  const TOTAL_STEPS = 13;
+
+  /*
+    Este é o mesmo endpoint Formspree utilizado no formulário
+    do site atual da Teovox.
+
+    Caso o briefing deva ser enviado para outro formulário/e-mail,
+    altere apenas esta URL.
+  */
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/meewkygv";
+
+
+  /* ==========================================================
+     ELEMENTOS
+  ========================================================== */
+
+  const form = document.getElementById("quiz-form");
+  const screens = document.querySelectorAll(".question-screen");
+
+  const nextBtn = document.getElementById("next-btn");
+  const prevBtn = document.getElementById("prev-btn");
+  const submitBtn = document.getElementById("submit-btn");
+
+  const progressBar = document.getElementById("progress-bar");
+  const progressNumber = document.getElementById("progress-number");
+
+  const reviewContainer = document.getElementById("review-container");
+  const globalError = document.getElementById("global-error");
+
+  const successScreen = document.getElementById("success-screen");
+  const quizShell = document.getElementById("quiz-shell");
+
+
+  /* ==========================================================
+     ESTADO
+  ========================================================== */
+
+  let currentStep = 1;
+
+
+  /* ==========================================================
+     NAVEGAÇÃO
+  ========================================================== */
+
+  function updateScreen() {
+
+    screens.forEach(screen => {
+      screen.classList.remove("active");
+    });
+
+    const currentScreen =
+      document.querySelector(
+        `.question-screen[data-step="${currentStep}"]`
+      );
+
+    if (currentScreen) {
+      currentScreen.classList.add("active");
+    }
+
+    const percentage =
+      ((currentStep - 1) / (TOTAL_STEPS - 1)) * 100;
+
+    progressBar.style.width = `${percentage}%`;
+
+    progressNumber.textContent =
+      currentStep <= 12
+        ? `${currentStep} de 12`
+        : "Revisão";
+
+    prevBtn.style.display =
+      currentStep > 1 ? "inline-flex" : "none";
+
+    nextBtn.style.display =
+      currentStep < 13 ? "inline-flex" : "none";
+
+    submitBtn.style.display =
+      currentStep === 13 ? "inline-flex" : "none";
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+
+  /* ==========================================================
+     VALIDAÇÃO
+  ========================================================== */
+
+  function validateCurrentStep() {
+
+    const screen =
+      document.querySelector(
+        `.question-screen[data-step="${currentStep}"]`
+      );
+
+    if (!screen) return true;
+
+    let valid = true;
+
+    screen
+      .querySelectorAll(".field")
+      .forEach(field => field.classList.remove("invalid"));
+
+    const requiredInputs =
+      screen.querySelectorAll(
+        "input[required], textarea[required], select[required]"
+      );
+
+    requiredInputs.forEach(input => {
+
+      if (!input.value.trim()) {
+
+        const field = input.closest(".field");
+
+        if (field) {
+          field.classList.add("invalid");
+        }
+
+        valid = false;
+      }
+    });
+
+    if (!valid) {
+
+      const firstInvalid =
+        screen.querySelector(".field.invalid");
+
+      if (firstInvalid) {
+        firstInvalid.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      }
+    }
+
+    return valid;
+  }
+
+
+  /* ==========================================================
+     PRÓXIMO
+  ========================================================== */
+
+  nextBtn.addEventListener("click", () => {
+
+    if (!validateCurrentStep()) {
+      return;
+    }
+
+    if (currentStep < 13) {
+      currentStep++;
+    }
+
+    if (currentStep === 13) {
+      generateReview();
+    }
+
+    updateScreen();
+  });
+
+
+  /* ==========================================================
+     VOLTAR
+  ========================================================== */
+
+  prevBtn.addEventListener("click", () => {
+
+    if (currentStep > 1) {
+      currentStep--;
+      updateScreen();
+    }
+  });
+
+
+  /* ==========================================================
+     FORMATAÇÃO DOS DADOS
+  ========================================================== */
+
+  function getFormDataObject() {
+
+    const data = {};
+
+    const formData = new FormData(form);
+
+    for (const [key, value] of formData.entries()) {
+
+      if (key.endsWith("[]")) {
+
+        if (!data[key]) {
+          data[key] = [];
+        }
+
+        data[key].push(value);
+
+      } else {
+
+        data[key] = value;
+
+      }
+    }
+
+    return data;
+  }
+
+
+  /* ==========================================================
+     LABELS AMIGÁVEIS
+  ========================================================== */
+
+  const labels = {
+
+    igreja_nome: "Nome oficial",
+    igreja_nome_conhecido: "Nome conhecido",
+    igreja_denominacao: "Denominação",
+    igreja_slogan: "Slogan / lema",
+    igreja_historia: "História",
+    igreja_descricao: "Descrição",
+
+    identidade_missao: "Missão",
+    identidade_visao: "Visão",
+    identidade_valores: "Valores",
+    posicionamento: "Posicionamento",
+    identidade_nao_representa: "O que não representa a igreja",
+
+    lideranca_pastor: "Pastor / líder principal",
+    lideranca_cargo: "Cargo",
+    lideranca_biografia: "Biografia",
+    lideranca_outros: "Outros líderes",
+
+    contato_endereco: "Endereço",
+    contato_telefone: "Telefone",
+    contato_whatsapp: "WhatsApp",
+    contato_email: "E-mail",
+    contato_como_chegar: "Como chegar",
+    acessibilidade: "Acessibilidade",
+
+    programacao_cultos: "Cultos",
+    programacao_eventos: "Eventos",
+    programacao_anuais: "Eventos anuais",
+    programacao_frequencia: "Frequência de atualização",
+
+    ministerios: "Ministérios",
+    ministerios_destaque: "Ministério em destaque",
+    pequenos_grupos: "Pequenos grupos / células",
+    pequenos_grupos_detalhes: "Detalhes dos pequenos grupos",
+
+    doutrina_declaracao: "Declaração de fé",
+    doutrina_principais: "Principais crenças",
+    doutrina_evitar: "Cuidados doutrinários",
+    doutrina_versiculo: "Versículo",
+
+    publico: "Públicos",
+    publico_regiao: "Região atendida",
+    publico_duvidas: "Dúvidas dos visitantes",
+    publico_primeira_visita: "Primeira visita",
+
+    social_instagram: "Instagram",
+    social_facebook: "Facebook",
+    social_youtube: "YouTube",
+    social_outros: "Outras redes",
+    transmissao: "Transmissão",
+    transmissao_link: "Link da transmissão",
+    materiais: "Materiais disponíveis",
+
+    funcionalidades: "Funcionalidades",
+    funcionalidades_detalhes: "Detalhes das funcionalidades",
+
+    referencias_igrejas: "Referências de igrejas",
+    referencias_outros: "Outras referências",
+    referencias_evitar: "Estilos a evitar",
+    elementos_obrigatorios: "Elementos obrigatórios",
+    elementos_proibidos: "Elementos proibidos",
+
+    prioridades_3_informacoes: "3 informações principais",
+    prioridade_acao: "Ação principal",
+    sucesso_projeto: "Critério de sucesso",
+    informacoes_adicionais: "Informações adicionais",
+
+    responsavel_nome: "Responsável",
+    responsavel_whatsapp: "WhatsApp do responsável",
+    responsavel_email: "E-mail do responsável"
+  };
+
+
+  /* ==========================================================
+     SEÇÕES DA REVISÃO
+  ========================================================== */
+
+  const reviewSections = [
+
+    {
+      title: "Sobre a igreja",
+      keys: [
+        "igreja_nome",
+        "igreja_nome_conhecido",
+        "igreja_denominacao",
+        "igreja_slogan",
+        "igreja_historia",
+        "igreja_descricao"
+      ]
+    },
+
+    {
+      title: "Missão e identidade",
+      keys: [
+        "identidade_missao",
+        "identidade_visao",
+        "identidade_valores",
+        "posicionamento",
+        "identidade_nao_representa"
+      ]
+    },
+
+    {
+      title: "Liderança",
+      keys: [
+        "lideranca_pastor",
+        "lideranca_cargo",
+        "lideranca_biografia",
+        "lideranca_outros"
+      ]
+    },
+
+    {
+      title: "Localização e contato",
+      keys: [
+        "contato_endereco",
+        "contato_telefone",
+        "contato_whatsapp",
+        "contato_email",
+        "contato_como_chegar",
+        "acessibilidade"
+      ]
+    },
+
+    {
+      title: "Cultos e programação",
+      keys: [
+        "programacao_cultos",
+        "programacao_eventos",
+        "programacao_anuais",
+        "programacao_frequencia"
+      ]
+    },
+
+    {
+      title: "Ministérios",
+      keys: [
+        "ministerios",
+        "ministerios_destaque",
+        "pequenos_grupos",
+        "pequenos_grupos_detalhes"
+      ]
+    },
+
+    {
+      title: "Fé e doutrina",
+      keys: [
+        "doutrina_declaracao",
+        "doutrina_principais",
+        "doutrina_evitar",
+        "doutrina_versiculo"
+      ]
+    },
+
+    {
+      title: "Público e visitantes",
+      keys: [
+        "publico",
+        "publico_regiao",
+        "publico_duvidas",
+        "publico_primeira_visita"
+      ]
+    },
+
+    {
+      title: "Conteúdo e presença digital",
+      keys: [
+        "social_instagram",
+        "social_facebook",
+        "social_youtube",
+        "social_outros",
+        "transmissao",
+        "transmissao_link",
+        "materiais"
+      ]
+    },
+
+    {
+      title: "Funcionalidades",
+      keys: [
+        "funcionalidades",
+        "funcionalidades_detalhes"
+      ]
+    },
+
+    {
+      title: "Referências e preferências",
+      keys: [
+        "referencias_igrejas",
+        "referencias_outros",
+        "referencias_evitar",
+        "elementos_obrigatorios",
+        "elementos_proibidos"
+      ]
+    },
+
+    {
+      title: "Informações finais",
+      keys: [
+        "prioridades_3_informacoes",
+        "prioridade_acao",
+        "sucesso_projeto",
+        "informacoes_adicionais",
+        "responsavel_nome",
+        "responsavel_whatsapp",
+        "responsavel_email"
+      ]
+    }
+
+  ];
+
+
+  /* ==========================================================
+     GERA REVISÃO
+  ========================================================== */
+
+  function generateReview() {
+
+    const data = getFormDataObject();
+
+    reviewContainer.innerHTML = "";
+
+    reviewSections.forEach(section => {
+
+      const sectionElement =
+        document.createElement("div");
+
+      sectionElement.className =
+        "review-section";
+
+      const title =
+        document.createElement("div");
+
+      title.className =
+        "review-section-title";
+
+      title.textContent =
+        section.title;
+
+      sectionElement.appendChild(title);
+
+      section.keys.forEach(key => {
+
+        let value = data[key];
+
+        if (Array.isArray(value)) {
+          value = value.join(", ");
+        }
+
+        if (!value || !String(value).trim()) {
+          return;
+        }
+
+        const row =
+          document.createElement("div");
+
+        row.className =
+          "review-row";
+
+        const keyElement =
+          document.createElement("div");
+
+        keyElement.className =
+          "review-key";
+
+        keyElement.textContent =
+          labels[key] || key;
+
+        const valueElement =
+          document.createElement("div");
+
+        valueElement.className =
+          "review-value";
+
+        valueElement.textContent =
+          value;
+
+        row.appendChild(keyElement);
+        row.appendChild(valueElement);
+
+        sectionElement.appendChild(row);
+
+      });
+
+      reviewContainer.appendChild(sectionElement);
+
+    });
+  }
+
+
+  /* ==========================================================
+     SERIALIZAÇÃO ORGANIZADA PARA O FORMSPREE
+  ========================================================== */
+
+  function buildBriefingText() {
+
+    const data = getFormDataObject();
+
+    let output = "";
+
+    output += "BRIEFING — NOVO SITE INSTITUCIONAL\n";
+    output += "====================================\n\n";
+
+    output += "Este briefing foi preenchido através do Quiz Teovox.\n";
+    output += "Data do envio: " + new Date().toLocaleString("pt-BR") + "\n\n";
+
+    reviewSections.forEach(section => {
+
+      output += "\n------------------------------------\n";
+      output += section.title.toUpperCase() + "\n";
+      output += "------------------------------------\n\n";
+
+      section.keys.forEach(key => {
+
+        let value = data[key];
+
+        if (Array.isArray(value)) {
+          value = value.join(", ");
+        }
+
+        if (!value || !String(value).trim()) {
+          value = "Não informado";
+        }
+
+        output += `${labels[key] || key}:\n`;
+        output += `${value}\n\n`;
+
+      });
+
+    });
+
+    return output;
+  }
+
+
+  /* ==========================================================
+     ENVIO
+  ========================================================== */
+
+  form.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    if (currentStep !== 13) {
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enviando…";
+
+    globalError.style.display = "none";
+
+    const data = getFormDataObject();
+
+    /*
+      Mantemos os campos individuais para facilitar o tratamento
+      no Formspree e também enviamos um briefing consolidado.
+    */
+
+    const formData = new FormData();
+
+    Object.entries(data).forEach(([key, value]) => {
+
+      if (Array.isArray(value)) {
+
+        value.forEach(item => {
+          formData.append(key, item);
+        });
+
+      } else {
+
+        formData.append(key, value);
+
+      }
+
+    });
+
+    formData.append(
+      "_subject",
+      `Novo briefing de site — ${data.igreja_nome || "Igreja"}`
+    );
+
+    formData.append(
+      "briefing_completo",
+      buildBriefingText()
+    );
+
+    formData.append(
+      "tipo_projeto",
+      "Site institucional para igreja"
+    );
+
+    try {
+
+      const response = await fetch(
+        FORMSPREE_ENDPOINT,
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        }
+      );
+
+      if (!response.ok) {
+
+        let message =
+          "Não foi possível enviar as respostas. Tente novamente.";
+
+        try {
+
+          const result =
+            await response.json();
+
+          if (result.errors) {
+            message =
+              result.errors
+                .map(error => error.message)
+                .join(", ");
+          }
+
+        } catch (_) {}
+
+        throw new Error(message);
+      }
+
+      document
+        .querySelector(".progress-area")
+        .style.display = "none";
+
+      form.style.display = "none";
+
+      successScreen.style.display = "block";
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    } catch (error) {
+
+      globalError.textContent =
+        "❌ " + error.message;
+
+      globalError.style.display = "block";
+
+      submitBtn.disabled = false;
+      submitBtn.textContent =
+        "Enviar respostas →";
+
+      globalError.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+    }
+
+  });
+
+
+  /* ==========================================================
+     INICIALIZAÇÃO
+  ========================================================== */
+
+  updateScreen();
+
+</script>
+
+</body>
+</html>
