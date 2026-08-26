@@ -1,14 +1,12 @@
 {
-  "cleanUrls": true,
-  "headers": [
+  "rewrites": [
     {
-      "source": "/quiz/(.*).html",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/html; charset=UTF-8"
-        }
-      ]
+      "source": "/quiz",
+      "destination": "/quiz/index.html"
+    },
+    {
+      "source": "/quiz/",
+      "destination": "/quiz/index.html"
     }
   ]
 }
