@@ -10,11 +10,12 @@
     { label: 'Sobre',      href: '/#sobre' },
     { label: 'Estratégia', href: '/#estrategia' },
     { label: 'Serviços',   href: '/#servicos' },
+    { label: 'Logos',      href: '/criacao-de-logos' },
     { label: 'Planos',     href: '/planos' },
     { label: 'Contato',    href: '/#contato' }
   ];
   var CTA = { label: 'Falar no WhatsApp', href: 'https://wa.me/5579996343621' };
-  var LOGO = '/Logotipo-teovox2.png';
+  var LOGO = 'Logotipo-teovox2.png';
 
   var script = document.currentScript;
   var addOffset = !script || script.getAttribute('data-offset') !== 'false';

@@ -35,7 +35,7 @@ a{color:inherit}
 .eyebrow::before{content:"";width:32px;height:2px;background:var(--grad)}
 
 /* hero */
-.hero{position:relative;padding-block:56px 72px;isolation:isolate}
+.hero{position:relative;padding-block:56px 72px;isolation:isolate;overflow:hidden;margin-inline:-20px;padding-inline:20px}
 .hero::after{content:"";position:absolute;z-index:-1;width:720px;height:720px;right:-260px;top:-300px;border-radius:50%;background:radial-gradient(circle,#112D52 0%,var(--bg) 65%);pointer-events:none}
 h1{font-size:clamp(40px,7vw,84px);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:0;max-width:15ch;text-wrap:balance}
 .hl{color:var(--acc)}
@@ -273,6 +273,6 @@ document.querySelectorAll('.copy').forEach(function(btn){
   });
 });
 </script>
-<script src="/menu.js"></script>
+<script src="menu.js"></script>
 </body>
 </html>
