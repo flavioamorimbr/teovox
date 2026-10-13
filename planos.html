@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Planos de website por assinatura da Teovox: mensalidade fixa, hospedagem e domínio inclusos. A partir de R$ 149/mês.">
+<title>Planos de Website — Teovox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: página escura de marca (grafite + azul Teovox); hero com tese e fatos, grade de 3 planos + faixa sob consulta, condições, fechamento com contato */
+:root{
+  --bg:#141414; --surface:#1E1E1E; --surface-2:#2A2A2A; --line:#2A2A2A;
+  --fg:#F2F2F2; --muted:#B0B0B0; --soft:#888888;
+  --acc:#6AAAE4; --acc-strong:#2169B8; --acc-deep:#0B1F3A; --acc-ink:#0B1F3A;
+  --grad:linear-gradient(135deg,#3A82D0,#6AAAE4);
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;margin:0;padding-inline:20px}
+.wrap{max-width:1160px;margin:0 auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:6px}
+
+/* topo */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:28px}
+.wordmark{font-weight:800;letter-spacing:.08em;font-size:20px}
+.top a.btn-ghost{font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--line);padding:10px 18px;border-radius:999px;color:var(--fg)}
+.top a.btn-ghost:hover{border-color:var(--acc)}
+
+/* eyebrow */
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin:0 0 20px}
+.eyebrow::before{content:"";width:32px;height:2px;background:var(--grad)}
+
+/* hero */
+.hero{position:relative;padding-block:56px 72px;isolation:isolate}
+.hero::after{content:"";position:absolute;z-index:-1;width:720px;height:720px;right:-260px;top:-300px;border-radius:50%;background:radial-gradient(circle,#112D52 0%,var(--bg) 65%);pointer-events:none}
+h1{font-size:clamp(40px,7vw,84px);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:0;max-width:15ch;text-wrap:balance}
+.hl{color:var(--acc)}
+.hero .sub{font-size:clamp(18px,2vw,21px);color:var(--muted);max-width:58ch;margin:28px 0 0}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:56px;border-top:1px solid var(--line)}
+.fact{padding:24px 24px 0 0}
+.fact + .fact{padding-left:24px;border-left:1px solid var(--line)}
+.fact small{display:block;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin-bottom:8px}
+.fact b{font-size:20px;font-weight:700;letter-spacing:-.01em}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;text-decoration:none;padding:15px 26px;border-radius:999px;transition:transform .15s ease,background .15s ease}
+.btn-primary{background:var(--acc-strong);color:#fff}
+.btn-primary:hover{background:#3A82D0;transform:translateY(-1px)}
+.btn-line{border:1px solid var(--line);color:var(--fg)}
+.btn-line:hover{border-color:var(--acc)}
+
+/* seções */
+section.block{padding-block:72px;border-top:1px solid var(--line)}
+h2{font-size:clamp(30px,4.4vw,52px);line-height:1.06;letter-spacing:-.03em;font-weight:800;margin:0;max-width:20ch;text-wrap:balance}
+.intro{color:var(--muted);font-size:18px;max-width:56ch;margin:18px 0 0}
+
+/* planos */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:48px;align-items:start}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:32px 28px;display:flex;flex-direction:column;min-width:0}
+.plan.mid{background:linear-gradient(160deg,#174070 0%,var(--acc-deep) 70%);border-color:#1E5490}
+.tier{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.tier .n{font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--soft);font-variant-numeric:tabular-nums}
+.plan.mid .tier .n{color:#A9CBFF}
+.plan h3{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:10px 0 4px}
+.plan .what{color:var(--muted);font-size:15px;margin:0}
+.plan.mid .what{color:#D6E8F9}
+.price{display:flex;align-items:baseline;gap:6px;margin:28px 0 4px;font-variant-numeric:tabular-nums}
+.price .cur{font-size:18px;font-weight:700;color:var(--acc)}
+.plan.mid .price .cur{color:#A9CBFF}
+.price .val{font-size:56px;line-height:1;font-weight:800;letter-spacing:-.04em}
+.price .per{font-size:16px;color:var(--muted);font-weight:500}
+.year{font-size:13px;color:var(--soft);margin:0 0 24px;font-variant-numeric:tabular-nums}
+.plan.mid .year{color:#A3C8F0}
+.base{font-size:13px;font-weight:700;color:var(--fg);margin:0 0 6px;padding-top:20px;border-top:1px solid var(--line)}
+.plan.mid .base{border-color:#1E5490}
+.plan ul{list-style:none;margin:0;padding:0}
+.plan li{display:flex;gap:12px;align-items:flex-start;font-size:15px;padding:9px 0;color:#D8D8D8}
+.ck{flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--grad);display:grid;place-items:center}
+.ck svg{width:11px;height:11px;color:var(--acc-ink)}
+.plan .cta{margin-top:28px;text-align:center;justify-content:center}
+
+/* premium */
+.premium{margin-top:20px;border:1px dashed #4A4A4A;border-radius:24px;padding:32px 28px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:32px;align-items:center}
+.premium .tier .n{font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--soft)}
+.premium h3{font-size:24px;font-weight:800;letter-spacing:-.02em;margin:8px 0 2px}
+.premium .what{color:var(--muted);font-size:15px;margin:0}
+.premium .desc{color:#D8D8D8;font-size:15px;margin:0;max-width:56ch}
+.premium .tag{display:block;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+
+/* condições */
+.terms{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}
+.terms dl{margin:0;display:grid;gap:0}
+.terms .row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding:20px 0;border-top:1px solid var(--line)}
+.terms .row:last-child{border-bottom:1px solid var(--line)}
+.terms dt{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);padding-top:3px}
+.terms dd{margin:0;font-size:16px;color:#D8D8D8}
+
+/* fechamento */
+.close{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:48px;align-items:center}
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px;display:grid;gap:4px}
+.contact .item{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.contact .item:last-of-type{border-bottom:none}
+.contact small{display:block;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin-bottom:4px}
+.contact b{font-size:17px;font-weight:600;user-select:all;word-break:break-word}
+.copy{flex:none;font:600 13px var(--font);color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
+.copy:hover{border-color:var(--acc)}
+.contact .btn{margin-top:14px;justify-content:center}
+
+footer{padding-block:40px 48px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--soft)}
+
+@media (max-width:960px){
+  .plans{grid-template-columns:minmax(0,1fr)}
+  .premium{grid-template-columns:minmax(0,1fr);gap:16px}
+  .terms,.close{grid-template-columns:minmax(0,1fr);gap:36px}
+}
+@media (max-width:600px){
+  .facts{grid-template-columns:minmax(0,1fr)}
+  .fact,.fact + .fact{padding:18px 0;border-left:none;border-bottom:1px solid var(--line)}
+  .terms .row{grid-template-columns:minmax(0,1fr);gap:6px}
+  .top a.btn-ghost{display:none}
+  section.block{padding-block:56px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a href="/" class="logo"><img src="Logotipo-teovox2.png" alt="Teovox" style="height:32px;width:auto;display:block"></a>
+    <a class="btn-ghost" href="#planos">Ver planos</a>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">Website por assinatura</p>
+    <h1>Seu site profissional, por uma <span class="hl">mensalidade fixa.</span></h1>
+    <p class="sub">A Teovox cuida da estrutura digital: criação, hospedagem, domínio e suporte. Você paga um valor previsível por mês e mantém seu website profissional no ar, sem alto investimento inicial.</p>
+    <div class="facts">
+      <div class="fact"><small>A partir de</small><b>R$ 149/mês</b></div>
+      <div class="fact"><small>Incluso</small><b>Hospedagem e domínio</b></div>
+      <div class="fact"><small>Contrato</small><b>Mínimo de 12 meses</b></div>
+    </div>
+    <div class="actions">
+      <a class="btn btn-primary" href="#planos">Escolher meu plano</a>
+      <a class="btn btn-line" href="https://wa.me/5579996343621" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </section>
+
+  <section class="block" id="planos">
+    <p class="eyebrow">Planos</p>
+    <h2>Escolha o tamanho certo para o seu <span class="hl">negócio.</span></h2>
+    <p class="intro">Cada plano soma recursos ao anterior. Todos incluem hospedagem, domínio próprio e certificado SSL durante a vigência do contrato.</p>
+
+    <div class="plans">
+      <article class="plan">
+        <div class="tier"><span class="n">01</span></div>
+        <h3>Essencial</h3>
+        <p class="what">Landing page profissional</p>
+        <div class="price"><span class="cur">R$</span><span class="val">149</span><span class="per">/mês</span></div>
+        <p class="year">R$ 1.788 em 12 meses</p>
+        <p class="base">O que está incluso</p>
+        <ul>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Landing page profissional</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Design responsivo</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Hospedagem inclusa</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Domínio próprio incluso</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Certificado SSL</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Formulário de contato</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Integração com WhatsApp</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Suporte técnico</li>
+        </ul>
+        <a class="btn btn-line cta" href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20plano%20Essencial%20de%20website." target="_blank" rel="noopener">Quero o Essencial</a>
+      </article>
+
+      <article class="plan mid">
+        <div class="tier"><span class="n">02</span></div>
+        <h3>Profissional</h3>
+        <p class="what">Website institucional</p>
+        <div class="price"><span class="cur">R$</span><span class="val">249</span><span class="per">/mês</span></div>
+        <p class="year">R$ 2.988 em 12 meses</p>
+        <p class="base">Tudo do Essencial, mais:</p>
+        <ul>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Website com até 5 páginas</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>E-mail profissional personalizado</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Configuração básica de SEO</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Integração com Google Analytics e Search Console</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Até 1 hora mensal de pequenas atualizações</li>
+        </ul>
+        <a class="btn btn-primary cta" href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20plano%20Profissional%20de%20website." target="_blank" rel="noopener">Quero o Profissional</a>
+      </article>
+
+      <article class="plan">
+        <div class="tier"><span class="n">03</span></div>
+        <h3>Completo</h3>
+        <p class="what">Website com recursos avançados</p>
+        <div class="price"><span class="cur">R$</span><span class="val">449</span><span class="per">/mês</span></div>
+        <p class="year">R$ 5.388 em 12 meses</p>
+        <p class="base">Tudo do Profissional, mais:</p>
+        <ul>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Website com até 10 páginas</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Blog integrado</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Landing page adicional para campanhas</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>SEO técnico ampliado</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Integração com pixels de rastreamento</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Integração com ferramentas de marketing</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Até 3 horas mensais de pequenas atualizações</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Suporte prioritário</li>
+        </ul>
+        <a class="btn btn-line cta" href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20plano%20Completo%20de%20website." target="_blank" rel="noopener">Quero o Completo</a>
+      </article>
+    </div>
+
+    <article class="premium">
+      <div>
+        <div class="tier"><span class="n">04</span></div>
+        <h3>Completo Premium</h3>
+        <p class="what">Projetos e necessidades especiais</p>
+      </div>
+      <div>
+        <span class="tag">Sob consulta</span>
+        <p class="desc">Soluções personalizadas para empresas que precisam de funcionalidades avançadas, integrações específicas ou projetos sob medida.</p>
+      </div>
+      <a class="btn btn-line" href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20proposta%20para%20o%20plano%20Completo%20Premium." target="_blank" rel="noopener">Solicitar proposta</a>
+    </article>
+  </section>
+
+  <section class="block">
+    <div class="terms">
+      <div>
+        <p class="eyebrow">Condições comerciais</p>
+        <h2>Combinados claros, <span class="hl">sem surpresas.</span></h2>
+        <p class="intro">Você sabe exatamente quanto vai pagar todo mês e o que recebe em troca.</p>
+      </div>
+      <dl>
+        <div class="row"><dt>Contrato</dt><dd>Mínimo de 12 meses.</dd></div>
+        <div class="row"><dt>Pagamento</dt><dd>Mensal e recorrente.</dd></div>
+        <div class="row"><dt>Estrutura</dt><dd>Hospedagem e domínio inclusos durante a vigência do contrato.</dd></div>
+        <div class="row"><dt>Site no ar</dt><dd>O website permanece no ar enquanto a assinatura estiver ativa e os pagamentos estiverem em dia.</dd></div>
+        <div class="row"><dt>Extras</dt><dd>Recursos ou serviços fora do plano são orçados separadamente.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="close">
+      <div>
+        <p class="eyebrow">Próximo passo</p>
+        <h2>Vamos colocar seu site <span class="hl">no ar?</span></h2>
+        <p class="intro">Conte para a gente sobre o seu negócio. Indicamos o plano certo e começamos o projeto.</p>
+      </div>
+      <div class="contact">
+        <div class="item"><div><small>WhatsApp</small><b id="c-wpp">(79) 99634-3621</b></div><button class="copy" type="button" data-copy="c-wpp">Copiar</button></div>
+        <div class="item"><div><small>E-mail</small><b id="c-mail">contato@teovox.com.br</b></div><button class="copy" type="button" data-copy="c-mail">Copiar</button></div>
+        <div class="item"><div><small>Site</small><b>teovox.com.br</b></div></div>
+        <a class="btn btn-primary" href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20os%20planos%20de%20website." target="_blank" rel="noopener">Conversar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Teovox · Comunicação Estratégica</span>
+    <span>CNPJ 38.076.806/0001-36</span>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.copy);
+    var txt = el.textContent.trim();
+    var done = function(){ btn.textContent = 'Copiado'; setTimeout(function(){ btn.textContent = 'Copiar'; }, 1600); };
+    var fallback = function(){ var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selecionado'; setTimeout(function(){ btn.textContent = 'Copiar'; }, 1600); };
+    try { navigator.clipboard.writeText(txt).then(done, fallback); } catch(e){ fallback(); }
+  });
+});
+</script>
+</body>
+</html>
