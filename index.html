@@ -240,79 +240,32 @@ img{max-width:100%;display:block}
   .slider-count{min-width:0}
 }
 
-/* ═════════ HERO ═════════ */
-#hero{padding:120px 0 220px;overflow:hidden;
-  background:
-    linear-gradient(180deg,transparent 70%,var(--bg) 100%),
-    radial-gradient(900px 500px at 75% 40%,rgba(163,200,240,.45),transparent 70%),
-    var(--bg)}
-#hero .grid-lines{position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:linear-gradient(rgba(17,45,82,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(17,45,82,.06) 1px,transparent 1px);
-  background-size:72px 72px;mask-image:radial-gradient(ellipse 70% 70% at 60% 40%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 70% at 60% 40%,#000 30%,transparent 75%)}
-.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:40px;align-items:center}
-.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:9px 16px 9px 12px;border-radius:999px;font-size:13px;font-weight:500;color:var(--blue-700);
-  background:rgba(255,255,255,.75);border:1px solid var(--tint-line);box-shadow:var(--shadow-1);backdrop-filter:blur(8px)}
-.hero-badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue-500);box-shadow:0 0 0 4px rgba(33,105,184,.18);animation:pulse 2.4s infinite}
-@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(33,105,184,0)}}
-#hero h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,5vw,72px);line-height:.98;letter-spacing:-.035em;margin:28px 0 0;text-wrap:balance}
-#hero h1 em{font-style:normal;color:var(--blue-500);position:relative;white-space:normal}
-#hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.09em;border-radius:4px;background:linear-gradient(90deg,var(--blue-300),transparent);transform-origin:left;transform:scaleX(1);opacity:.7}
-.fx #hero h1 em::after{transform:scaleX(0);animation:draw 1.2s var(--ease) 1s forwards}
-@keyframes draw{to{transform:scaleX(1)}}
-.hero-slogan{margin-top:28px;color:var(--muted);font-size:clamp(17px,1.5vw,20px);max-width:52ch}
-.hero-slogan strong{color:var(--fg);font-weight:600}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
-.hero-scroll{position:absolute;left:50%;bottom:150px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;
-  font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--soft)}
-.scroll-line{width:1px;height:46px;background:linear-gradient(var(--blue-400),transparent);position:relative;overflow:hidden}
-.fx .scroll-line::after{content:"";position:absolute;left:0;top:-50%;width:1px;height:50%;background:var(--blue-700);animation:drip 2s infinite}
-@keyframes drip{to{top:110%}}
-
-/* órbita dos pilares */
-.orbit{position:relative;aspect-ratio:1;width:calc(100% - 150px);max-width:470px;margin-inline:auto}
-.orbit .ring{position:absolute;inset:0;margin:auto;border-radius:50%;border:1px dashed rgba(33,105,184,.3)}
-.orbit .r1{width:100%;height:100%}
-.orbit .r2{width:72%;height:72%;border-style:solid;border-color:rgba(33,105,184,.16);background:rgba(255,255,255,.35)}
-.orbit .r3{width:44%;height:44%;border-color:rgba(33,105,184,.34)}
-.fx .orbit .r1{animation:spin 80s linear infinite}
-.fx .orbit .r3{animation:spin 40s linear infinite reverse}
 @keyframes spin{to{transform:rotate(360deg)}}
-.orbit .core{position:absolute;inset:0;margin:auto;width:34%;height:34%;border-radius:50%;display:grid;place-items:center;text-align:center;color:#fff;
-  background:radial-gradient(circle at 35% 30%,var(--blue-400),var(--blue-700) 70%);
-  box-shadow:0 0 0 10px rgba(33,105,184,.1),0 30px 70px -14px rgba(33,105,184,.6),inset 0 2px 10px rgba(255,255,255,.25)}
-.orbit .core span{font-family:var(--display);font-weight:800;font-size:clamp(15px,1.7vw,22px);letter-spacing:-.01em;line-height:1.1}
-.orbit .core small{display:block;font-family:var(--body);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-100);margin-bottom:6px}
-.orbit .node{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);will-change:transform}
-.orbit .node b{display:flex;align-items:center;gap:8px;width:max-content;max-width:190px;line-height:1.25;font-weight:600;font-size:13.5px;color:var(--fg);padding:10px 14px;border-radius:14px;
-  background:rgba(255,255,255,.9);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  box-shadow:0 18px 36px -20px rgba(17,45,82,.5);transition:border-color .3s,box-shadow .3s,transform .3s var(--ease)}
-.orbit .node b i{width:8px;height:8px;border-radius:50%;background:var(--blue-500);box-shadow:0 0 0 3px rgba(33,105,184,.15)}
-.orbit .node b:hover{border-color:var(--blue-400);box-shadow:var(--glow);transform:scale(1.06)}
-.fx .orbit .node b{animation:bob 6s ease-in-out infinite;animation-delay:var(--t,0s)}
 @keyframes bob{50%{translate:0 -8px}}
 
-/* ═════════ SOBRE ═════════ */
-#sobre{padding:0 0 130px}
-.sobre-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px;align-items:start}
-/* painel que invade o hero */
-.stat-panel{position:relative;margin-top:-150px;z-index:3;border-radius:28px;padding:44px 40px 36px;overflow:hidden;
-  background:radial-gradient(420px 300px at 100% 0%,rgba(106,170,228,.22),transparent 70%),linear-gradient(160deg,var(--tint),var(--surface) 62%);
-  border:1px solid var(--tint-line);box-shadow:var(--shadow-2);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
-.stat-panel:hover{transform:translateY(-6px);box-shadow:var(--shadow-2),0 0 56px -18px rgba(33,105,184,.5)}
-.sobre-number{position:relative;font-family:var(--display);font-weight:800;font-size:clamp(84px,10vw,132px);line-height:.9;letter-spacing:-.05em;
-  background:linear-gradient(180deg,var(--fg) 25%,var(--blue-500));-webkit-background-clip:text;background-clip:text;color:transparent}
-.sobre-stat-label{position:relative;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-600);margin-top:10px}
-.stats-row{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:36px;border-top:1px solid var(--line)}
-.stat-item{padding:20px 0 4px;display:flex;align-items:center;gap:14px;min-width:0}
-.stat-item:nth-child(odd){padding-right:14px}
-.stat-item:nth-child(even){padding-left:18px;border-left:1px solid var(--line)}
-.stat-item:nth-child(n+3){border-top:1px solid var(--line);padding-top:18px;margin-top:4px}
-.stat-num{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:17px;color:var(--blue-600);
-  background:var(--blue-50);border:1px solid var(--tint-line)}
-.stat-num svg{width:22px;height:22px}
-.stat-label{font-size:14.5px;color:var(--fg);line-height:1.3}
-.sobre-content{padding-top:96px}
-.sobre-content .lead+.lead{margin-top:20px}
+/* ═════════ TICKER DE MARCAS ═════════ */
+#marcas{padding:56px 0 64px;background:var(--surface);border-block:1px solid var(--line-soft);overflow:hidden}
+.ticker{position:relative;overflow:hidden;
+  mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.ticker-track{display:flex;width:max-content;animation:ticker var(--tdur,48s) linear infinite}
+.ticker:hover .ticker-track,.ticker:focus-within .ticker-track{animation-play-state:paused}
+.ticker-set{display:flex;align-items:center;gap:72px;padding-right:72px;flex:none;list-style:none}
+.ticker-set li{flex:none;display:flex;align-items:center;height:64px}
+.ticker-set img{height:var(--h,46px);width:auto;max-width:none;
+  filter:grayscale(1) brightness(.42) contrast(1.15);opacity:.62;
+  transition:filter .45s var(--ease),opacity .45s var(--ease),transform .45s var(--ease)}
+.ticker-set li:hover img{filter:none;opacity:1;transform:scale(1.08)}
+@keyframes ticker{to{transform:translate3d(-50%,0,0)}}
+@media (prefers-reduced-motion:reduce){
+  .ticker{overflow-x:auto;mask-image:none;-webkit-mask-image:none}
+  .ticker-track{animation:none}
+  .ticker-set[aria-hidden="true"]{display:none}
+}
+@media (max-width:640px){
+  #marcas{padding:40px 0 44px}
+  .ticker-set{gap:48px;padding-right:48px}
+  .ticker-set img{height:calc(var(--h,46px) * .8)}
+}
 
 /* ═════════ ESTRATÉGIA (abas) ═════════ */
 #estrategia{padding:140px 0;background:linear-gradient(180deg,var(--bg),var(--bg-2) 30%,var(--bg-2) 70%,var(--bg))}
@@ -343,55 +296,9 @@ img{max-width:100%;display:block}
 .pillar-services li:hover{border-color:var(--blue-400);background:var(--blue-50);transform:translateY(-2px);box-shadow:var(--shadow-1)}
 .pillar-panel.alt{background:linear-gradient(150deg,#DCE9F9,var(--surface) 60%);border-color:rgba(33,105,184,.3)}
 
-/* ═════════ PROCESSO ═════════ */
-#processo{padding:140px 0 120px}
-.processo-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:start}
-.processo-steps{position:relative;margin-top:48px;padding-left:72px}
-.processo-steps .rail{position:absolute;left:23px;top:8px;bottom:8px;width:2px;background:var(--line);border-radius:2px;overflow:hidden}
-.processo-steps .rail i{position:absolute;left:0;top:0;width:100%;height:100%;background:linear-gradient(var(--blue-400),var(--blue-600));transform-origin:top;transform:scaleY(var(--p,1))}
-.fx .processo-steps .rail i{transform:scaleY(var(--p,0))}
-.step{position:relative;padding-bottom:38px}
-.step:last-child{padding-bottom:0}
-.step-num{position:absolute;left:-72px;top:-4px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:15px;
-  background:var(--surface);border:1px solid var(--line);color:var(--soft);transition:all .5s var(--ease)}
-.step.lit .step-num{color:#fff;border-color:var(--blue-500);background:var(--blue-500);box-shadow:0 0 0 6px rgba(33,105,184,.14),0 12px 26px -8px rgba(33,105,184,.6)}
-.step-title{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.01em;line-height:1.25}
-.step-desc{color:var(--muted);margin-top:8px;max-width:46ch}
-.processo-visual{position:relative;margin-top:24px}
-.processo-visual .kicker{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--soft);margin-bottom:24px}
-.res-stack{position:relative;display:flex;flex-direction:column;gap:18px}
-.resultado-card{position:relative;display:flex;gap:20px;align-items:flex-start;padding:26px 26px;border-radius:22px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-1);
-  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .4s}
-.resultado-card:nth-child(1){margin-right:56px}
-.resultado-card:nth-child(2){margin-left:56px}
-.resultado-card:nth-child(3){margin-right:28px}
-.resultado-card:nth-child(4){margin-left:84px;background:linear-gradient(150deg,var(--tint),var(--surface) 70%);border-color:var(--tint-line)}
-.resultado-card:hover{transform:translateY(-6px) scale(1.015);border-color:rgba(33,105,184,.35);box-shadow:var(--shadow-2),0 0 44px -18px rgba(33,105,184,.55)}
-.resultado-icon{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;color:var(--blue-600);background:var(--blue-50);border:1px solid var(--tint-line)}
-.resultado-icon svg{width:24px;height:24px}
-.resultado-title{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.25}
-.resultado-desc{color:var(--muted);font-size:15.5px;margin-top:6px}
-
-/* ═════════ SERVIÇOS (índice) ═════════ */
-#servicos{padding:120px 0 220px;background:linear-gradient(180deg,var(--bg),var(--bg-2))}
-.servicos-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:end}
-.svc-index{margin-top:64px;border-top:1px solid var(--line)}
-.svc-row{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1.25fr);gap:32px;align-items:center;padding:34px 24px;border-bottom:1px solid var(--line);overflow:hidden;isolation:isolate}
-.svc-row::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(33,105,184,.12),rgba(33,105,184,.03) 60%,transparent);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
-.svc-row:hover::before{transform:scaleX(1)}
-.svc-row .servico-tag{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-500)}
-.svc-row .servico-title{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.6vw,36px);line-height:1.05;letter-spacing:-.02em;transition:transform .6s var(--ease),color .4s}
-.svc-row:hover .servico-title{transform:translateX(10px);color:var(--blue-700)}
-.servico-items{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px}
-.servico-items li{position:relative;color:var(--muted);font-size:15.5px;padding-left:16px}
-.servico-items li::before{content:"";position:absolute;left:0;top:.68em;width:6px;height:6px;border-radius:50%;background:var(--blue-500)}
-.svc-row:hover .servico-items li{color:var(--fg)}
-.svc-row.premium{background:linear-gradient(90deg,rgba(33,105,184,.08),transparent 80%)}
-.svc-row.premium .servico-tag{color:var(--blue-700)}
-
 /* ═════════ CTA flutuante ═════════ */
-#cta-band{z-index:3;margin-top:-140px;margin-bottom:-120px}
-#cta-band::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--bg-2)}
+#cta-band{z-index:3;margin-top:-40px;margin-bottom:-120px}
+#cta-band::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%)}
 .cta-panel{position:relative;isolation:isolate;border-radius:36px;padding:80px 56px;text-align:center;overflow:hidden;color:var(--fg);box-shadow:var(--shadow-2),0 60px 110px -60px rgba(17,45,82,.45)}
 .cta-panel::before{content:"";position:absolute;inset:0;z-index:-2;border-radius:inherit;padding:1.5px;
   background:conic-gradient(from var(--a,0deg),rgba(33,105,184,0),rgba(33,105,184,.85),rgba(106,170,228,.25),rgba(33,105,184,0) 60%);
@@ -434,18 +341,18 @@ textarea.form-input{min-height:130px;resize:vertical}
 .form-msg.ok{background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.35);color:#137A3F}
 .form-msg.err{background:rgba(220,50,50,.07);border:1px solid rgba(220,50,50,.25);color:#B42318}
 
-/* ═════════ RODAPÉ ═════════ */
-footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--line);overflow:hidden}
+/* ═════════ RODAPÉ (chumbo) ═════════ */
+footer{padding:72px 0 36px;background:#2B2F35;color:#EDEFF2;overflow:hidden}
 .foot-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:start}
 .footer-logo img{height:34px;width:auto}
-.footer-tagline{color:var(--muted);margin-top:16px;max-width:36ch;font-size:16px}
+.footer-tagline{color:#B8BFC9;margin-top:16px;max-width:36ch;font-size:16px}
 .footer-links{list-style:none;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:flex-end}
-.footer-links a{color:var(--muted);text-decoration:none;position:relative;font-size:15px}
-.footer-links a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--blue-500);transform:scaleX(0);transition:transform .4s var(--ease)}
-.footer-links a:hover{color:var(--fg)}
+.footer-links a{color:#B8BFC9;text-decoration:none;position:relative;font-size:15px}
+.footer-links a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--blue-300);transform:scaleX(0);transition:transform .4s var(--ease)}
+.footer-links a:hover{color:#FFFFFF}
 .footer-links a:hover::after{transform:scaleX(1)}
-.footer-mark{font-family:var(--display);font-weight:800;font-size:clamp(80px,19vw,260px);line-height:.8;letter-spacing:-.05em;margin-top:60px;color:transparent;-webkit-text-stroke:1px #D3DAE3;user-select:none;white-space:nowrap}
-.footer-copy{margin-top:28px;padding-top:24px;border-top:1px solid var(--line);font-size:13.5px;color:var(--soft)}
+footer :focus-visible{outline-color:var(--blue-300)}
+.footer-copy{margin-top:48px;padding-top:24px;border-top:1px solid #3B4048;font-size:13.5px;color:#9098A3}
 
 /* WhatsApp flutuante */
 .wpp-float{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:900;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--wpp);
@@ -458,13 +365,7 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
 
 /* ═════════ RESPONSIVO ═════════ */
 @media (max-width:1020px){
-  .hero-grid{grid-template-columns:minmax(0,1fr)}
-  .orbit{max-width:440px;margin-top:20px}
-  .hero-scroll{display:none}
-  #hero{padding-bottom:200px}
-  .sobre-grid,.processo-grid,.contato-grid,.estr-intro,.servicos-intro{grid-template-columns:minmax(0,1fr);gap:40px}
-  .sobre-content{padding-top:0}
-  .svc-row{grid-template-columns:minmax(0,1fr);gap:12px}
+  .contato-grid,.estr-intro{grid-template-columns:minmax(0,1fr);gap:40px}
   .foot-grid{grid-template-columns:minmax(0,1fr)}
   .footer-links{justify-content:flex-start}
 }
@@ -487,24 +388,10 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
 @media (max-width:640px){
   body{font-size:16px}
   .wrap{width:min(1200px,100% - 32px)}
-  #hero{padding:90px 0 170px}
-  .orbit{width:calc(100% - 110px);max-width:320px}
-  .orbit .node b{font-size:11px;padding:6px 9px;border-radius:10px;max-width:118px;gap:6px}
-  .orbit .node b i{width:6px;height:6px;flex:none}
   .hero-actions .btn{flex:1 1 100%}
-  .stat-panel{margin-top:-120px;padding:32px 24px 26px}
-  .stat-item:nth-child(even){padding-left:12px}
-  .stat-label{font-size:13.5px}
-  #estrategia,#processo{padding:96px 0}
-  .processo-steps{padding-left:62px}
-  .step-num{left:-62px;width:42px;height:42px;font-size:13px}
-  .processo-steps .rail{left:20px}
-  .resultado-card:nth-child(n){margin:0}
-  .resultado-card{padding:22px 20px}
+  #estrategia{padding:96px 0}
   .fx [data-reveal="right"]{transform:translate3d(24px,0,0)}
   .fx [data-reveal="left"]{transform:translate3d(-24px,0,0)}
-  #servicos{padding:96px 0 200px}
-  .svc-row{padding:26px 6px}
   .cta-panel{padding:56px 24px;border-radius:28px}
   #contato{padding:210px 0 96px}
   .contato-form-wrap{padding:30px 22px}
@@ -523,9 +410,9 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
       <div class="slide-bg" data-speed="-0.35" aria-hidden="true"><div class="layer"></div><div class="grid"></div><div class="shade"></div></div>
       <div class="wrap slide-inner">
         <div class="slide-copy" data-speed="-0.12">
-          <h2 class="slide-title">Sua marca precisa dizer quem você é <em>antes de você falar.</em></h2>
+          <h1 class="slide-title">Sua marca precisa dizer quem você é <em>antes de você falar.</em></h1>
           <p class="slide-sub">Definimos o posicionamento, a voz e a identidade visual da sua empresa para que ela seja reconhecida e lembrada pelo cliente certo.</p>
-          <div class="slide-cta"><a class="btn btn-primary" href="/#estrategia">Quero me posicionar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="slide-cta"><a class="btn btn-primary" href="/#pilar-posicionamento">Quero me posicionar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
         <div class="slide-visual" data-speed="0.1" aria-hidden="true">
           <div class="v ringv dash spin r-a" style="--k:0"></div>
@@ -601,7 +488,7 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
         <div class="slide-copy" data-speed="-0.12">
           <h2 class="slide-title">Leve o cliente certo <em>até o seu negócio.</em></h2>
           <p class="slide-sub">SEO, tráfego pago no Meta e no Google e funil de vendas trabalhando juntos para que sua empresa seja encontrada por quem já procura o que você oferece.</p>
-          <div class="slide-cta"><a class="btn btn-primary" href="/#servicos">Quero atrair clientes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="slide-cta"><a class="btn btn-primary" href="/#pilar-atracao">Quero atrair clientes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
         <div class="slide-visual" data-speed="0.1" aria-hidden="true">
           <div class="v arc a1" style="--k:0"></div>
@@ -635,84 +522,36 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
   </div>
 </section>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="grid-lines" aria-hidden="true"></div>
-  <div class="orb" data-speed="-0.25" style="width:520px;height:520px;right:-140px;top:-120px" aria-hidden="true"><i style="background:radial-gradient(circle,rgba(106,170,228,.45),transparent 70%)"></i></div>
-  <div class="orb" data-speed="0.18" style="width:380px;height:380px;left:-160px;bottom:300px" aria-hidden="true"><i style="background:radial-gradient(circle,rgba(163,200,240,.6),transparent 70%)"></i></div>
-
-  <div class="wrap hero-grid">
-    <div class="hero-content" data-stagger>
-      <div class="hero-badge" data-reveal>Agência de Comunicação e Marketing Estratégico</div>
-      <h1 data-reveal>Seja visto <em>como referência no seu mercado</em> e feche mais negócios!</h1>
-      <p class="hero-slogan" data-reveal>
-        Não vendemos ferramentas. Desenvolvemos <strong>estratégias completas</strong> que posicionam sua marca, atraem clientes e transformam sua presença digital em resultado real.
-      </p>
-      <div class="hero-actions" data-reveal>
-        <a href="https://wa.me/5579996343621" class="btn btn-primary" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Quero uma estratégia
-        </a>
-        <a href="#estrategia" class="btn btn-ghost">Conheça a metodologia ↓</a>
-      </div>
-    </div>
-
-    <div class="orbit" data-reveal="zoom" aria-label="Os seis pilares da metodologia Teovox giram em torno da estratégia" role="img">
-      <div class="ring r1" data-depth="6"></div>
-      <div class="ring r2" data-depth="12"></div>
-      <div class="ring r3" data-depth="18"></div>
-      <div class="core" data-depth="22"><div><small>Metodologia</small><span>Estratégia</span></div></div>
-      <div class="node" data-depth="30" style="--x:50%;--y:3%;--t:0s"><b><i></i>Posicionamento &amp; Identidade</b></div>
-      <div class="node" data-depth="26" style="--x:88%;--y:27%;--t:-1s"><b><i></i>Presença Digital</b></div>
-      <div class="node" data-depth="34" style="--x:86%;--y:73%;--t:-2s"><b><i></i>Atração de Clientes</b></div>
-      <div class="node" data-depth="24" style="--x:50%;--y:97%;--t:-3s"><b><i></i>Infoprodutos &amp; Lançamentos</b></div>
-      <div class="node" data-depth="32" style="--x:13%;--y:73%;--t:-4s"><b><i></i>Vendas Todos os Dias</b></div>
-      <div class="node" data-depth="28" style="--x:12%;--y:27%;--t:-5s"><b><i></i>Consultoria &amp; Mentoria</b></div>
-    </div>
-  </div>
-
-  <div class="hero-scroll" aria-hidden="true">
-    <div class="scroll-line"></div>
-    Scroll
-  </div>
-</section>
-
-<!-- SOBRE -->
-<section id="sobre">
-  <div class="wrap sobre-grid">
-    <div class="sobre-visual" data-reveal="left">
-      <div class="stat-panel">
-        <div class="sobre-number">100%</div>
-        <div class="sobre-stat-label">orientados a resultados</div>
-        <div class="stats-row" data-stagger>
-          <div class="stat-item" data-reveal>
-            <div class="stat-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0112 2.5a7 7 0 017 7C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
-            <div class="stat-label">Todo o Brasil</div>
-          </div>
-          <div class="stat-item" data-reveal>
-            <div class="stat-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></div>
-            <div class="stat-label">Atendimento exterior</div>
-          </div>
-          <div class="stat-item" data-reveal>
-            <div class="stat-num">360°</div>
-            <div class="stat-label">Visão estratégica</div>
-          </div>
-          <div class="stat-item" data-reveal>
-            <div class="stat-num">∞</div>
-            <div class="stat-label">Possibilidades digitais</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="sobre-content" data-stagger>
-      <span class="tag" data-reveal>Nossa filosofia</span>
-      <h2 class="h2" data-reveal>Estratégia antes de qualquer ferramenta</h2>
-      <p class="lead" data-reveal style="margin-top:26px">
-        A Teovox nasceu para transformar a forma como negócios e profissionais se comunicam no ambiente digital. Não somos uma fábrica de posts ou uma agência de serviços avulsos — somos parceiros estratégicos que enxergam seu negócio como um todo.
-      </p>
-      <p class="lead" data-reveal>
-        Cada recurso que utilizamos — do branding ao tráfego pago — existe a serviço de uma estratégia maior, desenhada especificamente para o seu momento e objetivos. Atendemos todo o Brasil e exterior.
-      </p>
+<!-- TICKER DE MARCAS -->
+<section id="marcas" aria-label="Marcas criadas pela Teovox">
+  <div class="ticker">
+    <div class="ticker-track">
+      <ul class="ticker-set">
+        <li style="--h:52px"><img src="marcas/pib-cristo-rei.webp" alt="Logo PIB Cristo Rei" width="243" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:44px"><img src="marcas/pop-pig.webp" alt="Logo Pop Pig" width="347" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:44px"><img src="marcas/fazenda-beija-flor.webp" alt="Logo Fazenda Beija-Flor" width="415" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:44px"><img src="marcas/scastro-viagens.webp" alt="Logo SCastro Viagens" width="408" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:48px"><img src="marcas/amizeb.webp" alt="Logo Amizeb" width="365" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:44px"><img src="marcas/lugar-ideal.webp" alt="Logo Lugar Ideal" width="393" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:58px"><img src="marcas/start-medical.webp" alt="Logo Start Medical" width="118" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:56px"><img src="marcas/fervorio.webp" alt="Logo Fervório" width="196" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:30px"><img src="marcas/linktus.webp" alt="Logo Linktus" width="420" height="54" loading="lazy" decoding="async"></li>
+        <li style="--h:46px"><img src="marcas/homens-batistas.webp" alt="Logo Homens Batistas" width="301" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:58px"><img src="marcas/convencao-batista-mt.webp" alt="Logo Convenção Batista de Mato Grosso" width="123" height="128" loading="lazy" decoding="async"></li>
+      </ul>
+      <ul class="ticker-set" aria-hidden="true">
+        <li style="--h:52px"><img src="marcas/pib-cristo-rei.webp" alt="" width="243" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:44px"><img src="marcas/pop-pig.webp" alt="" width="347" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:44px"><img src="marcas/fazenda-beija-flor.webp" alt="" width="415" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:44px"><img src="marcas/scastro-viagens.webp" alt="" width="408" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:48px"><img src="marcas/amizeb.webp" alt="" width="365" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:44px"><img src="marcas/lugar-ideal.webp" alt="" width="393" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:58px"><img src="marcas/start-medical.webp" alt="" width="118" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:56px"><img src="marcas/fervorio.webp" alt="" width="196" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:30px"><img src="marcas/linktus.webp" alt="" width="420" height="54" loading="lazy" decoding="async"></li>
+        <li style="--h:46px"><img src="marcas/homens-batistas.webp" alt="" width="301" height="128" loading="lazy" decoding="async"></li>
+        <li style="--h:58px"><img src="marcas/convencao-batista-mt.webp" alt="" width="123" height="128" loading="lazy" decoding="async"></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -732,7 +571,7 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
     </div>
 
     <div class="pillars" data-reveal role="tablist" aria-label="Pilares da metodologia Teovox">
-      <div class="pillar">
+      <div class="pillar" id="pilar-posicionamento">
         <button class="pillar-tab" id="tab-1" role="tab" aria-selected="true" aria-controls="pan-1"><span class="n">01</span><span class="t">Posicionamento &amp; Identidade</span><span class="chev" aria-hidden="true"></span></button>
         <div class="pillar-panel on" id="pan-1" role="tabpanel" aria-labelledby="tab-1">
           <span class="big" aria-hidden="true">01</span>
@@ -747,7 +586,7 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
           </ul>
         </div>
       </div>
-      <div class="pillar">
+      <div class="pillar" id="pilar-presenca">
         <button class="pillar-tab" id="tab-2" role="tab" aria-selected="false" aria-controls="pan-2"><span class="n">02</span><span class="t">Presença Digital</span><span class="chev" aria-hidden="true"></span></button>
         <div class="pillar-panel" id="pan-2" role="tabpanel" aria-labelledby="tab-2">
           <span class="big" aria-hidden="true">02</span>
@@ -762,7 +601,7 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
           </ul>
         </div>
       </div>
-      <div class="pillar">
+      <div class="pillar" id="pilar-atracao">
         <button class="pillar-tab" id="tab-3" role="tab" aria-selected="false" aria-controls="pan-3"><span class="n">03</span><span class="t">Atração de Clientes</span><span class="chev" aria-hidden="true"></span></button>
         <div class="pillar-panel" id="pan-3" role="tabpanel" aria-labelledby="tab-3">
           <span class="big" aria-hidden="true">03</span>
@@ -777,7 +616,7 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
           </ul>
         </div>
       </div>
-      <div class="pillar">
+      <div class="pillar" id="pilar-infoprodutos">
         <button class="pillar-tab" id="tab-4" role="tab" aria-selected="false" aria-controls="pan-4"><span class="n">04</span><span class="t">Infoprodutos &amp; Lançamentos</span><span class="chev" aria-hidden="true"></span></button>
         <div class="pillar-panel" id="pan-4" role="tabpanel" aria-labelledby="tab-4">
           <span class="big" aria-hidden="true">04</span>
@@ -792,7 +631,7 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
           </ul>
         </div>
       </div>
-      <div class="pillar">
+      <div class="pillar" id="pilar-vendas">
         <button class="pillar-tab" id="tab-5" role="tab" aria-selected="false" aria-controls="pan-5"><span class="n">05</span><span class="t">Vendas Todos os Dias</span><span class="chev" aria-hidden="true"></span></button>
         <div class="pillar-panel" id="pan-5" role="tabpanel" aria-labelledby="tab-5">
           <span class="big" aria-hidden="true">05</span>
@@ -806,7 +645,7 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
           </ul>
         </div>
       </div>
-      <div class="pillar">
+      <div class="pillar" id="pilar-consultoria">
         <button class="pillar-tab" id="tab-6" role="tab" aria-selected="false" aria-controls="pan-6"><span class="n">06</span><span class="t">Consultoria &amp; Mentoria</span><span class="chev" aria-hidden="true"></span></button>
         <div class="pillar-panel alt" id="pan-6" role="tabpanel" aria-labelledby="tab-6">
           <span class="big" aria-hidden="true">06</span>
@@ -819,159 +658,6 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
             <li>Plano de ação personalizado</li>
           </ul>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMO FUNCIONA -->
-<section id="processo">
-  <div class="orb" data-speed="-0.15" style="width:460px;height:460px;left:-200px;top:30%" aria-hidden="true"><i style="background:radial-gradient(circle,rgba(106,170,228,.3),transparent 70%)"></i></div>
-  <div class="wrap processo-grid" style="position:relative;z-index:1">
-    <div>
-      <div data-stagger>
-        <span class="tag" data-reveal>Como trabalhamos</span>
-        <h2 class="h2" data-reveal>Do diagnóstico ao resultado</h2>
-        <p class="lead" data-reveal style="margin-top:22px">
-          Um processo estruturado que garante clareza em cada etapa e entrega resultados mensuráveis.
-        </p>
-      </div>
-      <div class="processo-steps" id="steps">
-        <div class="rail" aria-hidden="true"><i></i></div>
-        <div class="step" data-reveal>
-          <div class="step-num">01</div>
-          <div class="step-title">Diagnóstico estratégico</div>
-          <p class="step-desc">Entendemos seu negócio, seu mercado e seus objetivos em profundidade antes de propor qualquer ação.</p>
-        </div>
-        <div class="step" data-reveal>
-          <div class="step-num">02</div>
-          <div class="step-title">Plano personalizado</div>
-          <p class="step-desc">Desenvolvemos uma estratégia sob medida com prioridades claras, prazos e recursos definidos.</p>
-        </div>
-        <div class="step" data-reveal>
-          <div class="step-num">03</div>
-          <div class="step-title">Execução com inteligência</div>
-          <p class="step-desc">Colocamos a estratégia em prática com os recursos certos, monitorando cada indicador em tempo real.</p>
-        </div>
-        <div class="step" data-reveal>
-          <div class="step-num">04</div>
-          <div class="step-title">Análise e evolução contínua</div>
-          <p class="step-desc">Revisamos, ajustamos e escalonamos com base em dados reais — não em achismos.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="processo-visual">
-      <p class="kicker" data-reveal>O que você conquista</p>
-      <div class="res-stack" data-stagger>
-        <div class="resultado-card" data-reveal="right">
-          <div class="resultado-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.8L7 21l5-3 5 3-1.5-7.2"/></svg></div>
-          <div>
-            <div class="resultado-title">Autoridade de marca</div>
-            <p class="resultado-desc">Seu nome reconhecido e respeitado no nicho, com posicionamento claro e diferenciado.</p>
-          </div>
-        </div>
-        <div class="resultado-card" data-reveal="right">
-          <div class="resultado-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15.5l2 2 4-4"/></svg></div>
-          <div>
-            <div class="resultado-title">Clientes todos os dias</div>
-            <p class="resultado-desc">Um ecossistema digital que atrai, nutre e converte — mesmo enquanto você dorme.</p>
-          </div>
-        </div>
-        <div class="resultado-card" data-reveal="right">
-          <div class="resultado-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
-          <div>
-            <div class="resultado-title">Escalabilidade real</div>
-            <p class="resultado-desc">Processos e estratégias que crescem com você, sem que precise reinventar tudo do zero.</p>
-          </div>
-        </div>
-        <div class="resultado-card" data-reveal="right">
-          <div class="resultado-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2L20 3M16 7l3 3M18 5l2 2"/></svg></div>
-          <div>
-            <div class="resultado-title">Independência &amp; clareza</div>
-            <p class="resultado-desc">Você entende o que está sendo feito, por quê, e consegue tomar decisões com confiança.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVIÇOS -->
-<section id="servicos">
-  <div class="wrap">
-    <div class="servicos-intro" data-stagger>
-      <div>
-        <span class="tag" data-reveal>Recursos e serviços</span>
-        <h2 class="h2" data-reveal>Tudo o que sua estratégia precisa</h2>
-      </div>
-      <p class="lead" data-reveal>
-        Ferramentas e serviços são nossos recursos. A estratégia é o que transforma cada um deles em resultado para o seu negócio.
-      </p>
-    </div>
-
-    <div class="svc-index" data-stagger>
-      <div class="svc-row" data-reveal>
-        <span class="servico-tag">Identidade</span>
-        <div class="servico-title">Posicionamento Online</div>
-        <ul class="servico-items">
-          <li>Criação de marca estratégica</li>
-          <li>Proteção de marca (registro INPI)</li>
-          <li>Identidade visual (branding completo)</li>
-          <li>Posicionamento e voz da marca</li>
-        </ul>
-      </div>
-      <div class="svc-row" data-reveal>
-        <span class="servico-tag">Presença</span>
-        <div class="servico-title">Presença Digital</div>
-        <ul class="servico-items">
-          <li>Criação de websites profissionais</li>
-          <li>Landing pages de alta conversão</li>
-          <li>Criação e arte para redes sociais</li>
-          <li>Gestão completa de redes sociais</li>
-          <li>Linha editorial estratégica</li>
-        </ul>
-      </div>
-      <div class="svc-row" data-reveal>
-        <span class="servico-tag">Prospecção</span>
-        <div class="servico-title">Atração de Clientes</div>
-        <ul class="servico-items">
-          <li>SEO e tráfego orgânico</li>
-          <li>Tráfego pago — Meta Ads &amp; Google Ads</li>
-          <li>Funil de vendas recorrente</li>
-          <li>Estratégia de prospecção ativa</li>
-        </ul>
-      </div>
-      <div class="svc-row" data-reveal>
-        <span class="servico-tag">Infoproduto</span>
-        <div class="servico-title">Criação de Infoprodutos</div>
-        <ul class="servico-items">
-          <li>Jornada de transformação do aluno</li>
-          <li>Criação da oferta irresistível</li>
-          <li>Hospedagem do infoproduto</li>
-          <li>Link de vendas e checkout</li>
-          <li>Configuração de cursos e mentorias</li>
-        </ul>
-      </div>
-      <div class="svc-row" data-reveal>
-        <span class="servico-tag">Lançamento</span>
-        <div class="servico-title">Lançamentos Digitais</div>
-        <ul class="servico-items">
-          <li>Estratégia completa de lançamento</li>
-          <li>Funil perpétuo para vender todos os dias</li>
-          <li>Lançamentos com abertura de carrinho</li>
-          <li>Automações e sequências de e-mail</li>
-        </ul>
-      </div>
-      <div class="svc-row premium" data-reveal>
-        <span class="servico-tag">Premium</span>
-        <div class="servico-title">Consultoria &amp; Mentoria</div>
-        <ul class="servico-items">
-          <li>Diagnóstico estratégico detalhado</li>
-          <li>Mentoria individual personalizada</li>
-          <li>Plano de ação com acompanhamento</li>
-          <li>Grupo de mentoria coletiva</li>
-        </ul>
       </div>
     </div>
   </div>
@@ -1064,19 +750,16 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="#" class="footer-logo"><img src="Logotipo-teovox-escuro.png" alt="Teovox" width="164" height="32"></a>
+        <a href="#" class="footer-logo"><img src="Logotipo-teovox2.png" alt="Teovox" width="164" height="32"></a>
         <div class="footer-tagline">Seja visto como referência no seu mercado e feche mais negócios</div>
       </div>
       <ul class="footer-links">
-        <li><a href="#sobre">Sobre</a></li>
         <li><a href="#estrategia">Estratégia</a></li>
-        <li><a href="#servicos">Serviços</a></li>
         <li><a href="/criacao-de-logos">Logos</a></li>
         <li><a href="/website-por-assinatura">Website Por Assinatura</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </div>
-    <div class="footer-mark" aria-hidden="true">TEOVOX</div>
     <div class="footer-copy">
       © 2026 Teovox — Agência de Comunicação e Marketing Digital. Todos os direitos reservados.
     </div>
@@ -1123,6 +806,13 @@ footer{padding:80px 0 40px;background:var(--surface);border-top:1px solid var(--
         document.getElementById(t.getAttribute('aria-controls')).classList.toggle('on',on);
       });
     }
+    function fromHash(){
+      var id=location.hash.slice(1); if(!id) return;
+      var p=document.getElementById(id);
+      if(p && p.classList.contains('pillar')){ select(p.querySelector('.pillar-tab'),false); }
+    }
+    window.addEventListener('hashchange',fromHash);
+    setTimeout(fromHash,0);
     tabs.forEach(function(t,i){
       t.tabIndex=i===0?0:-1;
       t.addEventListener('click',function(){ select(t, mq.matches); });

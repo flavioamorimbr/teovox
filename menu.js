@@ -3,22 +3,21 @@
      <script src="/menu.js"></script>
    Na página inicial (que já tem espaço no topo), use:
      <script src="/menu.js" data-offset="false"></script>
+   Para o menu claro (páginas com fundo branco), acrescente data-theme="light".
    Para adicionar, remover ou reordenar itens, edite só a lista LINKS abaixo. */
 (function () {
   var LINKS = [
     { label: 'Início',     href: '/' },
-    { label: 'Sobre',      href: '/#sobre' },
     { label: 'Estratégia', href: '/#estrategia' },
-    { label: 'Serviços',   href: '/#servicos' },
     { label: 'Logos',      href: '/criacao-de-logos' },
     { label: 'Website Por Assinatura', href: '/website-por-assinatura' },
     { label: 'Contato',    href: '/#contato' }
   ];
   var CTA = { label: 'Falar no WhatsApp', href: 'https://wa.me/5579996343621' };
-  var LOGO = 'Logotipo-teovox2.png';
-
   var script = document.currentScript;
   var addOffset = !script || script.getAttribute('data-offset') !== 'false';
+  var light = !!script && script.getAttribute('data-theme') === 'light';
+  var LOGO = light ? 'Logotipo-teovox-escuro.png' : 'Logotipo-teovox2.png';
 
   var css = '' +
     '.tvx-nav{display:block;padding:0;position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,31,58,.9);' +
@@ -51,6 +50,20 @@
       '.tvx-cta{margin-top:16px;text-align:center;padding:14px 0!important}' +
       '.tvx-open{background:rgba(11,31,58,.98)}' +
     '}' +
+    (light ?
+      '.tvx-nav{background:rgba(255,255,255,.86);border-bottom:1px solid #DDE3EB;box-shadow:0 10px 30px -24px rgba(17,45,82,.45)}' +
+      '.tvx-links a{color:#4A5260}' +
+      '.tvx-links a:hover,.tvx-links a[aria-current="page"]{color:#141414}' +
+      '.tvx-links a[aria-current="page"]{box-shadow:inset 0 -2px 0 #2169B8}' +
+      '.tvx-cta:hover{background:#174070}' +
+      '.tvx-toggle{color:#141414;border-color:#DDE3EB}' +
+      '.tvx-nav a:focus-visible,.tvx-toggle:focus-visible{outline-color:#2169B8}' +
+      '@media (max-width:1100px){' +
+        '.tvx-links{border-top-color:#DDE3EB}' +
+        '.tvx-links a{border-bottom-color:#E6EBF1}' +
+        '.tvx-links a[aria-current="page"]{color:#2169B8;box-shadow:none}' +
+        '.tvx-open{background:rgba(255,255,255,.98)}' +
+      '}' : '') +
     (addOffset ? 'body{padding-top:72px}' : '');
 
   var style = document.createElement('style');
