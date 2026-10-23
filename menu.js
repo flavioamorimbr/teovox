@@ -11,7 +11,7 @@
     { label: 'Estratégia', href: '/#estrategia' },
     { label: 'Serviços',   href: '/#servicos' },
     { label: 'Logos',      href: '/criacao-de-logos' },
-    { label: 'Planos',     href: '/planos' },
+    { label: 'Website Por Assinatura', href: '/website-por-assinatura' },
     { label: 'Contato',    href: '/#contato' }
   ];
   var CTA = { label: 'Falar no WhatsApp', href: 'https://wa.me/5579996343621' };
@@ -27,7 +27,8 @@
     '.tvx-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px;padding:0 6%}' +
     '.tvx-logo img{height:32px;width:auto;display:block}' +
     '.tvx-links{list-style:none;display:flex;align-items:center;gap:2.2rem}' +
-    '.tvx-links a{font-size:.9rem;color:#B0B0B0;text-decoration:none;letter-spacing:.02em;transition:color .2s}' +
+    '.tvx-links a{font-size:.9rem;color:#B0B0B0;text-decoration:none;letter-spacing:.02em;white-space:nowrap;transition:color .2s}' +
+    '@media (max-width:1280px){.tvx-links{gap:1.5rem}.tvx-links a{font-size:.86rem}.tvx-bar{padding:0 4%}}' +
     '.tvx-links a:hover,.tvx-links a[aria-current="page"]{color:#fff}' +
     '.tvx-links a[aria-current="page"]{box-shadow:inset 0 -2px 0 #3A82D0;padding-bottom:4px}' +
     '.tvx-cta{background:#2169B8;color:#fff!important;padding:.6rem 1.4rem;border-radius:100px;font-weight:500}' +
@@ -40,7 +41,7 @@
     '.tvx-open .tvx-toggle span::before{transform:translateY(6px) rotate(45deg)}' +
     '.tvx-open .tvx-toggle span::after{transform:translateY(-6px) rotate(-45deg)}' +
     '.tvx-nav a:focus-visible,.tvx-toggle:focus-visible{outline:2px solid #6AAAE4;outline-offset:3px;border-radius:6px}' +
-    '@media (max-width:900px){' +
+    '@media (max-width:1100px){' +
       '.tvx-toggle{display:inline-flex}' +
       '.tvx-links{display:none;flex-direction:column;align-items:stretch;gap:0;padding:8px 6% 24px;border-top:1px solid rgba(58,130,208,.18)}' +
       '.tvx-open .tvx-links{display:flex}' +
@@ -56,7 +57,7 @@
   style.textContent = css;
   document.head.appendChild(style);
 
-  // página atual: "/planos" e "/planos.html" contam como a mesma página
+  // página atual: "/pagina" e "/pagina.html" contam como a mesma página
   var path = location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/';
   if (path.length > 1) path = path.replace(/\/$/, '');
 
@@ -81,7 +82,7 @@
   // no desktop os links ficam na mesma linha do logo; no celular, abaixo dela
   var bar = nav.querySelector('.tvx-bar');
   var toggle = nav.querySelector('.tvx-toggle');
-  var mq = window.matchMedia('(max-width: 900px)');
+  var mq = window.matchMedia('(max-width: 1100px)');
   function place() {
     if (mq.matches) { nav.appendChild(ul); } else { bar.insertBefore(ul, toggle); nav.classList.remove('tvx-open'); toggle.setAttribute('aria-expanded', 'false'); }
   }

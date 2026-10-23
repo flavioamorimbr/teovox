@@ -9,5 +9,17 @@
       "source": "/quiz/",
       "destination": "/quiz/index.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/planos",
+      "destination": "/website-por-assinatura",
+      "permanent": true
+    },
+    {
+      "source": "/planos.html",
+      "destination": "/website-por-assinatura",
+      "permanent": true
+    }
   ]
 }
