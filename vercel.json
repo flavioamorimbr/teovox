@@ -20,6 +20,39 @@
       "source": "/planos.html",
       "destination": "/website-por-assinatura",
       "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.teovox.com.br"
+        }
+      ],
+      "destination": "https://teovox.com.br/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "teovox.vercel.app"
+        }
+      ],
+      "destination": "https://teovox.com.br/:path*",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(quiz|briefing-perictus)(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ]
 }

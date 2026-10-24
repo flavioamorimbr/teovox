@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Criação de logos, identidade visual, registro de marca no INPI e organização dos arquivos da marca. Conheça o portfólio de marcas criadas pela Teovox.">
-<title>Criação de Logos — Teovox</title>
+<meta name="theme-color" content="#F4F6F9">
+<title>Criação de Logo — Teovox</title>
+<meta name="description" content="Sua marca merece ser reconhecida. Criamos logos estratégicos que traduzem a essência do seu negócio em uma identidade visual única, profissional e memorável.">
 <link rel="canonical" href="https://teovox.com.br/criacao-de-logos">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="icon-512.png">
@@ -12,250 +13,622 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Teovox">
-<meta property="og:title" content="Criação de Logos — Teovox">
-<meta property="og:description" content="Criação de logos, identidade visual, registro de marca no INPI e organização dos arquivos da marca. Conheça o portfólio de marcas criadas pela Teovox.">
+<meta property="og:title" content="Criação de Logo — Teovox">
+<meta property="og:description" content="Sua marca merece ser reconhecida.">
 <meta property="og:url" content="https://teovox.com.br/criacao-de-logos">
 <meta property="og:image" content="https://teovox.com.br/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Criação de Logo",
+  "serviceType": "Criação de logotipo e identidade visual",
+  "url": "https://teovox.com.br/criacao-de-logos",
+  "provider": {"@type": "ProfessionalService", "name": "Teovox Comunicação Estratégica", "url": "https://teovox.com.br/"},
+  "areaServed": "BR"
+}
+</script>
+<script>
+  /* animações só quando o aparelho permite movimento; sem JS tudo aparece normalmente */
+  (function(){var d=document.documentElement;if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('fx');}})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
-/* Layout: mesma base da página de planos (grafite + azul Teovox). Hero curto, portfólio em grade de painéis claros, serviços agrupados, contato */
+/* MODELO DAS PÁGINAS DE SERVIÇO
+   Blocos alternados claro/escuro; cada seção com um arranjo de colunas próprio:
+   abertura 7/5 · problema 5/7 · 3 colunas · entregas em linhas de 3 colunas · 6/6 · 5 colunas ·
+   estratégia 7/5 · chamada 1 coluna · perguntas 5/7 · próximo passo 1 coluna */
 :root{
-  --bg:#141414; --surface:#1E1E1E; --line:#2A2A2A;
-  --fg:#F2F2F2; --muted:#B0B0B0; --soft:#888888; --text:#D8D8D8;
-  --acc:#6AAAE4; --acc-strong:#2169B8; --acc-hover:#3A82D0; --acc-deep:#0B1F3A; --acc-mid:#174070; --acc-line:#1E5490;
-  --tile:#F2F2F2; --tile-ink:#141414;
-  --grad:linear-gradient(135deg,#3A82D0,#6AAAE4);
+  --bg:#F4F6F9; --bg-2:#EBEFF4; --surface:#FFFFFF; --surface-2:#F7F9FC; --line:#DDE3EB; --line-soft:#E6EBF1;
+  --fg:#141414; --muted:#4A5260; --soft:#737C89;
+  --dark:#12161C; --dark-2:#171C23; --dark-line:#262D37; --dark-fg:#F2F4F7; --dark-muted:#AAB2BE; --dark-soft:#7F8894;
+  --blue-900:#0B1F3A; --blue-800:#112D52; --blue-700:#174070; --blue-600:#1E5490; --blue-500:#2169B8;
+  --blue-400:#3A82D0; --blue-300:#6AAAE4; --blue-200:#A3C8F0; --blue-100:#D6E8F9; --blue-50:#EEF5FD;
+  --tint:#EAF2FC; --tint-line:rgba(33,105,184,.2);
+  --wpp:#25D366;
   --font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
-  color-scheme:dark;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --shadow-1:0 1px 2px rgba(17,45,82,.06),0 18px 36px -22px rgba(17,45,82,.28);
+  --shadow-2:0 2px 6px rgba(17,45,82,.05),0 40px 80px -38px rgba(17,45,82,.38),0 0 0 1px rgba(17,45,82,.04);
+  --glow:0 0 0 1px rgba(33,105,184,.28),0 18px 44px -14px rgba(33,105,184,.5);
+  color-scheme:light;
 }
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;margin:0;padding-inline:20px}
-.wrap{max-width:1160px;margin:0 auto}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--font);font-size:17px;line-height:1.65;color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+main,footer{position:relative;z-index:1;overflow-x:clip}
+section{position:relative;scroll-margin-top:84px}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:6px}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--blue-500);outline-offset:3px;border-radius:8px}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto;position:relative;z-index:1}
 
-.eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin:0 0 20px}
-.eyebrow::before{content:"";width:32px;height:2px;background:var(--grad)}
-h1{font-size:clamp(40px,7vw,84px);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:0;max-width:16ch;text-wrap:balance}
-h2{font-size:clamp(30px,4.4vw,52px);line-height:1.06;letter-spacing:-.03em;font-weight:800;margin:0;max-width:22ch;text-wrap:balance}
-.hl{color:var(--acc)}
-.intro{color:var(--muted);font-size:18px;max-width:58ch;margin:18px 0 0}
+/* blocos */
+.blk{padding:120px 0}
+.blk.light{background:var(--bg)}
+.blk.white{background:var(--surface)}
+.blk.dark{background:var(--dark);color:var(--dark-fg)}
+.blk.dark :focus-visible{outline-color:var(--blue-300)}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:15px;text-decoration:none;padding:15px 26px;border-radius:999px;transition:transform .15s ease,background .15s ease,border-color .15s ease}
-.btn-primary{background:var(--acc-strong);color:#fff}
-.btn-primary:hover{background:var(--acc-hover);transform:translateY(-1px)}
-.btn-line{border:1px solid var(--line);color:var(--fg)}
-.btn-line:hover{border-color:var(--acc)}
+/* tipografia */
+h1,h2,h3{font-weight:800;letter-spacing:-.03em;line-height:1.04;text-wrap:balance}
+h1{font-size:clamp(44px,6.4vw,84px)}
+h2{font-size:clamp(32px,4.2vw,54px)}
+h3{font-size:clamp(20px,1.8vw,24px);letter-spacing:-.015em;line-height:1.2}
+.hl{color:var(--blue-500)}
+.dark .hl{color:var(--blue-300)}
+.lead{font-size:clamp(17px,1.5vw,20px);color:var(--muted);max-width:56ch}
+.dark .lead{color:var(--dark-muted)}
+p+p{margin-top:16px}
+.stmt{font-weight:700;font-size:clamp(18px,1.6vw,21px);letter-spacing:-.01em;line-height:1.4}
+.dark .stmt{color:#fff}
 
-/* hero */
-.hero{position:relative;padding-block:72px 64px;isolation:isolate;overflow:hidden;margin-inline:-20px;padding-inline:20px}
-.hero::after{content:"";position:absolute;z-index:-1;width:720px;height:720px;right:-260px;top:-300px;border-radius:50%;background:radial-gradient(circle,#112D52 0%,var(--bg) 65%);pointer-events:none}
-.hero .sub{font-size:clamp(18px,2vw,21px);color:var(--muted);max-width:58ch;margin:28px 0 0}
-.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+/* botões */
+.btn{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:600;font-size:16px;text-decoration:none;
+  padding:16px 28px;border-radius:999px;border:0;cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s var(--ease),border-color .35s,color .35s}
+.btn svg{width:20px;height:20px;flex:none;transition:transform .35s var(--ease)}
+.btn:hover svg.arr{transform:translateX(4px)}
+.btn-primary{color:#fff;background:linear-gradient(120deg,var(--blue-500),var(--blue-400) 55%,var(--blue-500));background-size:200% 100%;box-shadow:0 12px 28px -12px rgba(33,105,184,.65)}
+.btn-primary::after{content:"";position:absolute;inset:-6px;border-radius:inherit;z-index:-1;background:radial-gradient(closest-side,rgba(58,130,208,.4),transparent);opacity:0;transform:scale(.7);transition:opacity .4s,transform .5s var(--ease)}
+.btn-primary:hover{transform:translateY(-2px) scale(1.03);background-position:100% 0;box-shadow:var(--glow)}
+.btn-primary:hover::after{opacity:1;transform:scale(1.25)}
+.btn-wpp{color:#062A14;background:var(--wpp);font-weight:700;box-shadow:0 14px 40px -14px rgba(37,211,102,.7)}
+.btn-wpp::after{content:"";position:absolute;inset:-8px;border-radius:inherit;z-index:-1;background:radial-gradient(closest-side,rgba(37,211,102,.45),transparent);opacity:0;transform:scale(.7);transition:opacity .4s,transform .5s var(--ease)}
+.btn-wpp:hover{transform:translateY(-2px) scale(1.04);background:#2BE070}
+.btn-wpp:hover::after{opacity:1;transform:scale(1.3)}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
 
-section.block{padding-block:72px;border-top:1px solid var(--line)}
-.head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
+/* entrada e parallax */
+.fx [data-reveal]{opacity:0;transform:translate3d(0,34px,0);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0) * 1ms)}
+.fx [data-reveal="left"]{transform:translate3d(-40px,0,0)}
+.fx [data-reveal="right"]{transform:translate3d(40px,0,0)}
+.fx [data-reveal="zoom"]{transform:scale(.94)}
+.fx [data-reveal].is-in{opacity:1;transform:none}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:0}
+.orb>i{display:block;width:100%;height:100%;border-radius:50%}
+[data-speed]{transform:translate3d(0,var(--py,0px),0)}
+@keyframes bob{50%{translate:0 -10px}}
 
+/* ── 1. ABERTURA (7/5) ── */
+.hero{padding:160px 0 120px;overflow:hidden;background:radial-gradient(900px 520px at 78% 40%,rgba(163,200,240,.5),transparent 70%),var(--bg)}
+.hero .grid-lines{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(17,45,82,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(17,45,82,.06) 1px,transparent 1px);
+  background-size:72px 72px;mask-image:radial-gradient(ellipse 60% 70% at 70% 45%,#000 25%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 60% 70% at 70% 45%,#000 25%,transparent 75%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:center}
+.hero h1 em{font-style:normal;color:var(--blue-500)}
+.hero .sub{font-size:clamp(22px,2.3vw,30px);font-weight:700;letter-spacing:-.02em;line-height:1.25;margin-top:24px;max-width:24ch;text-wrap:balance}
+.hero .lead{margin-top:20px}
+.hero .trio{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;list-style:none}
+.hero .trio li{font-size:14.5px;font-weight:600;padding:9px 16px;border-radius:999px;background:var(--surface);border:1px solid var(--tint-line);color:var(--blue-700);box-shadow:var(--shadow-1)}
+/* painel de identidade (ilustração) */
+.board{position:relative;aspect-ratio:1/1.05;max-width:460px;margin-inline:auto;width:100%}
+.board .card{position:absolute;border-radius:22px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-2);padding:22px}
+.board .c-mark{left:0;top:6%;width:62%;aspect-ratio:1;display:grid;place-items:center;background:linear-gradient(150deg,var(--tint),var(--surface) 65%)}
+.board .c-mark svg{width:62%;height:auto}
+.board .c-type{right:0;top:0;width:44%}
+.board .c-type b{display:block;font-size:56px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.board .c-type span{display:block;font-size:12px;color:var(--soft);margin-top:10px;letter-spacing:.04em}
+.board .c-color{right:2%;top:42%;width:48%}
+.board .sw{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.board .sw i{aspect-ratio:1;border-radius:10px;display:block}
+.board .c-color small,.board .c-voice small{display:block;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
+.board .c-voice{left:8%;bottom:0;width:66%}
+.board .c-voice p{font-size:15px;font-weight:600;line-height:1.45}
+.board .c-voice p span{color:var(--blue-500)}
+.fx .board .card{animation:bob 7s ease-in-out infinite}
+.fx .board .c-type{animation-delay:-1.5s}.fx .board .c-color{animation-delay:-3s}.fx .board .c-voice{animation-delay:-4.5s}
+
+/* ── 2. O PROBLEMA (5/7) ── */
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px;align-items:start}
+.split .body p{color:var(--dark-muted);font-size:18px;max-width:58ch}
+.quote{margin-top:36px;padding:26px 30px;border-radius:20px;border-left:3px solid var(--blue-400);background:linear-gradient(90deg,rgba(33,105,184,.2),rgba(33,105,184,.03))}
+.quote .stmt{font-size:clamp(20px,1.9vw,26px)}
+.split .body .quote .stmt{color:#fff;font-size:clamp(20px,1.9vw,26px)}
+
+/* ── 3. PARE DE IMPROVISAR (3 colunas) ── */
+.tri{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+.tri .col p{color:var(--muted);font-size:17.5px}
+.tri .col-3{padding:30px;border-radius:24px;background:var(--surface);border:1px solid var(--tint-line);box-shadow:var(--shadow-1)}
+.tri .col-3 .stmt{color:var(--blue-700);margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+
+/* ── 4. ENTREGAS (linhas de 3 colunas) ── */
+.del-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:64px;align-items:end}
+.del{margin-top:64px;border-top:1px solid var(--dark-line)}
+.del-row{position:relative;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,3.4fr) minmax(0,4.6fr);gap:40px;align-items:start;padding:36px 20px;border-bottom:1px solid var(--dark-line);isolation:isolate}
+.del-row::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(33,105,184,.18),rgba(33,105,184,.02) 70%,transparent);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.del-row:hover::before{transform:scaleX(1)}
+.del-name{display:flex;gap:18px;align-items:center}
+.del-name .ic{flex:none;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;color:var(--blue-200);background:rgba(33,105,184,.16);border:1px solid rgba(106,170,228,.25);transition:transform .4s var(--ease),background .4s,color .4s}
+.del-name .ic svg{width:25px;height:25px}
+.del-row:hover .del-name .ic{transform:scale(1.08);background:var(--blue-500);color:#fff}
+.del-name h3{font-size:clamp(20px,1.9vw,25px)}
+.del-tag{font-weight:700;color:#fff;font-size:17px;line-height:1.4}
+.del-row p.txt{color:var(--dark-muted)}
+.del-row .note{display:block;margin-top:10px;font-size:13.5px;font-style:italic;color:var(--dark-soft)}
+
+/* ── 5. PERCEPÇÃO (6/6) ── */
+.perc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.perc .txt p{color:var(--muted);font-size:18px}
+.perc-panel{position:relative;border-radius:30px;padding:48px 44px;overflow:hidden;background:linear-gradient(155deg,var(--tint),var(--surface) 60%);border:1px solid var(--tint-line);box-shadow:var(--shadow-2)}
+.perc-panel::before{content:"“";position:absolute;right:26px;top:-30px;font-size:220px;font-weight:800;line-height:1;color:rgba(33,105,184,.1)}
+.perc-panel .stmt{position:relative;font-size:clamp(22px,2.2vw,30px);line-height:1.3;color:var(--fg)}
+.perc-panel p.sub{position:relative;margin-top:22px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted)}
+.dots{display:flex;gap:10px;margin-bottom:26px}
+.dots i{width:12px;height:12px;border-radius:50%;background:var(--blue-500)}
+.dots i:nth-child(2){background:var(--blue-300)}.dots i:nth-child(3){background:var(--blue-100)}
+
+/* ── 6. O QUE MUDA (5 colunas) ── */
+.gains{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:64px;border-top:1px solid var(--dark-line)}
+.gain{padding:34px 26px 4px 0;position:relative}
+.gain+.gain{padding-left:26px;border-left:1px solid var(--dark-line)}
+.gain .n{font-size:13px;font-weight:800;color:var(--blue-300);font-variant-numeric:tabular-nums}
+.gain h3{font-size:19px;margin-top:14px}
+.gain p{color:var(--dark-muted);font-size:15.5px;margin-top:10px}
+.gain::after{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:var(--blue-300);transition:width .6s var(--ease)}
+.gain+.gain::after{left:-1px}
+.gain:hover::after{width:100%}
+
+/* ── 7. ESTRATÉGIA (7/5) ── */
+.strat{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px;align-items:center}
+.strat .txt p{color:var(--muted);font-size:18px;max-width:58ch}
+.strat .txt h2{margin-bottom:26px}
+.strat-mark{position:relative;border-radius:30px;padding:46px 40px;color:#fff;overflow:hidden;
+  background:radial-gradient(420px 300px at 100% 0%,rgba(106,170,228,.45),transparent 70%),linear-gradient(160deg,var(--blue-600),var(--blue-900));box-shadow:0 50px 90px -40px rgba(11,31,58,.6)}
+.strat-mark .stmt{font-size:clamp(26px,2.6vw,36px);line-height:1.15;letter-spacing:-.025em;font-weight:800;color:#fff}
+.strat-mark .steps{display:flex;align-items:center;gap:10px;margin-top:30px;font-size:13px;font-weight:600;color:var(--blue-100);flex-wrap:wrap}
+.strat-mark .steps span{padding:7px 12px;border-radius:999px;border:1px solid rgba(214,232,249,.35)}
+.strat-mark .steps svg{width:16px;height:16px;color:var(--blue-200)}
+
+/* ── 8. CHAMADA (1 coluna) ── */
+.cta-mid{text-align:center;overflow:hidden}
+.cta-mid h2{max-width:20ch;margin-inline:auto}
+.cta-mid .lead{margin:22px auto 0}
+.cta-mid .actions{justify-content:center}
+
+/* ── 9. PERGUNTAS (5/7) ── */
+.faq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px;align-items:start}
+.faq-grid .lead{margin-top:18px}
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;font-size:18px;font-weight:600;transition:color .3s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--blue-600)}
+.faq summary i{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);position:relative;transition:background .3s,border-color .3s,color .3s,transform .4s var(--ease)}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.8px;background:currentColor;transform:translate(-50%,-50%)}
+.faq summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .4s var(--ease)}
+.faq details[open] summary i{background:var(--blue-500);border-color:var(--blue-500);color:#fff;transform:rotate(180deg)}
+.faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.faq details p{color:var(--muted);padding:0 56px 24px 0;max-width:62ch}
+
+/* ── 10. PRÓXIMO PASSO (1 coluna) ── */
+.final{text-align:center;padding:130px 0 140px;overflow:hidden}
+.final h2{max-width:20ch;margin-inline:auto}
+.final .stmt{margin:22px auto 0;max-width:40ch;color:var(--dark-muted);font-weight:600}
+.final .pay{display:block;margin:34px auto 0;font-size:clamp(40px,5.6vw,76px);font-weight:800;letter-spacing:-.045em;line-height:1}
+.final .pay span{color:var(--blue-300)}
+.final .note{margin-top:12px;font-size:14px;color:var(--dark-soft)}
+.final .actions{justify-content:center}
+
+/* ilustração: construção da logo, cores e tipografia */
+.lgo{position:relative;aspect-ratio:1/.9;max-width:470px;margin-inline:auto;width:100%}
+.lgo .card{position:absolute;border-radius:20px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-2)}
+.lgo small{display:block;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
+.lgo .l-art{left:0;top:0;width:68%;padding:18px;background:linear-gradient(160deg,#fff,var(--blue-50))}
+.lgo .l-art svg{display:block;width:100%;height:auto}
+.lgo .mk,.lgo .mk2{stroke-dasharray:180;stroke-dashoffset:0}
+.fx .lgo .mk{animation:draw 6s var(--ease) infinite}
+.fx .lgo .mk2{animation:draw 6s var(--ease) .4s infinite}
+@keyframes draw{0%{stroke-dashoffset:180}35%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:-180}}
+.lgo .l-sw{right:0;top:30%;width:44%;padding:16px 18px}
+.lgo .sw{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.lgo .sw i{aspect-ratio:1;border-radius:9px;border:1px solid rgba(15,23,42,.08)}
+.lgo .l-ty{right:12%;bottom:0;width:36%;padding:16px 18px}
+.lgo .aa{display:block;font-size:52px;font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--fg)}
+.fx .lgo .card{animation:bob 7s ease-in-out infinite}
+.fx .lgo .l-sw{animation-delay:-2.3s}.fx .lgo .l-ty{animation-delay:-4.6s}
 /* portfólio */
-.portfolio{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:44px}
+.portfolio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:56px}
 .case{margin:0;display:flex;flex-direction:column;gap:14px;min-width:0}
-.case .tile{aspect-ratio:4/3;max-width:100%;background:#FFFFFF;border-radius:20px;display:grid;place-items:center;overflow:hidden}
-.case .tile.dark{background:var(--acc-deep)}
-.case .tile img{height:auto;max-width:84%;display:block;transition:transform .3s ease}
-.case:hover .tile img{transform:scale(1.04)}
-.case figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.case figcaption b{font-size:16px;font-weight:700}
-.case figcaption span{font-size:13px;color:var(--soft);text-align:right}
+.case{position:relative}
+.case:hover{z-index:2}
+.case .tile{aspect-ratio:16/10;background:#fff;border:1px solid var(--line);border-radius:20px;display:grid;place-items:center;overflow:hidden;box-shadow:var(--shadow-1);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .4s}
+.case .tile img{height:auto;max-width:84%;display:block;transition:transform .5s var(--ease)}
+.case:hover .tile{transform:scale(1.07);box-shadow:0 40px 70px -30px rgba(11,31,58,.35);border-color:var(--tint-line)}
+.case:hover .tile img{transform:scale(1.12)}
+.case figcaption span{font-size:14px;font-weight:500;color:var(--soft)}
+.h2-md{font-size:clamp(28px,3vw,42px)!important;line-height:1.15}
+/* lista de dores (bloco escuro) */
+.pains{list-style:none;margin-top:30px;display:grid;gap:14px}
+.pains li{position:relative;padding:18px 20px 18px 52px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--dark-line);color:var(--dark-fg);font-size:17px;transition:border-color .35s,background .35s,transform .45s var(--ease)}
+.pains li::before{content:"";position:absolute;left:20px;top:50%;width:16px;height:2px;margin-top:-1px;background:var(--blue-300)}
+.pains li:hover{border-color:rgba(106,170,228,.45);background:rgba(33,105,184,.12);transform:translateX(6px)}
+.tri .col p.stmt.big{font-size:clamp(22px,2.1vw,28px);line-height:1.25;color:var(--fg);margin-bottom:18px}
+/* checagens do painel */
+.checks{list-style:none;position:relative;display:grid}
+.checks li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line);font-size:clamp(18px,1.6vw,21px);font-weight:700;color:var(--fg);line-height:1.35}
+.checks li:first-child{border-top:0;padding-top:0}
+.checks li::before{content:"";flex:none;width:24px;height:24px;margin-top:1px;border-radius:50%;background:var(--blue-500) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/14px no-repeat}
+/* entregas em 2 colunas */
+.del-row.two{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:center}
+/* etapas */
+ol.gains{list-style:none;padding:0}
+.gains.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gains.g3 .gain{padding-right:40px}
+.gains.g3 .gain+.gain{padding-left:40px}
+.gains.g3 .n{font-size:44px;letter-spacing:-.04em;color:var(--blue-300);display:block;line-height:1}
+.gains.g3 h3{font-size:24px}
+.gains.g3 p{font-size:17px}
+/* faixa azul */
+.blk.blue{position:relative;color:#fff;background:radial-gradient(700px 360px at 85% 0%,rgba(106,170,228,.35),transparent 70%),linear-gradient(150deg,var(--blue-600),var(--blue-900))}
+.blue .hl{color:var(--blue-100)}
+.blue .lead{color:rgba(232,241,251,.85)}
+.btn-white{color:var(--blue-800);background:#fff;font-weight:700;box-shadow:0 16px 36px -14px rgba(5,20,42,.6)}
+.btn-white:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 22px 46px -14px rgba(5,20,42,.7)}
+.blk.blue :focus-visible{outline-color:#fff}
+.hero-stmt{margin-top:24px;font-weight:700;font-size:clamp(16px,1.4vw,18px);color:var(--blue-700);padding:14px 18px;border-left:3px solid var(--blue-400);background:rgba(255,255,255,.7);border-radius:0 14px 14px 0;max-width:52ch}
+.strat-mark .mark-sub{margin-top:22px;padding-top:22px;border-top:1px solid rgba(214,232,249,.25);color:var(--blue-100);font-size:16px}
+/* papéis dos canais */
+.roles{list-style:none;display:grid}
+.roles li{font-size:clamp(19px,1.7vw,22px);font-weight:500;letter-spacing:-.01em;color:var(--muted);padding:14px 0;border-top:1px solid var(--line)}
+.roles li:first-child{border-top:0;padding-top:0}
+.roles li b{color:var(--fg);font-weight:800}
+.gains-note{margin-top:44px;max-width:72ch;font-size:14.5px;color:var(--dark-soft);padding-top:24px;border-top:1px solid var(--dark-line)}
 
-/* serviços */
-.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:44px}
-.svc{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:32px 30px;display:flex;flex-direction:column;min-width:0}
-.svc.lead{grid-column:1 / -1;background:linear-gradient(160deg,var(--acc-mid) 0%,var(--acc-deep) 70%);border-color:var(--acc-line);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px}
-.svc .ic{width:44px;height:44px;border-radius:12px;background:var(--acc-deep);border:1px solid var(--acc-line);display:grid;place-items:center;color:var(--acc);margin-bottom:22px}
-.svc.lead .ic{background:#0B1F3A}
-.svc .ic svg{width:22px;height:22px}
-.svc h3{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:0 0 8px}
-.svc p{color:var(--muted);font-size:15px;margin:0}
-.svc.lead p{color:#D6E8F9}
-.subs{display:grid;gap:0;align-content:start}
-.sub{padding:20px 0;border-top:1px solid #1E5490}
-.sub:first-child{border-top:none;padding-top:0}
-.sub b{display:block;font-size:18px;font-weight:700;margin-bottom:6px}
-.sub p{color:#D6E8F9;font-size:15px}
-.formats{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding:0;list-style:none}
-.formats li{font-size:12px;font-weight:600;letter-spacing:.06em;padding:6px 12px;border-radius:999px;background:#0B1F3A;border:1px solid var(--acc-line);color:#A3C8F0}
-.svc .tag{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin:0 0 6px}
-.svc .more{margin-top:auto;padding-top:22px}
-.svc .more a{font-size:14px;font-weight:600;color:var(--acc);text-decoration:none}
-.svc .more a:hover{text-decoration:underline}
+/* rodapé (chumbo) */
+footer{padding:72px 0 36px;background:#2B2F35;color:#EDEFF2;overflow:hidden}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:start}
+.footer-logo img{height:34px;width:auto}
+.footer-tagline{color:#B8BFC9;margin-top:16px;max-width:36ch;font-size:16px}
+.footer-links{list-style:none;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:flex-end}
+.footer-links a{color:#B8BFC9;text-decoration:none;position:relative;font-size:15px}
+.footer-links a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--blue-300);transform:scaleX(0);transition:transform .4s var(--ease)}
+.footer-links a:hover{color:#FFFFFF}
+.footer-links a:hover::after{transform:scaleX(1)}
+footer :focus-visible{outline-color:var(--blue-300)}
+.footer-copy{margin-top:48px;padding-top:24px;border-top:1px solid #3B4048;font-size:13.5px;color:#9098A3}
 
-/* fechamento */
-.close{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:48px;align-items:center}
-.contact{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px;display:grid;gap:4px}
-.contact .item{padding:14px 0;border-bottom:1px solid var(--line)}
-.contact .item:last-of-type{border-bottom:none}
-.contact small{display:block;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin-bottom:4px}
-.contact b{font-size:17px;font-weight:600;word-break:break-word}
-.contact .btn{margin-top:14px}
+/* WhatsApp flutuante */
+.wpp-float{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:900;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--wpp);
+  box-shadow:0 14px 34px -10px rgba(37,211,102,.75);transition:transform .35s var(--ease),box-shadow .35s}
+.wpp-float svg{width:30px;height:30px;fill:#fff}
+.wpp-float::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--wpp);opacity:.6}
+.fx .wpp-float::before{animation:ring 2.6s var(--ease) infinite}
+@keyframes ring{to{transform:scale(1.6);opacity:0}}
+.wpp-float:hover{transform:scale(1.1)}
 
-footer{padding-block:40px 48px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--soft)}
-
-@media (max-width:1060px){.portfolio{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:960px){
+/* responsivo */
+@media (max-width:1100px){
+  .gains{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .gain:nth-child(4){padding-left:0;border-left:0}
+  .gain:nth-child(n+4){border-top:1px solid var(--dark-line);margin-top:28px}
+}
+@media (max-width:1020px){
+  .hero-grid,.split,.del-head,.perc,.strat,.faq-grid,.foot-grid{grid-template-columns:minmax(0,1fr);gap:40px}
+  .tri{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .tri .col-1{grid-column:1 / -1}
+  .del-row{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:16px 32px}
+  .del-row .del-name{grid-column:1 / -1}
+  .board{max-width:420px}
+  .footer-links{justify-content:flex-start}
+}
+@media (max-width:760px){
   .portfolio{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .services{grid-template-columns:minmax(0,1fr)}
-  .svc.lead{grid-template-columns:minmax(0,1fr);gap:24px}
-  .close{grid-template-columns:minmax(0,1fr);gap:36px}
+  .tri{grid-template-columns:minmax(0,1fr)}
+  .del-row{grid-template-columns:minmax(0,1fr);padding:30px 4px}
+  .del-row.two{grid-template-columns:minmax(0,1fr)}
+  .gains,.gains.g3{grid-template-columns:minmax(0,1fr)}
+  .gains.g3 .gain,.gains.g3 .gain+.gain{padding-left:0;padding-right:0}
+  .gain,.gain+.gain,.gain:nth-child(4){padding:26px 0;border-left:0;border-top:1px solid var(--dark-line);margin-top:0}
+  .gain:first-child{border-top:0}
 }
-@media (max-width:560px){
-  .portfolio{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:min(1200px,100% - 32px)}
+  .blk{padding:84px 0}
+  .hero{padding:120px 0 84px}
+  .actions .btn{flex:1 1 100%}
+  .perc-panel,.strat-mark,.tri .col-3{padding:30px 24px}
+  .faq details p{padding-right:0}
+  .final{padding:96px 0 104px}
+  .lgo{aspect-ratio:1/1}
+  .lgo .l-art{width:74%}
+  .lgo .l-sw{top:52%;width:52%}
+  .lgo .l-ty{right:auto;left:4%;width:40%}
+  .portfolio{gap:14px}
   .case .tile{border-radius:14px}
-  .case figcaption{flex-direction:column;gap:2px}
-  .case figcaption span{text-align:left}
-  .case figcaption b{font-size:14px}
-  section.block{padding-block:56px}
+  .case figcaption span{font-size:13px}
+  .fx [data-reveal="left"]{transform:translate3d(-20px,0,0)}
+  .fx [data-reveal="right"]{transform:translate3d(20px,0,0)}
 }
-.foot-links{display:flex;flex-wrap:wrap;gap:8px 20px}
-.foot-links a{color:var(--soft);text-decoration:none}
-.foot-links a:hover{color:var(--fg)}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="wrap">
+<main>
 
-  <section class="hero">
-    <p class="eyebrow">Criação de logos</p>
-    <h1>Marcas criadas para <span class="hl">durar.</span></h1>
-    <p class="sub">Da criação do logo ao registro no INPI, a Teovox cuida de cada etapa da sua marca e entrega tudo organizado, pronto para usar em qualquer lugar.</p>
-    <div class="actions">
-      <a class="btn btn-primary" href="#portfolio">Ver portfólio</a>
-      <a class="btn btn-line" href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20quero%20criar%20o%20logo%20da%20minha%20empresa." target="_blank" rel="noopener">Quero criar minha marca</a>
-    </div>
-  </section>
-
-  <section class="block" id="portfolio">
-    <div class="head">
-      <div>
-        <p class="eyebrow">Portfólio · 23 marcas</p>
-        <h2>Marcas que a Teovox <span class="hl">já criou.</span></h2>
+<!-- 1. ABERTURA -->
+<section class="hero">
+  <div class="grid-lines" aria-hidden="true"></div>
+  <div class="orb" data-speed="-0.2" style="width:480px;height:480px;right:-160px;top:-120px" aria-hidden="true"><i style="background:radial-gradient(circle,rgba(106,170,228,.45),transparent 70%)"></i></div>
+  <div class="wrap hero-grid">
+    <div data-stagger>
+      <h1 data-reveal>Criação <em>de Logo</em></h1>
+      <p class="sub" data-reveal>Sua marca merece ser reconhecida.</p>
+      <p class="lead" data-reveal>Criamos logos estratégicos que traduzem a essência do seu negócio em uma identidade visual única, profissional e memorável.</p>
+      <div class="actions" data-reveal>
+        <a class="btn btn-primary" href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20quero%20criar%20minha%20logo." target="_blank" rel="noopener">Quero criar minha logo <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
-
-    <div class="portfolio">
-      <!--
-        COMO ADICIONAR UMA MARCA
-        1. Suba a imagem do logo na pasta "logos" do repositório (fundo branco ou transparente).
-        2. Copie uma das linhas abaixo e troque o nome do arquivo, o nome da marca e o segmento.
-        3. O "width" controla o tamanho do logo no quadro: logos largos ~80%, logos quadrados ~50%.
-      -->
-      <figure class="case"><div class="tile"><img src="logos/grafica-mania-visual.webp" alt="Logo Gráfica Mania Visual" width="692" height="326" style="width:73%" loading="lazy"></div><figcaption><b>Gráfica Mania Visual</b><span>Gráfica</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/pib-cristo-rei.webp" alt="Logo PIB Cristo Rei" width="655" height="345" style="width:69%" loading="lazy"></div><figcaption><b>PIB Cristo Rei</b><span>Igreja</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/pop-pig.webp" alt="Logo Pop Pig" width="756" height="279" style="width:82%" loading="lazy"></div><figcaption><b>Pop Pig</b><span>Alimentação</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/jamille-sales.webp" alt="Logo Jamille Sales" width="756" height="249" style="width:84%" loading="lazy"></div><figcaption><b>Jamille Sales</b><span>Psicoterapia</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/lecionando.webp" alt="Logo Lecionando" width="756" height="176" style="width:84%" loading="lazy"></div><figcaption><b>Lecionando</b><span>Educação</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/perictus.webp" alt="Logo Perictus" width="756" height="248" style="width:84%" loading="lazy"></div><figcaption><b>Perictus</b><span>Estudos e pareceres</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/fazenda-beija-flor.webp" alt="Logo Fazenda Beija-Flor" width="756" height="233" style="width:84%" loading="lazy"></div><figcaption><b>Fazenda Beija-Flor</b><span>Agronegócio</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/piba-news.webp" alt="Logo PIBA News" width="756" height="140" style="width:84%" loading="lazy"></div><figcaption><b>PIBA News</b><span>Comunicação</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/conhecimento-de-valor.webp" alt="Logo Conhecimento de Valor" width="756" height="236" style="width:84%" loading="lazy"></div><figcaption><b>Conhecimento de Valor</b><span>Educação</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/scastro-viagens.webp" alt="Logo SCastro Viagens" width="756" height="237" style="width:84%" loading="lazy"></div><figcaption><b>SCastro Viagens</b><span>Turismo</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/amizeb.webp" alt="Logo Amizeb" width="756" height="265" style="width:84%" loading="lazy"></div><figcaption><b>Amizeb</b><span>Ministério social</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/lugar-ideal.webp" alt="Logo Lugar Ideal" width="756" height="246" style="width:84%" loading="lazy"></div><figcaption><b>Lugar Ideal</b><span>Imobiliária</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/start-medical.webp" alt="Logo Start Medical" width="456" height="495" style="width:48%" loading="lazy"></div><figcaption><b>Start Medical</b><span>Saúde</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/agrozanetti.webp" alt="Logo AgroZanetti" width="756" height="243" style="width:84%" loading="lazy"></div><figcaption><b>AgroZanetti</b><span>Agropecuária</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/fervorio.webp" alt="Logo Fervório" width="587" height="384" style="width:62%" loading="lazy"></div><figcaption><b>Fervório</b><span>Gastronomia</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/linktus.webp" alt="Logo Linktus" width="756" height="98" style="width:84%" loading="lazy"></div><figcaption><b>Linktus</b><span>Tecnologia</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/campo-rural-tecnologia.webp" alt="Logo Campo Rural Tecnologia" width="563" height="401" style="width:59%" loading="lazy"></div><figcaption><b>Campo Rural Tecnologia</b><span>Agrotecnologia</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/integracao.webp" alt="Logo Integração" width="756" height="198" style="width:84%" loading="lazy"></div><figcaption><b>Integração</b><span>Ministério</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/congresso-24.webp" alt="Logo Congresso 24" width="585" height="386" style="width:62%" loading="lazy"></div><figcaption><b>Congresso 24</b><span>Evento</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/juventude-farol.webp" alt="Logo Juventude Farol" width="473" height="477" style="width:50%" loading="lazy"></div><figcaption><b>Juventude Farol</b><span>Ministério jovem</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/piba-jovem.webp" alt="Logo Piba Jovem" width="756" height="237" style="width:84%" loading="lazy"></div><figcaption><b>Piba Jovem</b><span>Ministério jovem</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/homens-batistas.webp" alt="Logo Homens Batistas" width="728" height="310" style="width:77%" loading="lazy"></div><figcaption><b>Homens Batistas</b><span>Ministério de homens</span></figcaption></figure>
-      <figure class="case"><div class="tile"><img src="logos/convencao-batista-mt.webp" alt="Logo Convenção Batista de Mato Grosso" width="465" height="484" style="width:49%" loading="lazy"></div><figcaption><b>Convenção Batista de Mato Grosso</b><span>Instituição religiosa</span></figcaption></figure>
-    </div>
-  </section>
-
-  <section class="block" id="servicos-marca">
-    <p class="eyebrow">Serviços</p>
-    <h2>Tudo o que a sua marca precisa, <span class="hl">em um só lugar.</span></h2>
-    <p class="intro">Você pode contratar cada serviço separado ou combinar os que fizerem sentido para o momento da sua empresa.</p>
-
-    <div class="services">
-      <article class="svc lead">
-        <div>
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></div>
-          <h3>Criação de Logo</h3>
-          <p>Um logo criado do zero para a sua empresa, ou o cuidado com a marca que você já tem.</p>
-          <div class="more"><a href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20cria%C3%A7%C3%A3o%20de%20logo." target="_blank" rel="noopener">Pedir orçamento →</a></div>
-        </div>
-        <div class="subs">
-          <div class="sub">
-            <b>Redesenho da logo</b>
-            <p>Sua marca redesenhada e salva nos formatos certos, sem perder qualidade em nenhum tamanho.</p>
-            <ul class="formats"><li>PDF vetorizado</li><li>PNG</li><li>EPS</li><li>Alta resolução</li></ul>
-          </div>
-          <div class="sub">
-            <b>Atualização da logo</b>
-            <p>Aprimoramos a sua marca sem mudar o conceito que os seus clientes já reconhecem.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="svc">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8"/></svg></div>
-        <p class="tag">Branding</p>
-        <h3>Identidade Visual</h3>
-        <p>O sistema visual completo da marca: cores, tipografia e aplicações, reunidos no Manual da Marca para que tudo saia sempre igual.</p>
-        <ul class="formats"><li>Manual da Marca</li></ul>
-        <div class="more"><a href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20identidade%20visual." target="_blank" rel="noopener">Pedir orçamento →</a></div>
-      </article>
-
-      <article class="svc">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <p class="tag">Registro no INPI</p>
-        <h3>Proteção da Marca</h3>
-        <p>Registro da sua marca no INPI, para que o nome e o logo que você construiu fiquem protegidos.</p>
-        <div class="more"><a href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20registrar%20minha%20marca%20no%20INPI." target="_blank" rel="noopener">Pedir orçamento →</a></div>
-      </article>
-
-      <article class="svc" style="grid-column:1 / -1">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 01-.6-8.96A6 6 0 0118 8.5a4 4 0 01-.5 9.5z"/><path d="M12 11v5M9.5 13.5L12 11l2.5 2.5"/></svg></div>
-        <p class="tag">Arquivos na nuvem</p>
-        <h3>Patrimônio Digital</h3>
-        <p>Criamos e organizamos na nuvem os arquivos da marca, o Manual da Marca e os documentos relacionados a ela. Quando alguém pedir o seu logo, você sabe exatamente onde está.</p>
-        <div class="more"><a href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20organizar%20o%20patrim%C3%B4nio%20digital%20da%20minha%20marca." target="_blank" rel="noopener">Pedir orçamento →</a></div>
-      </article>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="close">
-      <div>
-        <p class="eyebrow">Próximo passo</p>
-        <h2>Vamos criar a <span class="hl">sua marca?</span></h2>
-        <p class="intro">Conte para a gente sobre o seu negócio. Indicamos os serviços certos e enviamos o orçamento.</p>
+    <div data-speed="0.08"><div class="lgo" data-reveal="zoom" aria-hidden="true">
+      <div class="card l-art">
+        <svg viewBox="0 0 240 240" fill="none">
+          <g stroke="#B9CCE2" stroke-width="1" stroke-dasharray="3 4">
+            <circle cx="120" cy="120" r="92"/><circle cx="92" cy="120" r="56"/><circle cx="148" cy="120" r="56"/>
+            <path d="M8 120h224M120 8v224M28 28l184 184M212 28L28 212"/>
+          </g>
+          <path class="mk" d="M64 120a56 56 0 0 1 112 0" stroke="#2169B8" stroke-width="18" stroke-linecap="round"/>
+          <path class="mk2" d="M92 120a28 28 0 0 0 56 0" stroke="#6AAAE4" stroke-width="18" stroke-linecap="round"/>
+          <g fill="#fff" stroke="#2169B8" stroke-width="2"><rect x="60" y="116" width="8" height="8"/><rect x="172" y="116" width="8" height="8"/><rect x="116" y="60" width="8" height="8"/></g>
+        </svg>
       </div>
-      <div class="contact">
-        <div class="item"><small>WhatsApp</small><b>(79) 99634-3621</b></div>
-        <div class="item"><small>E-mail</small><b>contato@teovox.com.br</b></div>
-        <div class="item"><small>Site</small><b>teovox.com.br</b></div>
-        <a class="btn btn-primary" href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20quero%20criar%20a%20marca%20da%20minha%20empresa." target="_blank" rel="noopener">Conversar no WhatsApp</a>
+      <div class="card l-sw">
+        <small>Cores</small>
+        <div class="sw"><i style="background:#0B1F3A"></i><i style="background:#2169B8"></i><i style="background:#6AAAE4"></i><i style="background:#EAF2FB"></i></div>
+      </div>
+      <div class="card l-ty">
+        <small>Tipografia</small>
+        <span class="aa">Aa</span>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<!-- 2. SUA MARCA FALA ANTES DE VOCÊ -->
+<section class="blk dark">
+  <div class="orb" data-speed="0.15" style="width:520px;height:520px;left:-220px;top:10%" aria-hidden="true"><i style="background:radial-gradient(circle,rgba(33,105,184,.35),transparent 70%)"></i></div>
+  <div class="wrap split">
+    <h2 data-reveal="left">Sua marca <span class="hl">fala antes de você.</span></h2>
+    <div class="body" data-stagger>
+      <p data-reveal>Uma identidade visual sem personalidade pode fazer um negócio excelente passar despercebido.</p>
+      <p data-reveal>Sua logo precisa transmitir confiança, comunicar seu posicionamento e ajudar sua empresa a ser reconhecida.</p>
+      <div class="quote" data-reveal><p class="stmt">Você não precisa de mais uma logo. Precisa de uma marca com identidade.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. CADA DETALHE COM PROPÓSITO -->
+<section class="blk light">
+  <div class="wrap tri" data-stagger>
+    <h2 class="col col-1" data-reveal>Cada detalhe precisa <span class="hl">ter um propósito.</span></h2>
+    <div class="col col-2" data-reveal>
+      <p>Desenvolvemos logos considerando a essência do negócio, o público que você deseja alcançar e a percepção que sua marca precisa transmitir.</p>
+    </div>
+    <div class="col col-3" data-reveal>
+      <p class="stmt" style="margin-top:0;padding-top:0;border-top:0">Nada de escolhas aleatórias. Cada elemento deve contribuir para uma identidade coerente com o seu posicionamento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. O QUE VOCÊ RECEBE -->
+<section class="blk dark">
+  <div class="orb" data-speed="-0.15" style="width:560px;height:560px;right:-240px;top:30%" aria-hidden="true"><i style="background:radial-gradient(circle,rgba(33,105,184,.38),transparent 70%)"></i></div>
+  <div class="wrap">
+    <div class="del-head" data-reveal>
+      <h2>Uma identidade pensada <span class="hl">para o seu negócio.</span></h2>
+    </div>
+    <div class="del" data-stagger>
+      <div class="del-row two" data-reveal>
+        <div class="del-name"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1.1 2V16h5v-.2c.1-.8.5-1.5 1.1-2A6 6 0 0 0 12 3z"/></svg></span><h3>Conceito visual estratégico</h3></div>
+        <p class="txt">Uma direção criativa alinhada à personalidade da marca.</p>
+      </div>
+      <div class="del-row two" data-reveal>
+        <div class="del-name"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></span><h3>Design exclusivo</h3></div>
+        <p class="txt">Uma logo desenvolvida para representar seu negócio.</p>
+      </div>
+      <div class="del-row two" data-reveal>
+        <div class="del-name"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l5.5-15h1L16 20M6.2 14.5h7.6"/><circle cx="19" cy="17" r="3"/></svg></span><h3>Cores e tipografia</h3></div>
+        <p class="txt">Escolhas visuais que reforçam a identidade.</p>
+      </div>
+      <div class="del-row two" data-reveal>
+        <div class="del-name"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2.5h6.5A2.5 2.5 0 0 1 21 10v7.5a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><path d="M12 11v5M9.5 13.5L12 16l2.5-2.5"/></svg></span><h3>Arquivos finais</h3></div>
+        <p class="txt">Materiais nos formatos previstos no projeto, prontos para aplicação.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <span>Teovox · Comunicação Estratégica</span>
-    <nav class="foot-links" aria-label="Páginas do site"><a href="/">Início</a><a href="/#estrategia">Estratégia</a><a href="/criacao-de-logos">Logos</a><a href="/website-por-assinatura">Website Por Assinatura</a><a href="/#contato">Contato</a></nav>
-    <span>CNPJ 38.076.806/0001-36</span>
-  </footer>
-</div>
-<script src="menu.js"></script>
+<!-- 5. OUTRA PERCEPÇÃO -->
+<section class="blk white">
+  <div class="wrap perc">
+    <div class="txt" data-stagger>
+      <h2 data-reveal class="h2-md">Uma logo bem construída ajuda sua empresa a se apresentar <span class="hl">com mais profissionalismo e consistência.</span></h2>
+      <p data-reveal style="margin-top:26px">Uma identidade que acompanha seu negócio em diferentes pontos de contato, do ambiente digital aos materiais da empresa.</p>
+    </div>
+    <div class="perc-panel" data-reveal="right">
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="stmt">Mais reconhecimento. Mais coerência. Mais personalidade.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. COMO FUNCIONA -->
+<section class="blk dark">
+  <div class="wrap">
+    <div class="del-head" data-reveal>
+      <h2>Estratégia <span class="hl">antes do desenho.</span></h2>
+    </div>
+    <ol class="gains g3" data-stagger>
+      <li class="gain" data-reveal><span class="n">01</span><h3>Entendimento</h3><p>Conhecemos seu negócio, seus objetivos e a mensagem que deseja transmitir.</p></li>
+      <li class="gain" data-reveal><span class="n">02</span><h3>Criação</h3><p>Transformamos essas informações em uma proposta visual com intenção e personalidade.</p></li>
+      <li class="gain" data-reveal><span class="n">03</span><h3>Refinamento e entrega</h3><p>Ajustamos a proposta conforme o escopo combinado e entregamos os arquivos finais previstos no projeto.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7. PORTFÓLIO -->
+<section class="blk white" id="portfolio">
+  <div class="wrap">
+    <h2 data-reveal>Marcas que a Teovox <span class="hl">já criou.</span></h2>
+    <div class="portfolio" data-stagger>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/grafica-mania-visual.webp" alt="Logo Gráfica Mania Visual" width="692" height="326" style="width:73%" loading="lazy"></div><figcaption><span>Gráfica</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/pib-cristo-rei.webp" alt="Logo PIB Cristo Rei" width="655" height="345" style="width:69%" loading="lazy"></div><figcaption><span>Igreja</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/pop-pig.webp" alt="Logo Pop Pig" width="756" height="279" style="width:82%" loading="lazy"></div><figcaption><span>Alimentação</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/jamille-sales.webp" alt="Logo Jamille Sales" width="756" height="249" style="width:84%" loading="lazy"></div><figcaption><span>Psicoterapia</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/lecionando.webp" alt="Logo Lecionando" width="756" height="176" style="width:84%" loading="lazy"></div><figcaption><span>Educação</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/perictus.webp" alt="Logo Perictus" width="756" height="248" style="width:84%" loading="lazy"></div><figcaption><span>Estudos e pareceres</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/fazenda-beija-flor.webp" alt="Logo Fazenda Beija-Flor" width="756" height="233" style="width:84%" loading="lazy"></div><figcaption><span>Agronegócio</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/piba-news.webp" alt="Logo PIBA News" width="756" height="140" style="width:84%" loading="lazy"></div><figcaption><span>Comunicação</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/conhecimento-de-valor.webp" alt="Logo Conhecimento de Valor" width="756" height="236" style="width:84%" loading="lazy"></div><figcaption><span>Educação</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/scastro-viagens.webp" alt="Logo SCastro Viagens" width="756" height="237" style="width:84%" loading="lazy"></div><figcaption><span>Turismo</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/amizeb.webp" alt="Logo Amizeb" width="756" height="265" style="width:84%" loading="lazy"></div><figcaption><span>Ministério social</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/lugar-ideal.webp" alt="Logo Lugar Ideal" width="756" height="246" style="width:84%" loading="lazy"></div><figcaption><span>Imobiliária</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/start-medical.webp" alt="Logo Start Medical" width="456" height="495" style="width:48%" loading="lazy"></div><figcaption><span>Saúde</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/agrozanetti.webp" alt="Logo AgroZanetti" width="756" height="243" style="width:84%" loading="lazy"></div><figcaption><span>Agropecuária</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/fervorio.webp" alt="Logo Fervório" width="587" height="384" style="width:62%" loading="lazy"></div><figcaption><span>Gastronomia</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/linktus.webp" alt="Logo Linktus" width="756" height="98" style="width:84%" loading="lazy"></div><figcaption><span>Tecnologia</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/campo-rural-tecnologia.webp" alt="Logo Campo Rural Tecnologia" width="563" height="401" style="width:59%" loading="lazy"></div><figcaption><span>Agrotecnologia</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/integracao.webp" alt="Logo Integração" width="756" height="198" style="width:84%" loading="lazy"></div><figcaption><span>Ministério</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/congresso-24.webp" alt="Logo Congresso 24" width="585" height="386" style="width:62%" loading="lazy"></div><figcaption><span>Evento</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/juventude-farol.webp" alt="Logo Juventude Farol" width="473" height="477" style="width:50%" loading="lazy"></div><figcaption><span>Ministério jovem</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/piba-jovem.webp" alt="Logo Piba Jovem" width="756" height="237" style="width:84%" loading="lazy"></div><figcaption><span>Ministério jovem</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/homens-batistas.webp" alt="Logo Homens Batistas" width="728" height="310" style="width:77%" loading="lazy"></div><figcaption><span>Ministério de homens</span></figcaption></figure>
+      <figure class="case" data-reveal><div class="tile"><img src="logos/convencao-batista-mt.webp" alt="Logo Convenção Batista de Mato Grosso" width="465" height="484" style="width:49%" loading="lazy"></div><figcaption><span>Instituição religiosa</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 8. PARA QUEM É -->
+<section class="blk dark">
+  <div class="orb" data-speed="0.15" style="width:520px;height:520px;right:-220px;top:0" aria-hidden="true"><i style="background:radial-gradient(circle,rgba(33,105,184,.35),transparent 70%)"></i></div>
+  <div class="wrap split">
+    <h2 data-reveal="left" class="h2-md">Para empreendedores e empresas que estão construindo uma marca, reposicionando o negócio <span class="hl">ou buscando uma identidade visual mais profissional.</span></h2>
+    <div class="body" data-stagger>
+      <div class="quote" data-reveal style="margin-top:0"><p class="stmt">Se sua logo atual já não representa o valor que você entrega, talvez seja hora de evoluir.</p></div>
+      <div class="actions" data-reveal>
+        <a class="btn btn-primary" href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20quero%20criar%20minha%20logo." target="_blank" rel="noopener">Quero criar minha logo <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. PERGUNTAS FREQUENTES -->
+<section class="blk white" id="perguntas">
+  <div class="wrap faq-grid">
+    <h2 data-reveal>Perguntas <span class="hl">frequentes</span></h2>
+    <div class="faq" data-stagger>
+      <details data-reveal><summary>A logo será exclusiva?<i aria-hidden="true"></i></summary><p>O projeto é desenvolvido considerando as características e necessidades específicas do seu negócio. A exclusividade jurídica e a disponibilidade de elementos semelhantes dependem de verificações próprias.</p></details>
+      <details data-reveal><summary>A criação da logo inclui identidade visual completa?<i aria-hidden="true"></i></summary><p>O escopo depende da solução contratada. Elementos adicionais de identidade visual podem ser definidos conforme as necessidades do projeto.</p></details>
+      <details data-reveal><summary>A criação da logo garante o registro da marca?<i aria-hidden="true"></i></summary><p>Não. Criar uma logo e registrar uma marca são processos diferentes. O registro exige um procedimento específico junto ao INPI.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 10. PRÓXIMO PASSO -->
+<section class="blk dark final">
+  <div class="orb" data-speed="0.18" style="width:520px;height:520px;right:-180px;bottom:-200px" aria-hidden="true"><i style="background:radial-gradient(circle,rgba(33,105,184,.38),transparent 70%)"></i></div>
+  <div class="wrap" data-stagger>
+    <h2 data-reveal>Sua empresa tem valor. <span class="hl">Sua marca precisa mostrar isso.</span></h2>
+    <p class="stmt" data-reveal>Vamos transformar a essência do seu negócio em uma identidade visual que faça sentido para onde você quer chegar.</p>
+    <span class="pay" data-reveal>Tudo em até <span>10x*</span></span>
+    <p class="note" data-reveal>*Sujeito a análise.</p>
+    <div class="actions" data-reveal>
+      <a class="btn btn-wpp" href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20vamos%20criar%20minha%20logo." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Vamos criar sua logo</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid" data-stagger>
+      <div data-reveal>
+        <a href="/" class="footer-logo"><img src="Logotipo-teovox2.png" alt="Teovox" width="164" height="32"></a>
+        <div class="footer-tagline">Seja visto como referência no seu mercado e feche mais negócios</div>
+      </div>
+      <ul class="footer-links" data-reveal>
+        <li><a href="/#estrategia">Estratégia</a></li>
+        <li><a href="/criacao-de-logos">Logos</a></li>
+        <li><a href="/website-por-assinatura">Website Por Assinatura</a></li>
+        <li><a href="/#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-copy" data-reveal>
+      © 2026 Teovox — Agência de Comunicação e Marketing Digital. Todos os direitos reservados.
+    </div>
+  </div>
+</footer>
+
+<!-- FLOAT WPP -->
+<a href="https://wa.me/5579996343621" class="wpp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+(function(){
+  var fx=document.documentElement.classList.contains('fx');
+  /* cascata */
+  document.querySelectorAll('[data-stagger]').forEach(function(g){
+    g.querySelectorAll(':scope > [data-reveal]').forEach(function(el,i){ el.style.setProperty('--d', i*110); });
+  });
+  /* entrada ao rolar */
+  var items=[].slice.call(document.querySelectorAll('[data-reveal]'));
+  if(!fx || !('IntersectionObserver' in window)){ items.forEach(function(el){el.classList.add('is-in');}); }
+  else{
+    var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } }); },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    items.forEach(function(el){ io.observe(el); });
+    /* fim da página: mostra o que ainda estiver escondido (rodapé) */
+    var atEnd=function(){ if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-2){ items.forEach(function(el){ if(!el.classList.contains('is-in')){ el.classList.add('is-in'); io.unobserve(el); } }); } };
+    window.addEventListener('scroll',atEnd,{passive:true}); atEnd();
+  }
+  /* parallax das luzes e da ilustração */
+  var par=[].slice.call(document.querySelectorAll('[data-speed]')), ticking=false;
+  function frame(){
+    ticking=false; if(!fx) return;
+    var vh=window.innerHeight;
+    par.forEach(function(el){
+      var host=el.parentElement.getBoundingClientRect();
+      el.style.setProperty('--py',(((host.top+host.height/2)-vh/2)*parseFloat(el.dataset.speed)).toFixed(1)+'px');
+    });
+  }
+  window.addEventListener('scroll',function(){ if(!ticking){ ticking=true; requestAnimationFrame(frame); } },{passive:true});
+  window.addEventListener('resize',frame);
+  frame();
+  /* perguntas: uma aberta por vez */
+  var dets=[].slice.call(document.querySelectorAll('.faq details'));
+  dets.forEach(function(d){ d.addEventListener('toggle',function(){ if(d.open) dets.forEach(function(o){ if(o!==d) o.open=false; }); }); });
+})();
+</script>
+<script src="menu.js" data-offset="false" data-theme="light"></script>
 </body>
 </html>
