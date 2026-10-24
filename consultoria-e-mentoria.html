@@ -358,6 +358,29 @@ footer :focus-visible{outline-color:var(--blue-300)}
   .fx [data-reveal="left"]{transform:translate3d(-20px,0,0)}
   .fx [data-reveal="right"]{transform:translate3d(20px,0,0)}
 }
+
+/* rodapé com o mesmo menu do topo */
+.foot-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.6fr);gap:56px;align-items:start}
+.foot-nav{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr) minmax(0,1fr);gap:40px}
+.fcol{display:flex;flex-direction:column;gap:12px;min-width:0}
+.fcol ul{list-style:none;display:grid;gap:10px;margin:0;padding:0}
+.ftop{font-size:15px;font-weight:700;color:#FFFFFF;text-decoration:none;letter-spacing:.01em;margin:0}
+.fcol-main{gap:16px}
+.fcol a{position:relative;color:#B8BFC9;text-decoration:none;font-size:15px;line-height:1.4;align-self:flex-start;transition:color .3s}
+.fcol a.ftop{color:#FFFFFF}
+.fcol a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--blue-300);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.fcol a:hover{color:#FFFFFF}
+.fcol a:hover::after,.fcol a[aria-current="page"]::after{transform:scaleX(1)}
+.fcol a[aria-current="page"]{color:#FFFFFF}
+.fcol li{display:flex}
+@media (max-width:1020px){
+  .foot-grid{grid-template-columns:minmax(0,1fr);gap:44px}
+  .foot-nav{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .fcol-main{grid-column:1 / -1;flex-direction:row;gap:28px}
+}
+@media (max-width:560px){
+  .foot-nav{grid-template-columns:minmax(0,1fr);gap:32px}
+}
 </style>
 </head>
 <body>
@@ -532,16 +555,38 @@ footer :focus-visible{outline-color:var(--blue-300)}
 <footer>
   <div class="wrap">
     <div class="foot-grid" data-stagger>
-      <div data-reveal>
+      <div class="fbrand" data-reveal>
         <a href="/" class="footer-logo"><img src="Logotipo-teovox2.png" alt="Teovox" width="164" height="32"></a>
         <div class="footer-tagline">Seja visto como referência no seu mercado e feche mais negócios</div>
       </div>
-      <ul class="footer-links" data-reveal>
-        <li><a href="/#estrategia">Estratégia</a></li>
-        <li><a href="/criacao-de-logos">Logos</a></li>
-        <li><a href="/website-por-assinatura">Website Por Assinatura</a></li>
-        <li><a href="/#contato">Contato</a></li>
-      </ul>
+      <nav class="foot-nav" data-stagger aria-label="Mapa do site">
+        <div class="fcol fcol-main" data-reveal>
+          <a class="ftop" href="/">Início</a>
+          <a class="ftop" href="/quem-somos">Quem somos</a>
+        </div>
+        <div class="fcol" data-reveal>
+          <p class="ftop">Serviços</p>
+          <ul>
+            <li><a href="/posicionamento-e-identidade">Posicionamento &amp; Identidade</a></li>
+            <li><a href="/presenca-digital">Presença Digital</a></li>
+            <li><a href="/atracao-de-clientes">Atração de Clientes</a></li>
+            <li><a href="/infoprodutos-e-lancamentos">Infoprodutos &amp; Lançamentos</a></li>
+            <li><a href="/vendas-todos-os-dias">Vendas Todos os Dias</a></li>
+            <li><a href="/consultoria-e-mentoria" aria-current="page">Consultoria &amp; Mentoria</a></li>
+          </ul>
+        </div>
+        <div class="fcol" data-reveal>
+          <p class="ftop">Para o seu negócio</p>
+          <ul>
+            <li><a href="/criacao-de-logos">Criação de Logo</a></li>
+            <li><a href="/website-por-assinatura">Website por Assinatura</a></li>
+            <li><a href="/registro-de-marcas">Registro de Marcas</a></li>
+            <li><a href="/nomes-memoraveis">Nomes Memoráveis</a></li>
+            <li><a href="/sistemas-de-gestao">Sistemas de Gestão</a></li>
+            <li><a href="/criacao-de-cursos-online">Criação de Cursos Online</a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
     <div class="footer-copy" data-reveal>
       © 2026 Teovox — Agência de Comunicação e Marketing Digital. Todos os direitos reservados.

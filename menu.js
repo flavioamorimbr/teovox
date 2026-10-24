@@ -4,9 +4,13 @@
    Na página inicial (que já tem espaço no topo), use:
      <script src="/menu.js" data-offset="false"></script>
    Para o menu claro (páginas com fundo branco), acrescente data-theme="light".
-   Para adicionar, remover ou reordenar itens, edite só a lista MENU abaixo. */
+   Para adicionar, remover ou reordenar itens, edite só a lista MENU abaixo.
+   Item com "href" vira link direto; item com "items" vira submenu.
+   O rodapé de cada página repete esta mesma estrutura (atualize os dois juntos). */
 (function () {
   var MENU = [
+    { label: 'Início', href: '/' },
+    { label: 'Quem somos', href: '/quem-somos' },
     { label: 'Serviços', items: [
       { label: 'Posicionamento & Identidade', href: '/posicionamento-e-identidade', icon: 'alvo' },
       { label: 'Presença Digital',            href: '/presenca-digital',      icon: 'tela' },
@@ -75,6 +79,7 @@
       'text-decoration:none;letter-spacing:.02em;white-space:nowrap;height:72px;position:relative;transition:color .2s}' +
     '.tvx-top:hover,.tvx-dd.open > .tvx-top,.tvx-top.is-current{color:' + T.linkHover + '}' +
     '.tvx-top.is-current::after{content:"";position:absolute;left:0;right:22px;bottom:22px;height:2px;background:' + T.accent + ';border-radius:2px}' +
+    '.tvx-top.tvx-plain.is-current::after{right:0}' +
     '.tvx-chev{width:8px;height:8px;border-right:1.7px solid currentColor;border-bottom:1.7px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .25s}' +
     '.tvx-dd.open .tvx-chev{transform:translateY(2px) rotate(-135deg)}' +
     '.tvx-dd{position:relative}' +
@@ -126,6 +131,10 @@
   if (path.length > 1) path = path.replace(/\/$/, '');
 
   var html = MENU.map(function (g, gi) {
+    if (!g.items) {
+      var here = g.href === path;
+      return '<li><a class="tvx-top tvx-plain' + (here ? ' is-current' : '') + '" href="' + g.href + '"' + (here ? ' aria-current="page"' : '') + '>' + g.label + '</a></li>';
+    }
     var groupCurrent = false;
     var sub = g.items.map(function (it) {
       var cur = it.href.indexOf('#') === -1 && it.href === path;
