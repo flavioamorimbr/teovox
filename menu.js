@@ -29,6 +29,9 @@
     ]}
   ];
   var CTA = { label: 'Falar no WhatsApp', href: 'https://wa.me/5579996343621' };
+  // barra de aviso acima do menu (deixe a lista vazia [] para esconder)
+  var ANN = ['Deus', 'Pátria', 'Família', 'Liberdade'];
+  var ANN_H = ANN.length ? 28 : 0;
 
   var ICONS = {
     alvo: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/>',
@@ -72,6 +75,11 @@
     '.tvx-nav{display:block;padding:0;position:fixed;top:0;left:0;right:0;z-index:1000;background:' + T.bar + ';' +
       '-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-bottom:1px solid ' + T.barLine + ';box-shadow:' + T.barShadow + ';font-family:inherit}' +
     '.tvx-nav *{box-sizing:border-box;margin:0;padding:0}' +
+    '.tvx-ann{height:' + ANN_H + 'px;display:flex;align-items:center;justify-content:center;gap:12px;overflow:hidden;background:#0B1F3A;color:#FFFFFF;' +
+      'font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;transition:height .35s cubic-bezier(.2,.7,.2,1)}' +
+    '.tvx-ann i{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.7)}' +
+    '.tvx-nav.tvx-scrolled .tvx-ann{height:0}' +
+    '@media (max-width:420px){.tvx-ann{gap:9px;font-size:.62rem;letter-spacing:.12em}}' +
     '.tvx-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px;padding:0 6%}' +
     '.tvx-logo img{height:32px;width:auto;display:block}' +
     '.tvx-links{list-style:none;display:flex;align-items:center;gap:2rem}' +
@@ -106,7 +114,7 @@
     '@media (prefers-reduced-motion:reduce){.tvx-panel,.tvx-chev,.tvx-ic{transition:none}}' +
     '@media (max-width:1100px){' +
       '.tvx-toggle{display:inline-flex}' +
-      '.tvx-links{display:none;flex-direction:column;align-items:stretch;gap:0;padding:8px 6% 24px;border-top:1px solid ' + T.barLine + ';max-height:calc(100vh - 72px);overflow-y:auto}' +
+      '.tvx-links{display:none;flex-direction:column;align-items:stretch;gap:0;padding:8px 6% 24px;border-top:1px solid ' + T.barLine + ';max-height:calc(100vh - ' + (72 + ANN_H) + 'px);overflow-y:auto}' +
       '.tvx-open .tvx-links{display:flex}' +
       '.tvx-open{background:' + T.mobileBg + '}' +
       '.tvx-links > li{border-bottom:1px solid ' + T.mobileLine + '}' +
@@ -120,7 +128,8 @@
       '.tvx-item{white-space:normal;padding:9px 6px}' +
       '.tvx-cta{display:block;margin-top:16px;text-align:center;padding:14px 0!important}' +
     '}' +
-    (addOffset ? 'body{padding-top:72px}' : '');
+    'body{padding-top:' + ((addOffset ? 72 : 0) + ANN_H) + 'px}' +
+    '@media (prefers-reduced-motion:reduce){.tvx-ann{transition:none}}';
 
   var style = document.createElement('style');
   style.textContent = css;
@@ -151,6 +160,7 @@
   nav.className = 'tvx-nav';
   nav.setAttribute('aria-label', 'Menu principal');
   nav.innerHTML =
+    (ANN_H ? '<div class="tvx-ann" role="note">' + ANN.map(function (w) { return '<span>' + w + '</span>'; }).join('<i aria-hidden="true"></i>') + '</div>' : '') +
     '<div class="tvx-bar">' +
       '<a href="/" class="tvx-logo"><img src="' + LOGO + '" alt="Teovox"></a>' +
       '<button class="tvx-toggle" type="button" aria-expanded="false" aria-controls="tvx-links" aria-label="Abrir menu"><span></span></button>' +
@@ -209,6 +219,11 @@
       if (mq.matches) { nav.classList.remove('tvx-open'); toggle.setAttribute('aria-expanded', 'false'); }
     }
   });
+
+  // a barra de aviso se recolhe ao rolar a página e volta no topo
+  function onScroll() { nav.classList.toggle('tvx-scrolled', (window.scrollY || window.pageYOffset) > 40); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   document.body.insertBefore(nav, document.body.firstChild);
 })();
