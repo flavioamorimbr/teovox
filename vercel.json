@@ -46,7 +46,7 @@
   ],
   "headers": [
     {
-      "source": "/(quiz|briefing-perictus)(.*)",
+      "source": "/(quiz|briefing-perictus|briefing-website)(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",

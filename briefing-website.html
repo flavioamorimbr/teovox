@@ -161,6 +161,31 @@ input:focus,textarea:focus{outline:none;border-color:var(--blue-400);background:
 
 footer{padding:36px 0 40px;text-align:center;font-size:13.5px;color:var(--soft)}
 
+
+/* checkout */
+.lbl-block{display:block;font-size:14px;font-weight:600;color:var(--muted);margin-bottom:8px}
+.plan-pick .ch > span{padding:11px 18px;font-size:15px}
+.plan-box{padding:16px 18px;border-radius:16px;background:var(--blue-50);border:1px solid var(--tint-line);color:var(--blue-800);font-size:15px}
+.plan-box b{font-size:17px;color:var(--blue-900)}
+.plan-box ul{margin:8px 0 0 18px;color:var(--blue-800)}
+.terms{max-height:340px;overflow-y:auto;padding:22px 24px;border-radius:16px;border:1px solid var(--line);background:var(--surface-2);font-size:14.5px;color:var(--muted);line-height:1.6;scrollbar-width:thin}
+.terms h3{font-size:16px;letter-spacing:.06em;color:var(--fg)}
+.terms .terms-sub{margin-top:2px;font-weight:600;color:var(--blue-700)}
+.terms h4{margin-top:18px;font-size:15px;color:var(--fg)}
+.terms p{margin-top:8px}
+.terms ul{margin:8px 0 0 20px}
+.terms li{margin-top:4px}
+.ch.accept > span{align-items:flex-start;font-size:14.5px;line-height:1.5}
+.ch.accept > span::before{margin-top:2px}
+.pix{padding:22px;border-radius:18px;border:1.5px solid #9FDDBE;background:#ECFAF2}
+.fx .pix:not([hidden]){animation:qin .5s var(--ease)}
+.pix-t{font-weight:800;color:#0F5A37;font-size:16px}
+.pix-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:10px}
+.pix code{font:700 22px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;color:var(--fg);background:#fff;border:1px dashed #9FDDBE;border-radius:12px;padding:10px 14px;user-select:all}
+.pix-copy{padding:11px 18px;font-size:14px;background:#fff}
+.pix-copy.ok{color:var(--ok);border-color:#9FDDBE}
+.pix-v{margin-top:10px;font-size:14.5px;color:#14563A}
+.pix-h{margin-top:6px;font-size:14px;color:#2F6B4F}
 @media (max-width:760px){
   .wrap{width:min(760px,100% - 28px)}
   .q{padding:30px 20px 24px;border-radius:22px;min-height:0}
@@ -196,17 +221,70 @@ footer{padding:36px 0 40px;text-align:center;font-size:13.5px;color:var(--soft)}
   <form id="bf" novalidate>
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
 
-    <!-- ===== PLANO ===== -->
-    <section class="q" data-grp="Plano" data-req="radio:plano">
+    <!-- ===== CONTRATAÇÃO (checkout) ===== -->
+    <section class="q" data-grp="Contratação" data-req="checkout" id="qCheckout">
       <p class="n"></p>
-      <h2>Qual plano você escolheu?<span class="req">*</span></h2>
-      <p class="ex">As próximas perguntas se ajustam ao que o plano inclui, como a quantidade de páginas e de e-mails. Os detalhes de cada plano estão em <a href="/website-por-assinatura#planos" target="_blank" rel="noopener">Website por Assinatura</a>.</p>
-      <div class="ans"><div class="choices">
-        <label class="ch plan"><input type="radio" name="plano" value="Essencial"><span><b>Essencial</b><span class="pr"><strong>R$ 97</strong>/mês</span><small>Até 4 páginas · design responsivo · botão de WhatsApp · hospedagem e SSL · manutenção técnica</small></span></label>
-        <label class="ch plan"><input type="radio" name="plano" value="Profissional"><span><b>Profissional <span class="rec">Recomendado</span></b><span class="pr"><strong>R$ 197</strong>/mês</span><small>Tudo do Essencial · até 5 páginas · 1 e-mail profissional · SEO técnico básico · 1 alteração simples por mês · relatório Google Analytics 4</small></span></label>
-        <label class="ch plan"><input type="radio" name="plano" value="Crescimento"><span><b>Crescimento</b><span class="pr"><strong>R$ 297</strong>/mês</span><small>Tudo do Profissional · até 8 páginas · 3 e-mails profissionais · até 2 atualizações por mês · acompanhamento de métricas · recomendações trimestrais</small></span></label>
-      </div></div>
-      <p class="err">Escolha um plano para continuar.</p>
+      <h2>Contratação do seu site</h2>
+      <p class="ex">Confira o plano, informe os seus dados e leia o resumo da contratação. Depois do aceite, aparece a chave PIX da taxa de implantação e você segue para as perguntas sobre o seu site.</p>
+      <div class="ans">
+        <div>
+          <span class="sub lbl-block">Plano escolhido</span>
+          <div class="choices inline plan-pick">
+            <label class="ch"><input type="radio" name="plano" value="Essencial"><span>Essencial · R$ 97/mês</span></label>
+            <label class="ch"><input type="radio" name="plano" value="Profissional"><span>Profissional · R$ 197/mês</span></label>
+            <label class="ch"><input type="radio" name="plano" value="Crescimento"><span>Crescimento · R$ 297/mês</span></label>
+          </div>
+        </div>
+        <div class="plan-box" id="planBox" hidden></div>
+        <div><label class="sub" for="c_nome">Nome completo</label><input type="text" id="c_nome" name="cliente_nome" autocomplete="name"></div>
+        <div class="two">
+          <div><label class="sub" for="c_mail">E-mail</label><input type="email" id="c_mail" name="cliente_email" autocomplete="email"></div>
+          <div><label class="sub" for="c_tel">Telefone / WhatsApp</label><input type="tel" id="c_tel" name="cliente_telefone" autocomplete="tel" placeholder="(00) 00000-0000"></div>
+        </div>
+
+        <div class="terms" tabindex="0" aria-label="Resumo da contratação">
+          <h3>SEU SITE POR ASSINATURA</h3>
+          <p class="terms-sub">Resumo da contratação — Teovox</p>
+          <p>Ao contratar o serviço Seu Site Por Assinatura, você está contratando a criação, publicação, hospedagem e manutenção técnica de um site profissional, conforme o plano selecionado no momento da contratação.</p>
+          <h4>1. Serviço de implantação</h4>
+          <p><b>R$ 97,00 — pagamento único.</b></p>
+          <p>Valor referente aos procedimentos iniciais de implantação, configuração do domínio, configuração dos e-mails previstos no plano e preparação técnica do site.</p>
+          <h4>2. O que está incluído na assinatura</h4>
+          <p>Todos os planos incluem:</p>
+          <ul>
+            <li>Criação e publicação de site profissional, conforme o limite de páginas e os recursos do plano escolhido.</li>
+            <li>Site adaptado para computadores, tablets e celulares.</li>
+            <li>Hospedagem do site e certificado de segurança SSL.</li>
+            <li>Manutenção técnica prevista no contrato.</li>
+            <li>Registro e configuração inicial do domínio pela Teovox, conforme as condições de contratação.</li>
+            <li>Suporte técnico relacionado aos serviços contratados.</li>
+          </ul>
+          <p>Conforme o plano selecionado, poderão estar incluídos e-mails profissionais personalizados, configurações básicas de SEO, solicitações mensais de alterações, relatórios de desempenho e acompanhamento de métricas.</p>
+          <p>A quantidade de páginas, contas de e-mail e solicitações de alteração, assim como os demais recursos específicos, será aquela indicada no plano escolhido.</p>
+          <h4>3. Pagamento da assinatura</h4>
+          <p>A taxa inicial de implantação é independente da mensalidade. Após a publicação do site, a Teovox enviará o link para ativação da cobrança recorrente do plano contratado.</p>
+          <p>A mensalidade será cobrada mensalmente, conforme o valor informado na contratação, pelo meio de pagamento disponibilizado.</p>
+          <h4>4. Domínio, anuidade e serviços de terceiros</h4>
+          <p>A Teovox realizará os procedimentos de registro e configuração inicial do domínio. Os custos de registro e renovação anual do domínio, hospedagem de e-mail e demais serviços de terceiros serão tratados conforme as condições comerciais informadas antes da contratação.</p>
+          <p>O domínio e os e-mails são destinados ao uso do cliente, embora possam ser registrados ou gerenciados em contas de plataformas administradas pela Teovox por razões técnicas e administrativas.</p>
+          <h4>5. Prazo, renovação e encerramento</h4>
+          <p>A assinatura possui prazo mínimo de 12 meses, contado do início da cobrança recorrente, e renovação automática mensal após esse período, até o cancelamento conforme o contrato.</p>
+          <p>Após o cumprimento do prazo mínimo, se o cliente solicitar a transferência do domínio e/ou dos e-mails ao encerrar o serviço, será cobrada uma taxa única equivalente a uma mensalidade do plano contratado. Eventuais tarifas de terceiros serão informadas separadamente.</p>
+          <p>O cancelamento, a transferência, os limites dos serviços e as demais condições seguem o Contrato de Prestação de Serviços disponibilizado antes da contratação.</p>
+          <h4>6. Ciência e concordância</h4>
+          <p>Ao marcar a caixa de aceite e prosseguir com o pagamento, declaro que li e compreendi este resumo, que estou ciente dos valores, dos recursos e limites do plano selecionado, da taxa de implantação, da cobrança recorrente após a publicação, do prazo mínimo de 12 meses, da renovação automática e das condições de domínio, e-mails, cancelamento e transferência previstas no contrato.</p>
+        </div>
+
+        <div class="choices"><label class="ch accept"><input type="checkbox" name="aceite_contratacao" value="Sim" id="c_aceite"><span>Li e aceito o resumo da contratação e o Contrato de Prestação de Serviços da Teovox. Estou ciente da taxa única de implantação de R$ 97,00, da mensalidade do plano escolhido, do prazo mínimo de 12 meses, da renovação automática e das condições de registro, renovação e transferência do domínio e dos e-mails.</span></label></div>
+
+        <div class="pix" id="pixBox" hidden>
+          <p class="pix-t">Chave PIX para taxa de Implementação</p>
+          <div class="pix-row"><code id="pixKey">38076806000136</code><button type="button" class="btn btn-ghost pix-copy" id="pixCopy">Copiar chave</button></div>
+          <p class="pix-v">Valor: <b>R$ 97,00</b> — pagamento único · Chave CNPJ</p>
+          <p class="pix-h">Depois de pagar, envie o comprovante pelo WhatsApp. Agora clique em <b>Próximo</b> para responder as perguntas sobre o seu site.</p>
+        </div>
+      </div>
+      <p class="err" id="ckErr">Escolha o plano, preencha nome, e-mail e telefone e marque o aceite.</p>
     </section>
 
     <!-- ===== EMPRESA ===== -->
@@ -476,19 +554,12 @@ footer{padding:36px 0 40px;text-align:center;font-size:13.5px;color:var(--soft)}
       <div class="ans"><textarea id="q_obs" name="observacoes"></textarea></div>
     </section>
 
-    <section class="q" data-grp="Para fechar" data-req="resp">
+    <section class="q" data-grp="Para fechar" data-req="radio:autorizacao">
       <p class="n"></p>
-      <h2>Quem está preenchendo?<span class="req">*</span></h2>
-      <p class="ex">Vamos usar esses dados para falar com você sobre o site.</p>
-      <div class="ans">
-        <div><label class="sub" for="q_rn">Seu nome</label><input type="text" id="q_rn" name="responsavel_nome" autocomplete="name"></div>
-        <div class="two">
-          <div><label class="sub" for="q_rw">Seu WhatsApp</label><input type="tel" id="q_rw" name="responsavel_whatsapp" autocomplete="tel"></div>
-          <div><label class="sub" for="q_re">Seu e-mail</label><input type="email" id="q_re" name="email" autocomplete="email"></div>
-        </div>
-        <div class="choices"><label class="ch"><input type="checkbox" name="autorizacao" value="Sim"><span>Autorizo a Teovox a usar estas informações para criar o meu site.</span></label></div>
-      </div>
-      <p class="err" id="respErr">Preencha nome, WhatsApp com DDD e e-mail, e marque a autorização.</p>
+      <h2>Autoriza o uso destas informações?<span class="req">*</span></h2>
+      <p class="ex">As respostas são usadas somente para criar o seu site.</p>
+      <div class="ans"><div class="choices"><label class="ch"><input type="checkbox" name="autorizacao" value="Sim"><span>Autorizo a Teovox a usar estas informações para criar o meu site.</span></label></div></div>
+      <p class="err">Marque a autorização para continuar.</p>
     </section>
 
     <!-- ===== REVISÃO ===== -->
@@ -529,6 +600,11 @@ footer{padding:36px 0 40px;text-align:center;font-size:13.5px;color:var(--soft)}
   var KEY = 'teovox-briefing-site-v2';
   var PLAN = { Essencial:{pages:4, emails:0}, Profissional:{pages:5, emails:1}, Crescimento:{pages:8, emails:3} };
   var ESSENCIAIS = ['Início', 'Quem somos', 'Serviços ou produtos', 'Contato'];
+  var PLAN_INFO = {
+    Essencial: { preco: 'R$ 97/mês', itens: ['Site de até 4 páginas', 'Design responsivo para celulares e computadores', 'Botão de contato direto pelo WhatsApp', 'Hospedagem e certificado SSL', 'Manutenção técnica conforme o plano contratado'] },
+    Profissional: { preco: 'R$ 197/mês', itens: ['Tudo do Essencial', 'Site de até 5 páginas', '1 e-mail profissional personalizado com o domínio da empresa', 'Configuração básica de SEO técnico', 'Uma solicitação de alteração simples por mês', 'Relatório básico de visitas com Google Analytics 4'] },
+    Crescimento: { preco: 'R$ 297/mês', itens: ['Tudo do Profissional', 'Site de até 8 páginas', 'Total de 3 e-mails profissionais personalizados', 'Até duas atualizações simples por mês', 'Acompanhamento de métricas', 'Recomendações trimestrais para melhorias'] }
+  };
 
   var form = document.getElementById('bf');
   var all = [].slice.call(form.querySelectorAll('.q'));
@@ -544,6 +620,10 @@ footer{padding:36px 0 40px;text-align:center;font-size:13.5px;color:var(--soft)}
   var pgBoxes = [].slice.call(form.querySelectorAll('#pgOpts input'));
   function pagesUsed(){ return checked('paginas').length + (val('paginas_outra') ? 1 : 0); }
   function applyPlan(){
+    var info = PLAN_INFO[plan()], box = $('planBox');
+    if (info){ box.hidden = false; box.innerHTML = '<b>Plano ' + plan() + ' — ' + info.preco + '</b> + taxa única de implantação de R$ 97,00<ul>' + info.itens.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul>'; }
+    else box.hidden = true;
+    $('pixBox').hidden = !checked('aceite_contratacao').length;
     var p = PLAN[plan()] || PLAN.Essencial, used = pagesUsed(), full = used >= p.pages;
     $('pgMax').textContent = p.pages; $('pgUsed').textContent = used;
     $('pgCounter').classList.toggle('full', full);
@@ -592,7 +672,7 @@ footer{padding:36px 0 40px;text-align:center;font-size:13.5px;color:var(--soft)}
     if (t[0] === 'pages'){ var u = pagesUsed(), m = (PLAN[plan()] || PLAN.Essencial).pages; $('pgErr').textContent = u > m ? 'Você marcou mais páginas do que o plano permite.' : 'Marque pelo menos uma página.'; return u > 0 && u <= m; }
     if (t[0] === 'logo') return !!val('logo_link') || checked('logo_whatsapp').length || checked('logo_nao_tenho').length;
     if (t[0] === 'imgs') return !!val('imagens_link') || checked('imagens_whatsapp').length || checked('imagens_nao_tenho').length;
-    if (t[0] === 'resp') return !!val('responsavel_nome') && digits(val('responsavel_whatsapp')) >= 10 && reMail.test(val('email')) && checked('autorizacao').length;
+    if (t[0] === 'checkout') return !!plan() && val('cliente_nome').length > 2 && reMail.test(val('cliente_email')) && digits(val('cliente_telefone')) >= 10 && checked('aceite_contratacao').length;
     return true;
   }
   form.addEventListener('input', function(e){ var q = e.target.closest('.q'); if (q) q.classList.remove('bad'); });
@@ -604,7 +684,7 @@ footer{padding:36px 0 40px;text-align:center;font-size:13.5px;color:var(--soft)}
     all.forEach(function(q){ q.classList.remove('on', 'back'); });
     var q = L[cur]; q.classList.add('on'); if (dir < 0) q.classList.add('back');
     var total = L.length - 1, isRev = q.id === 'qReview';
-    L.forEach(function(x, k){ if (x.id !== 'qReview') x.querySelector('.n').textContent = 'Pergunta ' + (k + 1); });
+    L.forEach(function(x, k){ if (x.id !== 'qReview') x.querySelector('.n').textContent = x.id === 'qCheckout' ? 'Etapa 1 · Contratação' : 'Pergunta ' + (k + 1); });
     $('pNow').textContent = isRev ? total : cur + 1; $('pTot').textContent = total;
     $('pGrp').textContent = q.getAttribute('data-grp');
     var pct = isRev ? 100 : Math.round(cur / total * 100);
@@ -625,6 +705,7 @@ footer{padding:36px 0 40px;text-align:center;font-size:13.5px;color:var(--soft)}
     var q = list()[cur];
     if (q.id === 'qReview'){ send(); return; }
     if (!ok(q)){ q.classList.add('bad'); var f = q.querySelector('input,textarea'); try{ f && f.focus({ preventScroll: true }); }catch(e){} return; }
+    if (q.id === 'qCheckout') sendContract();
     show(cur + 1, 1);
   });
   back.addEventListener('click', function(){ show(cur - 1, -1); });
@@ -642,7 +723,7 @@ footer{padding:36px 0 40px;text-align:center;font-size:13.5px;color:var(--soft)}
       var v = (el.type === 'radio' || el.type === 'checkbox') ? checked(el.name).join(', ') : el.value.trim();
       if (!v) return;
       var sub = el.closest('div') && el.closest('div').querySelector('label.sub');
-      var lbl = el.name === 'autorizacao' ? 'Autoriza o uso das informações' : (el.type === 'radio' || el.type === 'checkbox') ? '' : (sub && sub.getAttribute('for') === el.id ? sub.textContent : '');
+      var lbl = el.name === 'autorizacao' ? 'Autoriza o uso das informações' : el.name === 'aceite_contratacao' ? 'Aceitou o resumo da contratação' : el.name === 'plano' ? 'Plano' : (el.type === 'radio' || el.type === 'checkbox') ? '' : (sub && sub.getAttribute('for') === el.id ? sub.textContent : '');
       rows.push({ name: el.name, label: lbl, value: v });
     });
     return rows;
@@ -703,8 +784,9 @@ footer{padding:36px 0 40px;text-align:center;font-size:13.5px;color:var(--soft)}
   /* ---------- envio ----------
      1º Google Drive (planilha + documento + e-mail de aviso, pelo script do Google);
      se o script não estiver publicado ou falhar, o Formspree envia por e-mail com o mesmo título. */
-  var APPS_SCRIPT_URL = '';
+  var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwLnHNgSDSvsnMjpj4BnXeViqua9F5NNquDuOtq0YXyBc3Js0mjqP8O_4pOkrKdSZkh/exec';
   var TITULO = 'BRIEFING CLIENTE - WEBSITE POR ASSINATURA';
+  var TITULO_ACEITE = 'ACEITE DE CONTRATAÇÃO - WEBSITE POR ASSINATURA';
   function viaDrive(payload){
     if (!APPS_SCRIPT_URL) return Promise.reject(new Error('sem script'));
     return fetch(APPS_SCRIPT_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) })
@@ -714,15 +796,38 @@ footer{padding:36px 0 40px;text-align:center;font-size:13.5px;color:var(--soft)}
   function viaFormspree(payload){
     var fd = new FormData();
     Object.keys(payload).forEach(function(k){ if (k !== '_gotcha' || payload[k]) fd.append(k, payload[k]); });
-    fd.append('_subject', TITULO);
-    if (payload.email) fd.append('_replyto', payload.email);
+    fd.append('_subject', payload.tipo === 'contrato' ? TITULO_ACEITE : TITULO);
+    if (payload.cliente_email) fd.append('_replyto', payload.cliente_email);
     return fetch(ENDPOINT, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
       .then(function(r){ if (!r.ok) throw new Error('falha'); });
   }
+  /* aceite da contratação: gera o documento na pasta CONTRATOS (uma vez por aceite) */
+  function sendContract(){
+    var d = { tipo: 'contrato', plano: plan(), mensalidade: (PLAN_INFO[plan()] || {}).preco || '', taxa_implantacao: 'R$ 97,00',
+      cliente_nome: val('cliente_nome'), cliente_email: val('cliente_email'), cliente_telefone: val('cliente_telefone'),
+      aceite: 'Sim', aceite_texto: document.querySelector('.ch.accept span').textContent.trim(),
+      resumo_contratacao: document.querySelector('.terms').innerText.trim(),
+      data_aceite_cliente: new Date().toLocaleString('pt-BR'), pagina: location.href,
+      _gotcha: form.querySelector('[name=_gotcha]').value || '' };
+    var sig = [d.plano, d.cliente_nome, d.cliente_email, d.cliente_telefone].join('|');
+    try{ if (localStorage.getItem(KEY + '-aceite') === sig) return; }catch(e){}
+    viaDrive(d).catch(function(){ return viaFormspree(d); })
+      .then(function(){ try{ localStorage.setItem(KEY + '-aceite', sig); }catch(e){} })
+      .catch(function(){});
+  }
+  $('pixCopy').addEventListener('click', function(){
+    var k = $('pixKey').textContent.trim(), b = this;
+    function done(){ b.textContent = 'Chave copiada ✓'; b.classList.add('ok'); setTimeout(function(){ b.textContent = 'Copiar chave'; b.classList.remove('ok'); }, 2500); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(k).then(done, function(){ selectKey(); });
+    else selectKey();
+    function selectKey(){ var r = document.createRange(); r.selectNodeContents($('pixKey')); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try{ document.execCommand('copy'); done(); }catch(e){} }
+  });
+
   function send(){
     var gErr = $('gErr'); gErr.style.display = 'none';
     var flat = {};
     collect().forEach(function(it){ it.rows.forEach(function(r){ flat[r.name] = r.value; }); });
+    flat.tipo = 'briefing';
     flat.tipo_formulario = 'Briefing Website por Assinatura';
     flat.briefing_completo = briefingText();
     flat._gotcha = form.querySelector('[name=_gotcha]').value || '';
