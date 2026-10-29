@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F4F6F9">
+<meta name="robots" content="noindex, nofollow">
+<title>Briefing do seu site — Teovox</title>
+<meta name="description" content="Escolha o seu plano de Website por Assinatura e envie as informações para a criação do seu site.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="icon-512.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script>
+  (function(){var d=document.documentElement;if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('fx');}})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#F4F6F9; --surface:#FFFFFF; --surface-2:#F7F9FC; --line:#DDE3EB; --line-soft:#E6EBF1;
+  --fg:#141414; --muted:#4A5260; --soft:#737C89;
+  --blue-900:#0B1F3A; --blue-800:#112D52; --blue-700:#174070; --blue-600:#1E5490; --blue-500:#2169B8;
+  --blue-400:#3A82D0; --blue-300:#6AAAE4; --blue-200:#A3C8F0; --blue-100:#D6E8F9; --blue-50:#EEF5FD;
+  --tint-line:rgba(33,105,184,.2); --err:#C2382B; --ok:#1F8A5B; --wpp:#25D366;
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --shadow-1:0 1px 2px rgba(17,45,82,.06),0 18px 36px -22px rgba(17,45,82,.28);
+  --shadow-2:0 2px 6px rgba(17,45,82,.05),0 40px 80px -38px rgba(17,45,82,.38),0 0 0 1px rgba(17,45,82,.04);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{font-family:var(--font);font-size:16px;line-height:1.6;color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;display:flex;flex-direction:column;min-height:100vh}
+body::after{content:"";position:fixed;right:-220px;top:-220px;width:620px;height:620px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(106,170,228,.35),transparent 70%)}
+a{color:var(--blue-600)}
+.wrap{position:relative;z-index:1;width:min(760px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:2px solid var(--blue-500);outline-offset:3px;border-radius:6px}
+main{flex:1}
+
+/* topo */
+.top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0}
+.top img{height:30px;width:auto;display:block}
+.top .help{font-size:14px;color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.top .help:hover{color:var(--blue-600)}
+.top .help svg{width:18px;height:18px;color:var(--wpp)}
+
+/* abertura */
+.intro{padding:18px 0 4px}
+.intro h1{font-size:clamp(30px,4.2vw,46px);line-height:1.05;letter-spacing:-.04em;font-weight:800}
+.intro h1 em{font-style:normal;color:var(--blue-500)}
+.intro p{margin-top:12px;color:var(--muted);font-size:17.5px;max-width:58ch}
+
+/* progresso */
+.prog{position:sticky;top:0;z-index:5;margin-top:22px;padding:14px 0;background:rgba(244,246,249,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.prog-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:13px;color:var(--soft);font-weight:600}
+.prog-row b{color:var(--fg);font-weight:700}
+.prog-row .grp{color:var(--blue-600)}
+.bar{margin-top:8px;height:6px;border-radius:999px;background:var(--line-soft);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--blue-500),var(--blue-300));transition:width .6s var(--ease)}
+
+/* pergunta */
+form{margin-top:8px}
+.q{display:none;background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow-2);padding:42px 40px 30px;min-height:340px}
+.q.on{display:block}
+.fx .q.on{animation:qin .55s var(--ease)}
+.fx .q.on.back{animation:qback .55s var(--ease)}
+@keyframes qin{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes qback{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+.q .n{font-size:13px;font-weight:800;color:var(--blue-500);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.q h2{margin-top:8px;font-size:clamp(23px,2.7vw,30px);line-height:1.2;letter-spacing:-.03em;font-weight:800}
+.q h2 .req{color:var(--err);margin-left:4px}
+.q h2 .opt-tag{font-size:13px;font-weight:600;color:var(--soft);letter-spacing:0;margin-left:8px;vertical-align:middle}
+.q .ex{margin-top:10px;color:var(--muted);font-size:16px;max-width:60ch}
+.q .ex b{color:var(--fg)}
+.ans{margin-top:26px;display:grid;gap:14px}
+.ans .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ans label.sub{font-size:14px;font-weight:600;color:var(--muted);display:block;margin-bottom:6px}
+input[type=text],input[type=email],input[type=tel],input[type=url],textarea{font:inherit;font-size:17px;color:var(--fg);background:var(--surface-2);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;width:100%;transition:border-color .25s,box-shadow .25s,background .25s}
+textarea{min-height:150px;resize:vertical;line-height:1.5}
+input:focus,textarea:focus{outline:none;border-color:var(--blue-400);background:#fff;box-shadow:0 0 0 4px var(--blue-50)}
+.q.bad input[type=text],.q.bad input[type=email],.q.bad input[type=tel],.q.bad textarea,.q.bad .choices{border-color:var(--err)}
+.err{display:none;margin-top:12px;font-size:14px;font-weight:600;color:var(--err)}
+.q.bad .err{display:block}
+
+/* escolhas */
+.choices{display:grid;gap:10px;border:1.5px solid transparent;border-radius:18px}
+.choices.inline{display:flex;flex-wrap:wrap}
+.ch{position:relative;display:block}
+.ch input{position:absolute;opacity:0;width:1px;height:1px}
+.ch > span{display:flex;align-items:center;gap:12px;padding:15px 18px;border-radius:16px;border:1.5px solid var(--line);background:var(--surface-2);font-size:16.5px;font-weight:500;color:var(--fg);cursor:pointer;transition:border-color .25s,background .25s,transform .25s var(--ease)}
+.ch > span::before{content:"";flex:none;width:20px;height:20px;border-radius:6px;border:1.5px solid #B9C3D0;background:#fff;transition:background .25s,border-color .25s}
+.ch input[type=radio] + span::before{border-radius:50%}
+.ch > span:hover{border-color:var(--blue-300);transform:translateX(3px)}
+.ch input:checked + span{border-color:var(--blue-500);background:var(--blue-50);color:var(--blue-800)}
+.ch input:checked + span::before{border-color:var(--blue-500);background:var(--blue-500) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/12px no-repeat}
+.ch input:focus-visible + span{outline:2px solid var(--blue-500);outline-offset:2px}
+.ch input:disabled + span{opacity:.42;cursor:not-allowed;transform:none}
+.choices.inline .ch > span{padding:12px 22px;font-weight:600}
+.ch .k{flex:none;margin-left:auto;font-size:12px;font-weight:700;color:var(--soft);border:1px solid var(--line);border-radius:6px;padding:1px 7px;background:#fff}
+.ch.yes > span,.ch.no > span{min-width:120px;justify-content:flex-start}
+
+/* planos (resposta objetiva) */
+.plan > span{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:start;gap:4px 14px;padding:18px 20px}
+.plan > span::before{margin-top:3px;grid-row:1 / span 2}
+.plan b{font-size:18px;font-weight:800;letter-spacing:-.02em}
+.plan .pr{font-size:15px;color:var(--muted);white-space:nowrap}
+.plan .pr strong{font-size:20px;color:var(--fg);letter-spacing:-.03em}
+.plan small{grid-column:2 / -1;font-size:14px;color:var(--muted);font-weight:400;line-height:1.45}
+.plan .rec{display:inline-block;margin-left:8px;font-size:11px;font-weight:700;color:#fff;background:var(--blue-500);padding:2px 8px;border-radius:999px;vertical-align:middle}
+.plan input:checked + span small{color:var(--blue-700)}
+
+/* páginas */
+.counter{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 16px;border-radius:14px;background:var(--blue-50);border:1px solid var(--tint-line);font-size:15px;color:var(--blue-800)}
+.counter b{font-size:19px;font-variant-numeric:tabular-nums}
+.counter.full{background:#FFF7E8;border-color:#F2D9A6;color:#7A5413}
+.pages{grid-template-columns:repeat(2,minmax(0,1fr))}
+.box{padding:16px 18px;border-radius:16px;background:var(--surface-2);border:1px solid var(--line);font-size:15px;color:var(--muted)}
+.box b{color:var(--fg)}
+.box.tip{background:var(--blue-50);border-color:var(--tint-line);color:var(--blue-800)}
+.box.warn{background:#FFF7E8;border-color:#F2D9A6;color:#6B4A10}
+.box ul{margin:8px 0 0 18px}
+.or{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:700;color:var(--soft);text-transform:uppercase;letter-spacing:.1em}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* navegação */
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:700;font-size:16px;padding:15px 28px;border-radius:999px;border:0;cursor:pointer;text-decoration:none;transition:transform .3s var(--ease),box-shadow .3s,background .3s,color .3s}
+.btn svg{width:18px;height:18px;transition:transform .3s var(--ease)}
+.btn-primary{color:#fff;background:linear-gradient(120deg,var(--blue-500),var(--blue-400));box-shadow:0 12px 28px -12px rgba(33,105,184,.65)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-primary:hover svg{transform:translateX(4px)}
+.btn-ghost{color:var(--muted);background:transparent;border:1.5px solid var(--line)}
+.btn-ghost:hover{color:var(--fg);border-color:var(--blue-300)}
+.btn[disabled]{opacity:.6;cursor:wait;transform:none}
+.btn-wpp{color:#062A14;background:var(--wpp)}
+.btn-wpp svg{width:20px;height:20px;fill:currentColor}
+.hint-enter{font-size:13px;color:var(--soft);margin-top:12px}
+.hint-enter kbd{font:inherit;font-weight:700;border:1px solid var(--line);border-radius:6px;padding:0 6px;background:#fff}
+
+/* revisão */
+.review{margin-top:22px;display:grid;gap:12px}
+.rv{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.rv h3{font-size:14px;padding:10px 16px;background:var(--surface-2);border-bottom:1px solid var(--line);color:var(--blue-700)}
+.rv .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) auto;gap:12px;align-items:start;padding:10px 16px;border-top:1px solid var(--line-soft);font-size:14.5px}
+.rv .row:first-of-type{border-top:0}
+.rv .row span{color:var(--soft)}
+.rv .row p{color:var(--fg);white-space:pre-wrap;word-break:break-word}
+.rv .row button{font:inherit;font-size:13px;font-weight:700;color:var(--blue-600);background:none;border:0;cursor:pointer}
+.global-err{display:none;margin-top:16px;padding:14px 16px;border-radius:14px;background:#FDECEA;color:#8E2A20;font-weight:600;font-size:15px}
+
+/* sucesso */
+.done{display:none;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow-2);padding:56px 36px;margin-top:22px}
+.done .ok{width:72px;height:72px;margin:0 auto;border-radius:50%;display:grid;place-items:center;background:var(--blue-500);color:#fff;box-shadow:0 0 0 10px var(--blue-50)}
+.done .ok svg{width:34px;height:34px}
+.fx .done .ok{animation:pop .7s var(--ease)}
+@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+.done h2{margin-top:26px;font-size:clamp(26px,3vw,34px);letter-spacing:-.03em}
+.done p{margin:12px auto 0;max-width:52ch;color:var(--muted)}
+.done .actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}
+
+footer{padding:36px 0 40px;text-align:center;font-size:13.5px;color:var(--soft)}
+
+@media (max-width:760px){
+  .wrap{width:min(760px,100% - 28px)}
+  .q{padding:30px 20px 24px;border-radius:22px;min-height:0}
+  .ans .two,.pages{grid-template-columns:minmax(0,1fr)}
+  .plan > span{grid-template-columns:auto minmax(0,1fr)}
+  .plan .pr{grid-column:2}
+  .rv .row{grid-template-columns:minmax(0,1fr) auto}
+  .rv .row p{grid-column:1 / -1;grid-row:2}
+  .hint-enter{display:none}
+  .btn{padding:14px 22px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<main>
+<div class="wrap">
+  <header class="top">
+    <a href="/" aria-label="Teovox — página inicial"><img src="Logotipo-teovox-escuro.png" alt="Teovox" width="154" height="30"></a>
+    <a class="help" href="https://wa.me/5579996343621?text=Ol%C3%A1%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20briefing%20do%20meu%20site." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.05 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.05 2zm5.42 12.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.91-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35z"/></svg>Dúvidas? Fale conosco</a>
+  </header>
+
+  <div class="intro" id="intro">
+    <h1>Briefing do <em>seu site</em></h1>
+    <p>Responda uma pergunta de cada vez. Com essas informações, a Teovox cria o seu site dentro do que o seu plano inclui.</p>
+  </div>
+
+  <div class="prog" id="prog" aria-live="polite">
+    <div class="prog-row"><span>Pergunta <b id="pNow">1</b> de <b id="pTot">1</b></span><span class="grp" id="pGrp">Plano</span></div>
+    <div class="bar" role="progressbar" aria-label="Progresso do briefing" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="pBar"></i></div>
+  </div>
+
+  <form id="bf" novalidate>
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+
+    <!-- ===== PLANO ===== -->
+    <section class="q" data-grp="Plano" data-req="radio:plano">
+      <p class="n"></p>
+      <h2>Qual plano você escolheu?<span class="req">*</span></h2>
+      <p class="ex">As próximas perguntas se ajustam ao que o plano inclui, como a quantidade de páginas e de e-mails. Os detalhes de cada plano estão em <a href="/website-por-assinatura#planos" target="_blank" rel="noopener">Website por Assinatura</a>.</p>
+      <div class="ans"><div class="choices">
+        <label class="ch plan"><input type="radio" name="plano" value="Essencial"><span><b>Essencial</b><span class="pr"><strong>R$ 97</strong>/mês</span><small>Até 4 páginas · design responsivo · botão de WhatsApp · hospedagem e SSL · manutenção técnica</small></span></label>
+        <label class="ch plan"><input type="radio" name="plano" value="Profissional"><span><b>Profissional <span class="rec">Recomendado</span></b><span class="pr"><strong>R$ 197</strong>/mês</span><small>Tudo do Essencial · até 5 páginas · 1 e-mail profissional · SEO técnico básico · 1 alteração simples por mês · relatório Google Analytics 4</small></span></label>
+        <label class="ch plan"><input type="radio" name="plano" value="Crescimento"><span><b>Crescimento</b><span class="pr"><strong>R$ 297</strong>/mês</span><small>Tudo do Profissional · até 8 páginas · 3 e-mails profissionais · até 2 atualizações por mês · acompanhamento de métricas · recomendações trimestrais</small></span></label>
+      </div></div>
+      <p class="err">Escolha um plano para continuar.</p>
+    </section>
+
+    <!-- ===== EMPRESA ===== -->
+    <section class="q" data-grp="Sua empresa" data-req="text:empresa_nome">
+      <p class="n"></p>
+      <h2><label for="q_nome">Qual é o nome da sua empresa?</label><span class="req">*</span></h2>
+      <p class="ex">Escreva como ele deve aparecer no site, com acentos e maiúsculas.</p>
+      <div class="ans"><input type="text" id="q_nome" name="empresa_nome" autocomplete="organization"></div>
+      <p class="err">Informe o nome da empresa.</p>
+    </section>
+
+    <section class="q" data-grp="Sua empresa" data-req="text:empresa_segmento">
+      <p class="n"></p>
+      <h2><label for="q_seg">Qual é a área de atuação da empresa?</label><span class="req">*</span></h2>
+      <p class="ex">O ramo em poucas palavras. Ex.: oficina mecânica, clínica odontológica, loja de roupas femininas.</p>
+      <div class="ans"><input type="text" id="q_seg" name="empresa_segmento"></div>
+      <p class="err">Informe a área de atuação.</p>
+    </section>
+
+    <section class="q" data-grp="Sua empresa" data-req="text:empresa_cidade">
+      <p class="n"></p>
+      <h2><label for="q_cid">Em qual cidade e estado a empresa está?</label><span class="req">*</span></h2>
+      <p class="ex">Isso ajuda o site a ser encontrado por clientes da sua região.</p>
+      <div class="ans"><input type="text" id="q_cid" name="empresa_cidade" placeholder="Ex.: Cuiabá – MT"></div>
+      <p class="err">Informe a cidade e o estado.</p>
+    </section>
+
+    <section class="q" data-grp="Sua empresa">
+      <p class="n"></p>
+      <h2><label for="q_reg">Quais regiões você atende?</label><span class="opt-tag">opcional</span></h2>
+      <p class="ex">Bairros, cidades, todo o estado, todo o Brasil ou atendimento online.</p>
+      <div class="ans"><input type="text" id="q_reg" name="empresa_regiao"></div>
+    </section>
+
+    <section class="q" data-grp="Sua empresa" data-req="text:empresa_apresentacao">
+      <p class="n"></p>
+      <h2><label for="q_apr">Como você apresentaria a sua empresa a um cliente novo?</label><span class="req">*</span></h2>
+      <p class="ex"><b>Quanto mais informação, melhor.</b> Conte o que vocês fazem, para quem, há quanto tempo, como trabalham e o que já conquistaram. Esse texto é a base do conteúdo do site.</p>
+      <div class="ans"><textarea id="q_apr" name="empresa_apresentacao" style="min-height:200px"></textarea></div>
+      <p class="err">Conte um pouco sobre a empresa.</p>
+    </section>
+
+    <section class="q" data-grp="Sua empresa">
+      <p class="n"></p>
+      <h2><label for="q_dif">Por que um cliente deveria escolher vocês?</label><span class="opt-tag">opcional</span></h2>
+      <p class="ex">Seus diferenciais: experiência, atendimento, prazo, garantia, preço, certificações.</p>
+      <div class="ans"><textarea id="q_dif" name="empresa_diferenciais"></textarea></div>
+    </section>
+
+    <!-- ===== SERVIÇOS ===== -->
+    <section class="q" data-grp="Produtos e serviços" data-req="text:servicos_lista">
+      <p class="n"></p>
+      <h2><label for="q_sv">Quais são os seus produtos ou serviços?</label><span class="req">*</span></h2>
+      <p class="ex">Escreva um por linha. Se puder, acrescente uma frase sobre cada um. Diga também qual deve ter mais destaque.</p>
+      <div class="ans"><textarea id="q_sv" name="servicos_lista" style="min-height:190px"></textarea></div>
+      <p class="err">Liste os seus produtos ou serviços.</p>
+    </section>
+
+    <section class="q" data-grp="Produtos e serviços">
+      <p class="n"></p>
+      <h2><label for="q_pub">Quem são os seus clientes?</label><span class="opt-tag">opcional</span></h2>
+      <p class="ex">Perfil de quem compra de você: pessoas ou empresas, idade, região, o que costumam procurar.</p>
+      <div class="ans"><textarea id="q_pub" name="publico"></textarea></div>
+    </section>
+
+    <!-- ===== PÁGINAS ===== -->
+    <section class="q" data-grp="Páginas do site" data-req="pages">
+      <p class="n"></p>
+      <h2>Quais páginas você quer no seu site?<span class="req">*</span></h2>
+      <p class="ex">Marque as páginas do seu site. A quantidade disponível segue o plano escolhido.</p>
+      <div class="ans">
+        <div class="counter" id="pgCounter"><span>Páginas marcadas</span><span><b id="pgUsed">0</b> de <b id="pgMax">4</b></span></div>
+        <div class="choices pages" id="pgOpts">
+          <label class="ch"><input type="checkbox" name="paginas" value="Início"><span>Início</span></label>
+          <label class="ch"><input type="checkbox" name="paginas" value="Quem somos"><span>Quem somos</span></label>
+          <label class="ch"><input type="checkbox" name="paginas" value="Serviços ou produtos"><span>Serviços ou produtos</span></label>
+          <label class="ch"><input type="checkbox" name="paginas" value="Contato"><span>Contato</span></label>
+          <label class="ch"><input type="checkbox" name="paginas" value="Portfólio / galeria"><span>Portfólio / galeria</span></label>
+          <label class="ch"><input type="checkbox" name="paginas" value="Depoimentos"><span>Depoimentos</span></label>
+          <label class="ch"><input type="checkbox" name="paginas" value="Perguntas frequentes"><span>Perguntas frequentes</span></label>
+          <label class="ch"><input type="checkbox" name="paginas" value="Equipe"><span>Equipe</span></label>
+          <label class="ch"><input type="checkbox" name="paginas" value="Página de um serviço específico"><span>Página de um serviço específico</span></label>
+          <label class="ch"><input type="checkbox" name="paginas" value="Área de atendimento / localização"><span>Área de atendimento / localização</span></label>
+        </div>
+        <div><label class="sub" for="q_pgout">Outra página (conta no limite do plano)</label><input type="text" id="q_pgout" name="paginas_outra"></div>
+        <div class="box tip" id="pgTip" hidden></div>
+        <div class="box" id="pgLimit" hidden></div>
+      </div>
+      <p class="err" id="pgErr">Marque pelo menos uma página.</p>
+    </section>
+
+    <!-- ===== CONTATO OFICIAL ===== -->
+    <section class="q" data-grp="Contato oficial" data-req="tel:contato_whatsapp">
+      <p class="n"></p>
+      <h2><label for="q_wpp">Qual é o WhatsApp oficial da empresa?</label><span class="req">*</span></h2>
+      <p class="ex">É o número que vai no botão de WhatsApp do site. Use o número da empresa, com DDD.</p>
+      <div class="ans"><input type="tel" id="q_wpp" name="contato_whatsapp" placeholder="(00) 00000-0000" autocomplete="tel"></div>
+      <p class="err">Informe um WhatsApp com DDD.</p>
+    </section>
+
+    <section class="q" data-grp="Contato oficial">
+      <p class="n"></p>
+      <h2>Quais outros contatos oficiais devem aparecer no site?<span class="opt-tag">opcional</span></h2>
+      <p class="ex">Preencha só o que a empresa usa para atender clientes.</p>
+      <div class="ans two">
+        <div><label class="sub" for="q_tel">Telefone</label><input type="tel" id="q_tel" name="contato_telefone"></div>
+        <div><label class="sub" for="q_mail">E-mail</label><input type="email" id="q_mail" name="contato_email"></div>
+      </div>
+    </section>
+
+    <section class="q" data-grp="Contato oficial">
+      <p class="n"></p>
+      <h2><label for="q_end">Qual é o endereço da empresa?</label><span class="opt-tag">opcional</span></h2>
+      <p class="ex">Se atender em um endereço, ele pode aparecer no site com o mapa. Deixe em branco se não quiser mostrar.</p>
+      <div class="ans">
+        <input type="text" id="q_end" name="contato_endereco" autocomplete="street-address">
+        <div><label class="sub" for="q_hor">Horário de atendimento</label><input type="text" id="q_hor" name="contato_horario" placeholder="Ex.: seg a sex, 8h às 18h"></div>
+      </div>
+    </section>
+
+    <section class="q" data-grp="Contato oficial">
+      <p class="n"></p>
+      <h2>Quais são as redes sociais da empresa?<span class="opt-tag">opcional</span></h2>
+      <p class="ex">Os links aparecem no site para o visitante seguir a empresa.</p>
+      <div class="ans two">
+        <div><label class="sub" for="q_ig">Instagram</label><input type="text" id="q_ig" name="redes_instagram" placeholder="@suaempresa"></div>
+        <div><label class="sub" for="q_fb">Facebook</label><input type="text" id="q_fb" name="redes_facebook"></div>
+        <div><label class="sub" for="q_yt">YouTube</label><input type="text" id="q_yt" name="redes_youtube"></div>
+        <div><label class="sub" for="q_ro">Outras (LinkedIn, TikTok…)</label><input type="text" id="q_ro" name="redes_outras"></div>
+      </div>
+    </section>
+
+    <!-- ===== MARCA ===== -->
+    <section class="q" data-grp="Sua marca" data-req="logo">
+      <p class="n"></p>
+      <h2>Envie a sua marca (logo)<span class="req">*</span></h2>
+      <p class="ex">Use o arquivo de melhor qualidade que tiver (PDF, PNG ou SVG). Cole o link de uma pasta com a logo ou marque para enviar pelo WhatsApp ao final.</p>
+      <div class="ans">
+        <div><label class="sub" for="q_logo">Link da pasta com a logo (Google Drive, Dropbox…)</label><input type="url" id="q_logo" name="logo_link" placeholder="https://"></div>
+        <div class="choices">
+          <label class="ch"><input type="checkbox" name="logo_whatsapp" value="Vou enviar a logo pelo WhatsApp" data-x="logo"><span>Vou enviar a logo pelo WhatsApp</span></label>
+          <label class="ch"><input type="checkbox" name="logo_nao_tenho" value="Não tenho uma logo" data-x="logo"><span>Não tenho uma logo</span></label>
+        </div>
+        <div class="box tip" id="logoTip" hidden>Sem problema. A criação de logo não faz parte do plano de site, mas a Teovox também cria marcas: conheça <a href="/criacao-de-logos" target="_blank" rel="noopener">Criação de Logo</a>.</div>
+      </div>
+      <p class="err">Cole o link da logo ou marque uma das opções.</p>
+    </section>
+
+        <section class="q" data-grp="Sua marca">
+      <p class="n"></p>
+      <h2>Como o seu site deve parecer?<span class="opt-tag">opcional · até 3</span></h2>
+      <p class="ex">Escolha os estilos que combinam com a sua empresa.</p>
+      <div class="ans"><div class="choices pages" data-max="3">
+        <label class="ch"><input type="checkbox" name="identidade_estilo" value="Moderno"><span>Moderno</span></label>
+        <label class="ch"><input type="checkbox" name="identidade_estilo" value="Sóbrio e profissional"><span>Sóbrio e profissional</span></label>
+        <label class="ch"><input type="checkbox" name="identidade_estilo" value="Acolhedor"><span>Acolhedor</span></label>
+        <label class="ch"><input type="checkbox" name="identidade_estilo" value="Sofisticado"><span>Sofisticado</span></label>
+        <label class="ch"><input type="checkbox" name="identidade_estilo" value="Alegre e colorido"><span>Alegre e colorido</span></label>
+        <label class="ch"><input type="checkbox" name="identidade_estilo" value="Minimalista"><span>Minimalista</span></label>
+      </div></div>
+    </section>
+
+    <section class="q" data-grp="Sua marca">
+      <p class="n"></p>
+      <h2><label for="q_refs">Quais sites você gosta?</label><span class="opt-tag">opcional</span></h2>
+      <p class="ex">Cole links de sites de qualquer área e diga o que você gosta em cada um. Se houver algo que você não quer no site, conte também.</p>
+      <div class="ans"><textarea id="q_refs" name="identidade_referencias"></textarea></div>
+    </section>
+
+    <!-- ===== IMAGENS ===== -->
+    <section class="q" data-grp="Imagens" data-req="imgs">
+      <p class="n"></p>
+      <h2>Envie até 20 imagens sobre você e o seu negócio para ilustrar o site<span class="req">*</span></h2>
+      <p class="ex">Fotos da equipe, do espaço, dos produtos, de trabalhos realizados ou suas. Imagens reais deixam o site mais confiável. Cole o link de uma pasta ou marque uma opção.</p>
+      <div class="ans">
+        <div><label class="sub" for="q_img">Link da pasta com as imagens (Google Drive, Dropbox…)</label><input type="url" id="q_img" name="imagens_link" placeholder="https://"></div>
+        <div class="choices">
+          <label class="ch"><input type="checkbox" name="imagens_whatsapp" value="Vou enviar as imagens pelo WhatsApp" data-x="imgs"><span>Vou enviar as imagens pelo WhatsApp</span></label>
+          <label class="ch"><input type="checkbox" name="imagens_nao_tenho" value="Não tenho imagens; usar imagens de banco" data-x="imgs"><span>Não tenho imagens; usar imagens de banco</span></label>
+        </div>
+        <p class="box">Deixe a pasta com acesso liberado para quem tiver o link.</p>
+      </div>
+      <p class="err">Cole o link das imagens ou marque uma das opções.</p>
+    </section>
+
+    <section class="q" data-grp="Imagens" data-req="radio:textos">
+      <p class="n"></p>
+      <h2>Você já tem os textos do site?<span class="req">*</span></h2>
+      <p class="ex">Se não tiver, a Teovox escreve os textos a partir dos textos enviados por este formulário.</p>
+      <div class="ans"><div class="choices">
+        <label class="ch"><input type="radio" name="textos" value="Sim, já tenho os textos"><span>Sim, já tenho os textos</span></label>
+        <label class="ch"><input type="radio" name="textos" value="Tenho parte dos textos"><span>Tenho parte dos textos</span></label>
+        <label class="ch"><input type="radio" name="textos" value="Não, a Teovox escreve a partir dos textos enviados por este formulário"><span>Não, a Teovox escreve a partir dos textos enviados por este formulário</span></label>
+      </div></div>
+      <p class="err">Escolha uma opção.</p>
+    </section>
+
+    <!-- ===== DOMÍNIO E E-MAIL ===== -->
+    <section class="q" data-grp="Domínio e e-mail" data-req="radio:dominio">
+      <p class="n"></p>
+      <h2>Você já tem domínio?<span class="req">*</span></h2>
+      <p class="ex">Domínio é o endereço do site, como <b>suaempresa.com.br</b>.</p>
+      <div class="ans">
+        <div class="choices inline"><label class="ch yes"><input type="radio" name="dominio" value="Sim"><span>Sim</span></label><label class="ch no"><input type="radio" name="dominio" value="Não"><span>Não</span></label></div>
+        <div data-show="dominio=Sim"><label class="sub" for="q_dom">Qual é o domínio?</label><input type="text" id="q_dom" name="dominio_atual" placeholder="suaempresa.com.br"></div>
+        <div data-show="dominio=Não"><label class="sub" for="q_domi">Qual endereço você gostaria? (opcional)</label><input type="text" id="q_domi" name="dominio_sugestao" placeholder="suaempresa.com.br"></div>
+      </div>
+      <p class="err">Responda Sim ou Não.</p>
+    </section>
+
+    <section class="q" data-grp="Domínio e e-mail" data-req="radio:email_profissional">
+      <p class="n"></p>
+      <h2>Você já tem e-mail profissional?<span class="req">*</span></h2>
+      <p class="ex">E-mail com o domínio da empresa, como <b>contato@suaempresa.com.br</b>.</p>
+      <div class="ans">
+        <div class="choices inline"><label class="ch yes"><input type="radio" name="email_profissional" value="Sim"><span>Sim</span></label><label class="ch no"><input type="radio" name="email_profissional" value="Não"><span>Não</span></label></div>
+        <div data-show="email_profissional=Sim"><label class="sub" for="q_emx">Qual?</label><input type="text" id="q_emx" name="email_profissional_atual" placeholder="contato@suaempresa.com.br"></div>
+      </div>
+      <p class="err">Responda Sim ou Não.</p>
+    </section>
+
+    <section class="q" data-grp="Domínio e e-mail" data-plans="Profissional Crescimento">
+      <p class="n"></p>
+      <h2><span id="emTitle">Qual nome você quer no e-mail profissional do plano?</span><span class="opt-tag">opcional</span></h2>
+      <p class="ex">Escreva só o que vem antes do @. Ex.: contato, vendas, seu nome.</p>
+      <div class="ans two">
+        <div><label class="sub" for="q_em1">E-mail 1</label><input type="text" id="q_em1" name="email_1" placeholder="contato"></div>
+        <div data-email="2"><label class="sub" for="q_em2">E-mail 2</label><input type="text" id="q_em2" name="email_2" placeholder="vendas"></div>
+        <div data-email="3"><label class="sub" for="q_em3">E-mail 3</label><input type="text" id="q_em3" name="email_3" placeholder="seunome"></div>
+      </div>
+    </section>
+
+    <!-- ===== GOOGLE (Profissional e Crescimento) ===== -->
+    <section class="q" data-grp="Google" data-plans="Profissional Crescimento">
+      <p class="n"></p>
+      <h2><label for="q_kw">Como os clientes procuram o que você oferece no Google?</label><span class="opt-tag">opcional</span></h2>
+      <p class="ex">As palavras que alguém digitaria para encontrar você. Ex.: "mecânico em Cuiabá", "conserto de ar-condicionado automotivo". Elas orientam a configuração de SEO do plano.</p>
+      <div class="ans"><textarea id="q_kw" name="seo_buscas"></textarea></div>
+    </section>
+
+    <section class="q" data-grp="Google" data-plans="Profissional Crescimento">
+      <p class="n"></p>
+      <h2><label for="q_ga">Qual e-mail do Google deve receber o relatório de visitas?</label><span class="opt-tag">opcional</span></h2>
+      <p class="ex">O plano inclui o relatório do Google Analytics 4. Informe uma conta Google (Gmail) para liberarmos o acesso.</p>
+      <div class="ans"><input type="email" id="q_ga" name="google_email_relatorio" placeholder="seuemail@gmail.com"></div>
+    </section>
+
+    <!-- ===== FINAL ===== -->
+    <section class="q" data-grp="Para fechar" data-req="radio:objetivo_acao">
+      <p class="n"></p>
+      <h2>O que o visitante deve fazer ao entrar no site?<span class="req">*</span></h2>
+      <p class="ex">Escolha a ação mais importante. O site é organizado para levar o visitante até ela.</p>
+      <div class="ans"><div class="choices">
+        <label class="ch"><input type="radio" name="objetivo_acao" value="Chamar no WhatsApp"><span>Chamar no WhatsApp</span></label>
+        <label class="ch"><input type="radio" name="objetivo_acao" value="Pedir um orçamento"><span>Pedir um orçamento</span></label>
+        <label class="ch"><input type="radio" name="objetivo_acao" value="Ligar para a empresa"><span>Ligar para a empresa</span></label>
+        <label class="ch"><input type="radio" name="objetivo_acao" value="Visitar a empresa"><span>Visitar a empresa</span></label>
+        <label class="ch"><input type="radio" name="objetivo_acao" value="Conhecer os produtos ou serviços"><span>Conhecer os produtos ou serviços</span></label>
+      </div></div>
+      <p class="err">Escolha uma ação.</p>
+    </section>
+
+    <section class="q" data-grp="Para fechar">
+      <p class="n"></p>
+      <h2><label for="q_obs">Algo mais que devemos saber?</label><span class="opt-tag">opcional</span></h2>
+      <p class="ex">Datas importantes (inauguração, campanha), informações que não podem faltar ou qualquer pedido especial.</p>
+      <div class="ans"><textarea id="q_obs" name="observacoes"></textarea></div>
+    </section>
+
+    <section class="q" data-grp="Para fechar" data-req="resp">
+      <p class="n"></p>
+      <h2>Quem está preenchendo?<span class="req">*</span></h2>
+      <p class="ex">Vamos usar esses dados para falar com você sobre o site.</p>
+      <div class="ans">
+        <div><label class="sub" for="q_rn">Seu nome</label><input type="text" id="q_rn" name="responsavel_nome" autocomplete="name"></div>
+        <div class="two">
+          <div><label class="sub" for="q_rw">Seu WhatsApp</label><input type="tel" id="q_rw" name="responsavel_whatsapp" autocomplete="tel"></div>
+          <div><label class="sub" for="q_re">Seu e-mail</label><input type="email" id="q_re" name="email" autocomplete="email"></div>
+        </div>
+        <div class="choices"><label class="ch"><input type="checkbox" name="autorizacao" value="Sim"><span>Autorizo a Teovox a usar estas informações para criar o meu site.</span></label></div>
+      </div>
+      <p class="err" id="respErr">Preencha nome, WhatsApp com DDD e e-mail, e marque a autorização.</p>
+    </section>
+
+    <!-- ===== REVISÃO ===== -->
+    <section class="q" data-grp="Revisão" id="qReview">
+      <p class="n">✓</p>
+      <h2>Confira as suas respostas</h2>
+      <p class="ex">Se precisar mudar algo, clique em "Editar". Depois, envie o briefing.</p>
+      <div class="review" id="review"></div>
+      <p class="global-err" id="gErr" role="alert"></p>
+    </section>
+
+    <div class="nav">
+      <button type="button" class="btn btn-ghost" id="back">← Voltar</button>
+      <button type="button" class="btn btn-primary" id="next">Próximo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+    <p class="hint-enter" id="hintEnter">ou pressione <kbd>Enter</kbd></p>
+  </form>
+
+  <section class="done" id="done" aria-live="polite">
+    <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h2>Briefing enviado!</h2>
+    <p>Recebemos as informações do seu site. A equipe da Teovox vai analisar tudo e falar com você pelo WhatsApp sobre os próximos passos.</p>
+    <p id="doneFiles" hidden><b>Falta enviar:</b> <span id="doneList"></span>. Toque no botão abaixo para mandar pelo WhatsApp.</p>
+    <div class="actions">
+      <a class="btn btn-wpp" id="doneWpp" href="https://wa.me/5579996343621" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.05 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.05 2zm5.42 12.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.91-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35z"/></svg><span id="doneWppTxt">Falar com a Teovox</span></a>
+      <a class="btn btn-ghost" href="/">Voltar ao site</a>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>© 2026 Teovox — Agência de Comunicação e Marketing Digital.</footer>
+
+<script>
+(function(){
+  var ENDPOINT = 'https://formspree.io/f/meewkygv';
+  var WPP = '5579996343621';
+  var KEY = 'teovox-briefing-site-v2';
+  var PLAN = { Essencial:{pages:4, emails:0}, Profissional:{pages:5, emails:1}, Crescimento:{pages:8, emails:3} };
+  var ESSENCIAIS = ['Início', 'Quem somos', 'Serviços ou produtos', 'Contato'];
+
+  var form = document.getElementById('bf');
+  var all = [].slice.call(form.querySelectorAll('.q'));
+  var back = document.getElementById('back'), next = document.getElementById('next');
+  var cur = 0, dir = 1;
+  function $(id){ return document.getElementById(id); }
+  function val(n){ var e = form.querySelector('[name="' + n + '"]'); return e ? e.value.trim() : ''; }
+  function checked(n){ return [].slice.call(form.querySelectorAll('[name="' + n + '"]:checked')).map(function(e){ return e.value; }); }
+  function plan(){ return checked('plano')[0] || ''; }
+  function list(){ return all.filter(function(q){ var p = q.getAttribute('data-plans'); return !p || p.split(' ').indexOf(plan()) > -1; }); }
+
+  /* ---------- páginas conforme o plano ---------- */
+  var pgBoxes = [].slice.call(form.querySelectorAll('#pgOpts input'));
+  function pagesUsed(){ return checked('paginas').length + (val('paginas_outra') ? 1 : 0); }
+  function applyPlan(){
+    var p = PLAN[plan()] || PLAN.Essencial, used = pagesUsed(), full = used >= p.pages;
+    $('pgMax').textContent = p.pages; $('pgUsed').textContent = used;
+    $('pgCounter').classList.toggle('full', full);
+    pgBoxes.forEach(function(b){ b.disabled = !b.checked && full; });
+    /* recomendação: páginas essenciais que ficaram de fora */
+    var sel = checked('paginas'), falta = ESSENCIAIS.filter(function(e){ return sel.indexOf(e) < 0; });
+    var tip = $('pgTip');
+    if ((sel.length || val('paginas_outra')) && falta.length){
+      tip.hidden = false;
+      tip.innerHTML = '<b>Recomendamos incluir estas páginas, importantes em todo site:</b><ul>' + falta.map(function(f){ return '<li>' + f + '</li>'; }).join('') + '</ul>' + (full ? '<p style="margin-top:8px">Para incluir, desmarque outra página.</p>' : '');
+    } else tip.hidden = true;
+    var lim = $('pgLimit');
+    if (used > p.pages){ lim.hidden = false; lim.className = 'box warn'; lim.innerHTML = '<b>Você passou do limite do plano ' + plan() + '.</b> Desmarque ' + (used - p.pages) + ' página(s) ou volte e escolha um plano maior.'; }
+    else if (full && plan() && plan() !== 'Crescimento'){ lim.hidden = false; lim.className = 'box'; lim.innerHTML = 'Você usou todas as páginas do plano ' + plan() + '. O plano <b>' + (plan() === 'Essencial' ? 'Profissional permite até 5' : 'Crescimento permite até 8') + '</b>.'; }
+    else lim.hidden = true;
+    /* e-mails do plano */
+    var n = p.emails;
+    $('emTitle').textContent = n > 1 ? 'Quais nomes você quer nos ' + n + ' e-mails profissionais do plano?' : 'Qual nome você quer no e-mail profissional do plano?';
+    [].slice.call(form.querySelectorAll('[data-email]')).forEach(function(d){ d.style.display = +d.getAttribute('data-email') <= n ? '' : 'none'; });
+  }
+  function applyShow(){
+    [].slice.call(form.querySelectorAll('[data-show]')).forEach(function(el){
+      var c = el.getAttribute('data-show').split('='); el.style.display = checked(c[0])[0] === c[1] ? '' : 'none';
+    });
+    $('logoTip').hidden = !checked('logo_nao_tenho').length;
+  }
+  /* "não tenho" e "pelo WhatsApp" não combinam: marcar um desmarca o outro */
+  form.addEventListener('change', function(e){
+    var t = e.target, g = t.getAttribute && t.getAttribute('data-x');
+    if (g && t.checked) [].slice.call(form.querySelectorAll('[data-x="' + g + '"]')).forEach(function(o){ if (o !== t) o.checked = false; });
+  });
+  [].slice.call(form.querySelectorAll('.choices[data-max]')).forEach(function(g){
+    var max = +g.getAttribute('data-max');
+    g.addEventListener('change', function(){ var bx = [].slice.call(g.querySelectorAll('input')), k = bx.filter(function(b){ return b.checked; }).length; bx.forEach(function(b){ b.disabled = !b.checked && k >= max; }); });
+  });
+
+  /* ---------- validação ---------- */
+  var reMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function digits(s){ return s.replace(/\D/g, '').length; }
+  function ok(q){
+    var r = q.getAttribute('data-req'); if (!r) return true;
+    var t = r.split(':');
+    if (t[0] === 'text') return !!val(t[1]);
+    if (t[0] === 'tel') return digits(val(t[1])) >= 10;
+    if (t[0] === 'radio') return !!checked(t[1]).length;
+    if (t[0] === 'pages'){ var u = pagesUsed(), m = (PLAN[plan()] || PLAN.Essencial).pages; $('pgErr').textContent = u > m ? 'Você marcou mais páginas do que o plano permite.' : 'Marque pelo menos uma página.'; return u > 0 && u <= m; }
+    if (t[0] === 'logo') return !!val('logo_link') || checked('logo_whatsapp').length || checked('logo_nao_tenho').length;
+    if (t[0] === 'imgs') return !!val('imagens_link') || checked('imagens_whatsapp').length || checked('imagens_nao_tenho').length;
+    if (t[0] === 'resp') return !!val('responsavel_nome') && digits(val('responsavel_whatsapp')) >= 10 && reMail.test(val('email')) && checked('autorizacao').length;
+    return true;
+  }
+  form.addEventListener('input', function(e){ var q = e.target.closest('.q'); if (q) q.classList.remove('bad'); });
+  form.addEventListener('change', function(e){ var q = e.target.closest('.q'); if (q) q.classList.remove('bad'); });
+
+  /* ---------- navegação: uma pergunta por vez ---------- */
+  function show(i, d){
+    var L = list(); cur = Math.max(0, Math.min(i, L.length - 1)); dir = d || 1;
+    all.forEach(function(q){ q.classList.remove('on', 'back'); });
+    var q = L[cur]; q.classList.add('on'); if (dir < 0) q.classList.add('back');
+    var total = L.length - 1, isRev = q.id === 'qReview';
+    L.forEach(function(x, k){ if (x.id !== 'qReview') x.querySelector('.n').textContent = 'Pergunta ' + (k + 1); });
+    $('pNow').textContent = isRev ? total : cur + 1; $('pTot').textContent = total;
+    $('pGrp').textContent = q.getAttribute('data-grp');
+    var pct = isRev ? 100 : Math.round(cur / total * 100);
+    $('pBar').style.width = pct + '%'; document.querySelector('.bar').setAttribute('aria-valuenow', pct);
+    back.style.visibility = cur === 0 ? 'hidden' : 'visible';
+    var arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+    next.innerHTML = (isRev ? 'Enviar briefing ' : (L[cur + 1] && L[cur + 1].id === 'qReview' ? 'Revisar respostas ' : 'Próximo ')) + arrow;
+    $('hintEnter').style.display = isRev ? 'none' : '';
+    $('intro').style.display = cur === 0 ? '' : 'none';
+    if (isRev) buildReview();
+    var top = $('prog').getBoundingClientRect().top + window.scrollY;
+    if (window.scrollY > top + 4) window.scrollTo({ top: top, behavior: 'smooth' });
+    var f = q.querySelector('input[type=text],input[type=email],input[type=tel],input[type=url],textarea');
+    if (f && window.matchMedia('(min-width: 761px)').matches) setTimeout(function(){ try{ f.focus({ preventScroll: true }); }catch(e){} }, 120);
+    save();
+  }
+  next.addEventListener('click', function(){
+    var q = list()[cur];
+    if (q.id === 'qReview'){ send(); return; }
+    if (!ok(q)){ q.classList.add('bad'); var f = q.querySelector('input,textarea'); try{ f && f.focus({ preventScroll: true }); }catch(e){} return; }
+    show(cur + 1, 1);
+  });
+  back.addEventListener('click', function(){ show(cur - 1, -1); });
+  form.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' && !e.shiftKey && e.target.tagName !== 'TEXTAREA'){ e.preventDefault(); next.click(); }
+  });
+
+  /* ---------- respostas ---------- */
+  function title(q){ var h = q.querySelector('h2').cloneNode(true); [].slice.call(h.querySelectorAll('.req,.opt-tag')).forEach(function(x){ x.remove(); }); return h.textContent.trim(); }
+  function answers(q){
+    var rows = [], seen = {};
+    [].slice.call(q.querySelectorAll('input[name],textarea[name]')).forEach(function(el){
+      if (el.name === '_gotcha' || seen[el.name]) return; seen[el.name] = 1;
+      var holder = el.closest('[data-show],[data-email]'); if (holder && holder.style.display === 'none') return;
+      var v = (el.type === 'radio' || el.type === 'checkbox') ? checked(el.name).join(', ') : el.value.trim();
+      if (!v) return;
+      var sub = el.closest('div') && el.closest('div').querySelector('label.sub');
+      var lbl = el.name === 'autorizacao' ? 'Autoriza o uso das informações' : (el.type === 'radio' || el.type === 'checkbox') ? '' : (sub && sub.getAttribute('for') === el.id ? sub.textContent : '');
+      rows.push({ name: el.name, label: lbl, value: v });
+    });
+    return rows;
+  }
+  function collect(){
+    var out = [];
+    list().forEach(function(q, i){ if (q.id === 'qReview') return; out.push({ i: i, grp: q.getAttribute('data-grp'), title: title(q), rows: answers(q) }); });
+    return out;
+  }
+  function esc(t){ return String(t).replace(/[&<>"]/g, function(c){ return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]; }); }
+  function buildReview(){
+    var groups = {}, order = [];
+    collect().forEach(function(it){ if (!groups[it.grp]){ groups[it.grp] = []; order.push(it.grp); } groups[it.grp].push(it); });
+    $('review').innerHTML = order.map(function(g){
+      return '<div class="rv"><h3>' + esc(g) + '</h3>' + groups[g].map(function(it){
+        var v = it.rows.length ? it.rows.map(function(r){ return (r.label ? r.label + ': ' : '') + r.value; }).join('\n') : '—';
+        return '<div class="row"><span>' + esc(it.title) + '</span><p>' + esc(v) + '</p><button type="button" data-go="' + it.i + '">Editar</button></div>';
+      }).join('') + '</div>';
+    }).join('');
+  }
+  $('review').addEventListener('click', function(e){ var b = e.target.closest('[data-go]'); if (b) show(+b.getAttribute('data-go'), -1); });
+  function briefingText(){
+    var last = '';
+    return collect().map(function(it){
+      var head = it.grp !== last ? '\n== ' + it.grp.toUpperCase() + ' ==\n' : ''; last = it.grp;
+      var v = it.rows.length ? it.rows.map(function(r){ return (r.label ? r.label + ': ' : '') + r.value; }).join('\n') : '(sem resposta)';
+      return head + '• ' + it.title + '\n' + v;
+    }).join('\n').trim();
+  }
+
+  /* ---------- rascunho neste aparelho ---------- */
+  function save(){
+    try{
+      var d = {};
+      [].slice.call(form.querySelectorAll('input[name],textarea[name]')).forEach(function(el){
+        if (el.name === '_gotcha') return;
+        if (el.type === 'radio' || el.type === 'checkbox'){ if (el.checked) (d[el.name] = d[el.name] || []).push(el.value); }
+        else if (el.value) d[el.name] = el.value;
+      });
+      localStorage.setItem(KEY, JSON.stringify({ v: d, q: cur }));
+    }catch(e){}
+  }
+  function load(){
+    try{
+      var raw = localStorage.getItem(KEY); if (!raw) return 0;
+      var d = JSON.parse(raw), v = d.v || {};
+      [].slice.call(form.querySelectorAll('input[name],textarea[name]')).forEach(function(el){
+        if (!(el.name in v)) return;
+        if (el.type === 'radio' || el.type === 'checkbox') el.checked = [].concat(v[el.name]).indexOf(el.value) > -1; else el.value = v[el.name];
+      });
+      return d.q || 0;
+    }catch(e){ return 0; }
+  }
+  var tSave = null;
+  form.addEventListener('input', function(){ applyPlan(); clearTimeout(tSave); tSave = setTimeout(save, 400); });
+  form.addEventListener('change', function(){ applyPlan(); applyShow(); save(); });
+
+  /* ---------- envio ----------
+     1º Google Drive (planilha + documento + e-mail de aviso, pelo script do Google);
+     se o script não estiver publicado ou falhar, o Formspree envia por e-mail com o mesmo título. */
+  var APPS_SCRIPT_URL = '';
+  var TITULO = 'BRIEFING CLIENTE - WEBSITE POR ASSINATURA';
+  function viaDrive(payload){
+    if (!APPS_SCRIPT_URL) return Promise.reject(new Error('sem script'));
+    return fetch(APPS_SCRIPT_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) })
+      .then(function(r){ return r.json(); })
+      .then(function(j){ if (!j || !j.ok) throw new Error((j && j.erro) || 'falha'); });
+  }
+  function viaFormspree(payload){
+    var fd = new FormData();
+    Object.keys(payload).forEach(function(k){ if (k !== '_gotcha' || payload[k]) fd.append(k, payload[k]); });
+    fd.append('_subject', TITULO);
+    if (payload.email) fd.append('_replyto', payload.email);
+    return fetch(ENDPOINT, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+      .then(function(r){ if (!r.ok) throw new Error('falha'); });
+  }
+  function send(){
+    var gErr = $('gErr'); gErr.style.display = 'none';
+    var flat = {};
+    collect().forEach(function(it){ it.rows.forEach(function(r){ flat[r.name] = r.value; }); });
+    flat.tipo_formulario = 'Briefing Website por Assinatura';
+    flat.briefing_completo = briefingText();
+    flat._gotcha = form.querySelector('[name=_gotcha]').value || '';
+    next.disabled = true; next.textContent = 'Enviando…';
+    viaDrive(flat)
+      .catch(function(){ return viaFormspree(flat); })
+      .then(function(){
+        try{ localStorage.removeItem(KEY); }catch(e){}
+        form.style.display = 'none'; $('prog').style.display = 'none'; $('intro').style.display = 'none';
+        $('done').style.display = 'block';
+        var falta = [];
+        if (flat.logo_whatsapp) falta.push('a logo');
+        if (flat.imagens_whatsapp) falta.push('as imagens');
+        var msg = 'Olá! Enviei o briefing do site da ' + (flat.empresa_nome || 'minha empresa') + ' (plano ' + (flat.plano || '') + ').';
+        if (falta.length){ $('doneFiles').hidden = false; $('doneList').textContent = falta.join(' e '); $('doneWppTxt').textContent = 'Enviar ' + falta.join(' e ') + ' pelo WhatsApp'; msg += ' Seguem ' + falta.join(' e ') + '.'; }
+        $('doneWpp').href = 'https://wa.me/' + WPP + '?text=' + encodeURIComponent(msg);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(function(){
+        gErr.innerHTML = 'Não foi possível enviar agora. Verifique a internet e tente de novo. Se continuar, <a href="https://wa.me/' + WPP + '" target="_blank" rel="noopener">fale com a Teovox pelo WhatsApp</a>. Suas respostas continuam salvas neste aparelho.';
+        gErr.style.display = 'block';
+      })
+      .then(function(){ next.disabled = false; if (form.style.display !== 'none') show(cur, 1); });
+  }
+
+  /* ---------- início ---------- */
+  var startAt = load();
+  var m = location.search.match(/[?&]plano=([^&]+)/);
+  if (m){ var want = decodeURIComponent(m[1]).toLowerCase(); Object.keys(PLAN).forEach(function(p){ if (p.toLowerCase() === want){ var r = form.querySelector('input[name=plano][value="' + p + '"]'); if (r) r.checked = true; } }); }
+  applyPlan(); applyShow(); show(startAt, 1);
+})();
+</script>
+</body>
+</html>
